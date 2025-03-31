@@ -1,7 +1,0 @@
-\beamer@sectionintoc {1}{Motivation and Overview}{3}{0}{1}
-\beamer@sectionintoc {2}{Boom Propagation Modeling}{9}{0}{2}
-\beamer@sectionintoc {3}{Shock Capturing}{13}{0}{3}
-\beamer@sectionintoc {4}{Ground Signal Filtering}{20}{0}{4}
-\beamer@sectionintoc {5}{FEM Discretization and Output Error Estimation}{24}{0}{5}
-\beamer@sectionintoc {6}{Output-based Mesh Adaptation}{32}{0}{6}
-\beamer@sectionintoc {7}{Results for Practical Case}{36}{0}{7}
