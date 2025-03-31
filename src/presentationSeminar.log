@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.12)  31 MAR 2025 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.12)  31 MAR 2025 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -792,205 +792,205 @@ Overfull \vbox (24.66219pt too high) detected at line 101
 
 [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../figs/title_page/mit_logo.png> <../figs/title_page/aeroastro_logo.jpg> <../figs/title_page/mitccse_logo.jpeg>] [2
-
-]
-Underfull \hbox (badness 4859) in paragraph at lines 169--169
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../figs/title_page/mit_logo.png> <../figs/title_page/aeroastro_logo.jpg> <../figs/title_page/mitccse_logo.jpeg>]
+Underfull \hbox (badness 4859) in paragraph at lines 152--152
 []\OT1/cmss/m/n/10.95 Enable su-per-sonic com-mer-cial flights
  []
 
-<../figs/motivation/x59.jpg, id=122, 1927.2pt x 1204.5pt>
+<../figs/motivation/x59.jpg, id=95, 1927.2pt x 1204.5pt>
 File: ../figs/motivation/x59.jpg Graphic file (type jpg)
 <use ../figs/motivation/x59.jpg>
-Package pdftex.def Info: ../figs/motivation/x59.jpg  used on input line 169.
+Package pdftex.def Info: ../figs/motivation/x59.jpg  used on input line 152.
 (pdftex.def)             Requested size: 136.56456pt x 85.35826pt.
-<../figs/motivation/sonicboomX59Art.png, id=123, 1204.5pt x 941.5175pt>
+<../figs/motivation/sonicboomX59Art.png, id=96, 1204.5pt x 941.5175pt>
 File: ../figs/motivation/sonicboomX59Art.png Graphic file (type png)
 <use ../figs/motivation/sonicboomX59Art.png>
-Package pdftex.def Info: ../figs/motivation/sonicboomX59Art.png  used on input line 169.
+Package pdftex.def Info: ../figs/motivation/sonicboomX59Art.png  used on input line 152.
 (pdftex.def)             Requested size: 109.19063pt x 85.35826pt.
-[3
+[2
 
  <../figs/motivation/x59.jpg> <../figs/motivation/sonicboomX59Art.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 218.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 203.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 218.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 203.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 218.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 203.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-<../figs/motivation/CFDandProp.png, id=160, 727.71875pt x 728.7225pt>
+<../figs/motivation/CFDandProp.png, id=132, 727.71875pt x 728.7225pt>
 File: ../figs/motivation/CFDandProp.png Graphic file (type png)
 <use ../figs/motivation/CFDandProp.png>
-Package pdftex.def Info: ../figs/motivation/CFDandProp.png  used on input line 218.
+Package pdftex.def Info: ../figs/motivation/CFDandProp.png  used on input line 203.
 (pdftex.def)             Requested size: 156.2677pt x 156.49014pt.
 
-Overfull \vbox (1.00212pt too high) detected at line 218
+Overfull \vbox (1.00212pt too high) detected at line 203
  []
 
-[4
+[3
 
  <../figs/motivation/CFDandProp.png>]
-<../figs/motivation/BSELConvergencesBOOM.png, id=197, 742.775pt x 653.44125pt>
+<../figs/motivation/BSELConvergencesBOOM.png, id=170, 742.775pt x 653.44125pt>
 File: ../figs/motivation/BSELConvergencesBOOM.png Graphic file (type png)
 <use ../figs/motivation/BSELConvergencesBOOM.png>
-Package pdftex.def Info: ../figs/motivation/BSELConvergencesBOOM.png  used on input line 252.
+Package pdftex.def Info: ../figs/motivation/BSELConvergencesBOOM.png  used on input line 237.
 (pdftex.def)             Requested size: 113.19084pt x 99.58464pt.
-<../figs/motivation/sensitivityNormErrorsBOOM.png, id=198, 1133.23375pt x 703.62875pt>
+<../figs/motivation/sensitivityNormErrorsBOOM.png, id=171, 1133.23375pt x 703.62875pt>
 File: ../figs/motivation/sensitivityNormErrorsBOOM.png Graphic file (type png)
 <use ../figs/motivation/sensitivityNormErrorsBOOM.png>
-Package pdftex.def Info: ../figs/motivation/sensitivityNormErrorsBOOM.png  used on input line 252.
+Package pdftex.def Info: ../figs/motivation/sensitivityNormErrorsBOOM.png  used on input line 237.
 (pdftex.def)             Requested size: 160.38081pt x 99.58464pt.
- [5
+ [4
 
  <../figs/motivation/BSELConvergencesBOOM.png> <../figs/motivation/sensitivityNormErrorsBOOM.png>]
-<../figs/motivation/spaceTimeAdaptiveMethod.png, id=231, 1143.27126pt x 522.95375pt>
+<../figs/motivation/spaceTimeAdaptiveMethod.png, id=204, 1143.27126pt x 522.95375pt>
 File: ../figs/motivation/spaceTimeAdaptiveMethod.png Graphic file (type png)
 <use ../figs/motivation/spaceTimeAdaptiveMethod.png>
-Package pdftex.def Info: ../figs/motivation/spaceTimeAdaptiveMethod.png  used on input line 271.
+Package pdftex.def Info: ../figs/motivation/spaceTimeAdaptiveMethod.png  used on input line 256.
 (pdftex.def)             Requested size: 342.11177pt x 156.49014pt.
- [6
+ [5
 
- <../figs/motivation/spaceTimeAdaptiveMethod.png>] [7
+ <../figs/motivation/spaceTimeAdaptiveMethod.png>] [6
 
-] [8
+] [7
 
 ]
-<../figs/boom_modeling/Coordinate_System_.pdf, id=321, 2799.91553pt x 1649.06996pt>
+<../figs/boom_modeling/Coordinate_System_.pdf, id=294, 2799.91553pt x 1649.06996pt>
 File: ../figs/boom_modeling/Coordinate_System_.pdf Graphic file (type pdf)
 <use ../figs/boom_modeling/Coordinate_System_.pdf>
-Package pdftex.def Info: ../figs/boom_modeling/Coordinate_System_.pdf  used on input line 326.
+Package pdftex.def Info: ../figs/boom_modeling/Coordinate_System_.pdf  used on input line 313.
 (pdftex.def)             Requested size: 289.83429pt x 170.71652pt.
- [9
+ [8
 
- <../figs/boom_modeling/Coordinate_System_.pdf>] [10
+ <../figs/boom_modeling/Coordinate_System_.pdf>] [9
 
 ]
-<../figs/boom_modeling/atmosphereStandard.pdf, id=392, 413.77051pt x 298.8983pt>
+<../figs/boom_modeling/atmosphereStandard.pdf, id=365, 413.77051pt x 298.8983pt>
 File: ../figs/boom_modeling/atmosphereStandard.pdf Graphic file (type pdf)
 <use ../figs/boom_modeling/atmosphereStandard.pdf>
-Package pdftex.def Info: ../figs/boom_modeling/atmosphereStandard.pdf  used on input line 387.
+Package pdftex.def Info: ../figs/boom_modeling/atmosphereStandard.pdf  used on input line 377.
 (pdftex.def)             Requested size: 196.9408pt x 142.26378pt.
- [11
+ [10
 
- <../figs/boom_modeling/atmosphereStandard.pdf>] [12
+ <../figs/boom_modeling/atmosphereStandard.pdf>] [11
+
+] [12
 
 ] [13
 
 ] [14
 
-] [15
-
 ]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+LaTeX Font Warning: Command \small invalid in math mode on input line 490.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{e:s_grad}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.487   \end{frame}
+l.490   \end{frame}
                    
-LaTeX Font Info:    Calculating math sizes for size <> on input line 487.
+LaTeX Font Info:    Calculating math sizes for size <> on input line 490.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <> not available
-(Font)              size <3> substituted on input line 487.
+(Font)              size <3> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <0.7> not available
-(Font)              size <3> substituted on input line 487.
+(Font)              size <3> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <0.5> not available
-(Font)              size <3> substituted on input line 487.
+(Font)              size <3> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 487.
+(Font)              size <5> substituted on input line 490.
 
-<../figs/shock_capturing/s_grad.pdf, id=569, 421.0005pt x 301.03708pt>
+<../figs/shock_capturing/s_grad.pdf, id=542, 421.0005pt x 301.03708pt>
 File: ../figs/shock_capturing/s_grad.pdf Graphic file (type pdf)
 <use ../figs/shock_capturing/s_grad.pdf>
-Package pdftex.def Info: ../figs/shock_capturing/s_grad.pdf  used on input line 487.
+Package pdftex.def Info: ../figs/shock_capturing/s_grad.pdf  used on input line 490.
 (pdftex.def)             Requested size: 226.81012pt x 162.18062pt.
-[16
+[15
 
  <../figs/shock_capturing/s_grad.pdf>]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 512.
+LaTeX Font Warning: Command \small invalid in math mode on input line 518.
 
 
-Overfull \hbox (4.91328pt too wide) detected at line 512
+Overfull \hbox (4.91328pt too wide) detected at line 518
 [][] \OMS/cmsy/m/n/10 ^^@ [][]\OT1/mathkerncmss/m/sl/10 P \OMS/cmsy/m/n/10 ^^@ [][] ^^@ [][] ^^@ [] [] [] \OT1/cmss/m/n/10 = 0\OML/cmm/m/it/10 :
  []
 
-[17
+[16
 
 ]
-<../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf, id=648, 430.12085pt x 297.34268pt>
+<../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf, id=620, 430.12085pt x 297.34268pt>
 File: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf Graphic file (type pdf)
 <use ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf>
-Package pdftex.def Info: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf  used on input line 556.
+Package pdftex.def Info: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf  used on input line 564.
 (pdftex.def)             Requested size: 185.21744pt x 128.0374pt.
-<../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf, id=649, 487.9434pt x 372.81761pt>
+<../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf, id=621, 487.9434pt x 372.81761pt>
 File: ../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf Graphic file (type pdf)
 <use ../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf>
-Package pdftex.def Info: ../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf  used on input line 556.
+Package pdftex.def Info: ../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf  used on input line 564.
 (pdftex.def)             Requested size: 167.57378pt x 128.0374pt.
- [18
+ [17
 
- <../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf> <../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf>] [19
+ <../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf> <../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf>] [18
 
-] [20
+] [19
 
 ]
-<../figs/signal_filtering/bode_mag.pdf, id=800, 867.24pt x 433.62pt>
+<../figs/signal_filtering/bode_mag.pdf, id=773, 867.24pt x 433.62pt>
 File: ../figs/signal_filtering/bode_mag.pdf Graphic file (type pdf)
 <use ../figs/signal_filtering/bode_mag.pdf>
-Package pdftex.def Info: ../figs/signal_filtering/bode_mag.pdf  used on input line 631.
+Package pdftex.def Info: ../figs/signal_filtering/bode_mag.pdf  used on input line 639.
 (pdftex.def)             Requested size: 239.0012pt x 119.50148pt.
- [21
+ [20
 
- <../figs/signal_filtering/bode_mag.pdf>] [22
+ <../figs/signal_filtering/bode_mag.pdf>] [21
 
-] [23
+] [22
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 716.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 730.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 716.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 730.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 716.
- [24
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 730.
+ [23
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [25
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [24
+
+] [25
 
 ] [26
 
@@ -1002,151 +1002,149 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
 
 ] [30
 
-] [31
-
 ]
-<../figs/mesh_adaptation/mesh_metric_duality.png, id=1152, 931.48pt x 297.11pt>
+<../figs/mesh_adaptation/mesh_metric_duality.png, id=1124, 931.48pt x 297.11pt>
 File: ../figs/mesh_adaptation/mesh_metric_duality.png Graphic file (type png)
 <use ../figs/mesh_adaptation/mesh_metric_duality.png>
-Package pdftex.def Info: ../figs/mesh_adaptation/mesh_metric_duality.png  used on input line 930.
+Package pdftex.def Info: ../figs/mesh_adaptation/mesh_metric_duality.png  used on input line 949.
 (pdftex.def)             Requested size: 303.29594pt x 96.73918pt.
- [32
+ [31
 
  <../figs/mesh_adaptation/mesh_metric_duality.png>]
-<../figs/mesh_adaptation/local_patches.png, id=1186, 1095.09125pt x 502.87875pt>
+<../figs/mesh_adaptation/local_patches.png, id=1159, 1095.09125pt x 502.87875pt>
 File: ../figs/mesh_adaptation/local_patches.png Graphic file (type png)
 <use ../figs/mesh_adaptation/local_patches.png>
-Package pdftex.def Info: ../figs/mesh_adaptation/local_patches.png  used on input line 957.
+Package pdftex.def Info: ../figs/mesh_adaptation/local_patches.png  used on input line 978.
 (pdftex.def)             Requested size: 247.83864pt x 113.81102pt.
- [33
+ [32
 
  <../figs/mesh_adaptation/local_patches.png>]
-<../figs/mesh_adaptation/adaptation_cycle.png, id=1220, 1076.02pt x 364.36125pt>
+<../figs/mesh_adaptation/adaptation_cycle.png, id=1193, 1076.02pt x 364.36125pt>
 File: ../figs/mesh_adaptation/adaptation_cycle.png Graphic file (type png)
 <use ../figs/mesh_adaptation/adaptation_cycle.png>
-Package pdftex.def Info: ../figs/mesh_adaptation/adaptation_cycle.png  used on input line 969.
+Package pdftex.def Info: ../figs/mesh_adaptation/adaptation_cycle.png  used on input line 992.
 (pdftex.def)             Requested size: 352.904pt x 119.50148pt.
- [34
+ [33
 
- <../figs/mesh_adaptation/adaptation_cycle.png>] [35
+ <../figs/mesh_adaptation/adaptation_cycle.png>] [34
+
+] [35
 
 ] [36
 
-] [37
-
 ]
-<../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf, id=1342, 453.93271pt x 297.34268pt>
+<../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf, id=1313, 453.93271pt x 297.34268pt>
 File: ../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf>
-Package pdftex.def Info: ../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf  used on input line 1090.
+Package pdftex.def Info: ../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf  used on input line 1113.
 (pdftex.def)             Requested size: 191.12143pt x 125.19194pt.
 File: ../figs/motivation/x59.jpg Graphic file (type jpg)
 <use ../figs/motivation/x59.jpg>
-Package pdftex.def Info: ../figs/motivation/x59.jpg  used on input line 1090.
+Package pdftex.def Info: ../figs/motivation/x59.jpg  used on input line 1113.
 (pdftex.def)             Requested size: 136.56456pt x 85.35826pt.
- [38
+ [37
 
  <../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf>]
-<../figs/SBW3results/sbw3_P1_128K_P_lines.png, id=1386, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/sbw3_P1_128K_P_lines.png, id=1359, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/sbw3_P1_128K_P_lines.png Graphic file (type png)
 <use ../figs/SBW3results/sbw3_P1_128K_P_lines.png>
-Package pdftex.def Info: ../figs/SBW3results/sbw3_P1_128K_P_lines.png  used on input line 1137.
+Package pdftex.def Info: ../figs/SBW3results/sbw3_P1_128K_P_lines.png  used on input line 1160.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
-<../figs/SBW3results/sbw3_P1_128K_P_field.png, id=1387, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/sbw3_P1_128K_P_field.png, id=1360, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/sbw3_P1_128K_P_field.png Graphic file (type png)
 <use ../figs/SBW3results/sbw3_P1_128K_P_field.png>
-Package pdftex.def Info: ../figs/SBW3results/sbw3_P1_128K_P_field.png  used on input line 1137.
+Package pdftex.def Info: ../figs/SBW3results/sbw3_P1_128K_P_field.png  used on input line 1160.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
-<../figs/SBW3results/sbw3_P2_128K_P_lines.png, id=1388, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/sbw3_P2_128K_P_lines.png, id=1361, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/sbw3_P2_128K_P_lines.png Graphic file (type png)
 <use ../figs/SBW3results/sbw3_P2_128K_P_lines.png>
-Package pdftex.def Info: ../figs/SBW3results/sbw3_P2_128K_P_lines.png  used on input line 1137.
+Package pdftex.def Info: ../figs/SBW3results/sbw3_P2_128K_P_lines.png  used on input line 1160.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
-<../figs/SBW3results/sbw3_P2_128K_P_field.png, id=1389, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/sbw3_P2_128K_P_field.png, id=1362, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/sbw3_P2_128K_P_field.png Graphic file (type png)
 <use ../figs/SBW3results/sbw3_P2_128K_P_field.png>
-Package pdftex.def Info: ../figs/SBW3results/sbw3_P2_128K_P_field.png  used on input line 1137.
+Package pdftex.def Info: ../figs/SBW3results/sbw3_P2_128K_P_field.png  used on input line 1160.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
- [39
+ [38
 
  <../figs/SBW3results/sbw3_P1_128K_P_lines.png (PNG copy)> <../figs/SBW3results/sbw3_P1_128K_P_field.png (PNG copy)> <../figs/SBW3results/sbw3_P2_128K_P_lines.png (PNG copy)> <../figs/SBW3results/sbw3_P2_128K_P_field.png (PNG copy)>]
-<../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf, id=1420, 845.15756pt x 597.23125pt>
+<../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf, id=1393, 845.15756pt x 597.23125pt>
 File: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf>
-Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf  used on input line 1174.
+Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf  used on input line 1197.
 (pdftex.def)             Requested size: 241.5817pt x 170.71652pt.
-<../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf, id=1421, 845.15756pt x 597.23125pt>
+<../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf, id=1394, 845.15756pt x 597.23125pt>
 File: ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf>
-Package pdftex.def Info: ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf  used on input line 1174.
+Package pdftex.def Info: ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf  used on input line 1197.
 (pdftex.def)             Requested size: 241.5817pt x 170.71652pt.
- [40
+ [39
 
  <../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf> <../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf
 
 pdfTeX warning: pdflatex (file ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<../figs/SBW3results/playVideoSymbol.jpg, id=1505, 752.8125pt x 501.875pt>
+<../figs/SBW3results/playVideoSymbol.jpg, id=1478, 752.8125pt x 501.875pt>
 File: ../figs/SBW3results/playVideoSymbol.jpg Graphic file (type jpg)
 <use ../figs/SBW3results/playVideoSymbol.jpg>
-Package pdftex.def Info: ../figs/SBW3results/playVideoSymbol.jpg  used on input line 1185.
+Package pdftex.def Info: ../figs/SBW3results/playVideoSymbol.jpg  used on input line 1208.
 (pdftex.def)             Requested size: 205.37926pt x 136.91713pt.
- [41
+ [40
 
  <../figs/SBW3results/playVideoSymbol.jpg>]
-<../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png, id=1536, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png, id=1509, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png Graphic file (type png)
 <use ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png>
-Package pdftex.def Info: ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png  used on input line 1232.
+Package pdftex.def Info: ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png  used on input line 1255.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
 File: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf>
-Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf  used on input line 1232.
+Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf  used on input line 1255.
 (pdftex.def)             Requested size: 157.0223pt x 110.96556pt.
-<../figs/SBW3results/adjointAdaptToP2_P2_128K.png, id=1537, 2227.32124pt x 1980.39874pt>
+<../figs/SBW3results/adjointAdaptToP2_P2_128K.png, id=1510, 2227.32124pt x 1980.39874pt>
 File: ../figs/SBW3results/adjointAdaptToP2_P2_128K.png Graphic file (type png)
 <use ../figs/SBW3results/adjointAdaptToP2_P2_128K.png>
-Package pdftex.def Info: ../figs/SBW3results/adjointAdaptToP2_P2_128K.png  used on input line 1232.
+Package pdftex.def Info: ../figs/SBW3results/adjointAdaptToP2_P2_128K.png  used on input line 1255.
 (pdftex.def)             Requested size: 124.7971pt x 110.96556pt.
-<../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf, id=1538, 845.15756pt x 597.23125pt>
+<../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf, id=1511, 845.15756pt x 597.23125pt>
 File: ../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf>
-Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf  used on input line 1232.
+Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf  used on input line 1255.
 (pdftex.def)             Requested size: 157.0223pt x 110.96556pt.
- [42
+ [41
 
  <../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png (PNG copy)> <../figs/SBW3results/adjointAdaptToP2_P2_128K.png (PNG copy)> <../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf>]
-<../figs/SBW3results/ComparisonGround.pdf, id=1595, 434.94058pt x 298.8983pt>
+<../figs/SBW3results/ComparisonGround.pdf, id=1567, 434.94058pt x 298.8983pt>
 File: ../figs/SBW3results/ComparisonGround.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/ComparisonGround.pdf>
-Package pdftex.def Info: ../figs/SBW3results/ComparisonGround.pdf  used on input line 1280.
+Package pdftex.def Info: ../figs/SBW3results/ComparisonGround.pdf  used on input line 1303.
 (pdftex.def)             Requested size: 178.03477pt x 122.34692pt.
-<../figs/SBW3results/comparisonBSEL.pdf, id=1596, 438.74841pt x 298.8983pt>
+<../figs/SBW3results/comparisonBSEL.pdf, id=1568, 438.74841pt x 298.8983pt>
 File: ../figs/SBW3results/comparisonBSEL.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/comparisonBSEL.pdf>
-Package pdftex.def Info: ../figs/SBW3results/comparisonBSEL.pdf  used on input line 1280.
+Package pdftex.def Info: ../figs/SBW3results/comparisonBSEL.pdf  used on input line 1303.
 (pdftex.def)             Requested size: 179.59343pt x 122.34692pt.
- [43
+ [42
 
  <../figs/SBW3results/ComparisonGround.pdf> <../figs/SBW3results/comparisonBSEL.pdf>]
-<../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf, id=1649, 424.43245pt x 297.34268pt>
+<../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf, id=1621, 424.43245pt x 297.34268pt>
 File: ../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf>
-Package pdftex.def Info: ../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf  used on input line 1302.
+Package pdftex.def Info: ../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf  used on input line 1325.
 (pdftex.def)             Requested size: 264.00027pt x 184.9429pt.
- [44
+ [43
 
  <../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf>]
-<../figs/SBW3results/loudnessSensistivity.pdf, id=1697, 448.01196pt x 302.20377pt>
+<../figs/SBW3results/loudnessSensistivity.pdf, id=1670, 448.01196pt x 302.20377pt>
 File: ../figs/SBW3results/loudnessSensistivity.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/loudnessSensistivity.pdf>
-Package pdftex.def Info: ../figs/SBW3results/loudnessSensistivity.pdf  used on input line 1324.
+Package pdftex.def Info: ../figs/SBW3results/loudnessSensistivity.pdf  used on input line 1347.
 (pdftex.def)             Requested size: 274.18242pt x 184.9429pt.
- [45
+ [44
 
- <../figs/SBW3results/loudnessSensistivity.pdf>] [46
+ <../figs/SBW3results/loudnessSensistivity.pdf>] [45
 
-] [47
+] [46
 
 ]
 \tf@nav=\write6
@@ -1172,21 +1170,21 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `presentationSeminar.out' has not changed.
-(rerunfilecheck)             Checksum: 3FB4615C18809514EBB56518F1033287;1282.
+(rerunfilecheck)             Checksum: 501C95AE2D9DC94757D721E07EB86E49;1383.
  ) 
 Here is how much of TeX's memory you used:
- 26521 strings out of 474116
- 542553 string characters out of 5743681
+ 26517 strings out of 474116
+ 542516 string characters out of 5743681
  1952187 words of memory out of 5000000
- 48238 multiletter control sequences out of 15000+600000
+ 48236 multiletter control sequences out of 15000+600000
  583579 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,27n,123p,441b,1176s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfso0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
-Output written on presentationSeminar.pdf (47 pages, 10828953 bytes).
+Output written on presentationSeminar.pdf (46 pages, 10829663 bytes).
 PDF statistics:
- 1916 PDF objects out of 2073 (max. 8388607)
- 1608 compressed objects within 17 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 1888 PDF objects out of 2073 (max. 8388607)
+ 1583 compressed objects within 16 object streams
+ 110 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 

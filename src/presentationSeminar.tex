@@ -103,23 +103,6 @@
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% % Table of Contents
-% \begin{frame}[plain]{Outline}
-%     \tableofcontents
-% \end{frame}
-
-%=============================================================================%
-%=============================================================================%
-%=============================================================================%
-% Section: Motivation and overview
-
-\begin{frame}[plain]
-  \vfill
-  \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}Motivation and Overview}
-  \vfill
-\end{frame}
-
 
 \section{Motivation and Overview}
 
@@ -170,6 +153,8 @@
 
 %---------------------------------------------------------------%
 
+% TODO: modify last equation to have only dNoise/dpn dpn/dX
+%
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Solution Approach: Broad Picture}
   \begin{minipage}[t]{0.55\linewidth}
@@ -220,7 +205,7 @@
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation Problem: Motivation for Space-time Mesh Adaptation}
+\begin{frame}[t]{Propagation Problem: Motivation for Mesh Adaptation}
 
 \vspace{-10pt}
 \begin{minipage}[t]{1\linewidth}
@@ -253,14 +238,14 @@
 
 %---------------------------------------------------------------%
 
+% TODO: include titles in the figures
+
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation Problem: Space-time Adaptive Method}
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
     at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
-  % \node[anchor=north east, xshift=-11cm, yshift=-6cm]
-  %   at (current page.north east) {\tiny\color{gray} Source: [2]};
 \end{tikzpicture}
 
 \begin{minipage}[t]{1\linewidth}
@@ -271,6 +256,8 @@
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: hold off this one a bit, for after boom modeling and before shock capturing
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation Problem: Methodology Overview}
@@ -326,6 +313,9 @@
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: mention parabolic equation, sigma is time-like direction
+% TODO: time-marching in sigma direction as the typical way of solving it
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Augmented Burgers System}
@@ -386,6 +376,9 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 
 \end{frame}
 
+%--------------
+% put space-time adaptive approach here
+
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
@@ -399,7 +392,11 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \end{frame}
 
 
-\section{Shock Capturing}
+\section{Discretization and Shock Capturing}
+
+% TODO: refactor section. put burgers + av at the top
+% then say how e_av is computed using the sensor value
+% and then say how the sensor is defined
 
 \setsectionframes{6}
 
@@ -419,7 +416,7 @@ the already smooth areas.
 
 \vspace{8pt}
 \begin{itemize}
-  \item Design requirements:
+  \item Shock sensor design requirements:
   \begin{itemize}
     \item $s \approx 1$ in shock areas.
     \item $s \approx 0$ away from shocks.
@@ -454,12 +451,15 @@ The shock sensor becomes a state itself, $s$, with its own equation:
 
 %---------------------------------------------------------------%
 
+% TODO: keep eq 4, removing the max thing
+% TODO: remove explicit formula (save as back-up)
+
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
 
   Starting point:
   \begin{equation}
-    \xi := \dfrac{H_{00}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~~ \xi_1 \simeq \max_{x\in\Omega} \xi(x),~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
+    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~~ \xi_1 \simeq \max_{x\in\Omega} \xi(x),~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
   \end{equation}
   then:
   \begin{equation}
@@ -467,9 +467,12 @@ The shock sensor becomes a state itself, $s$, with its own equation:
     \label{e:s_grad}
   \end{equation}
   where $k,\alpha(p) \in \mathbb{R}$.
-  \end{frame}
+\end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: dash line for linear case
+% TODO: combine with previous one
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
@@ -487,6 +490,9 @@ The shock sensor becomes a state itself, $s$, with its own equation:
   \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: flip order of equations
+% TODO: put this slide above and combine with sensor equation slide
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Addition of Artificial Viscosity to the Burgers Equation}
@@ -512,6 +518,8 @@ Add extra diffusion term in Burgers equation:
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: repeat this slide putting the different plots one at a time
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Test With Smooth Problem}
@@ -671,7 +679,10 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% Discretization
+% FEM Discretization and Output Error Estimation
+
+% TODO: Remove FEM part from here (as it will be with shock capturing)
+% TODO: Combine with mesh adaptation
 
 \begin{frame}[plain]
   \vfill
@@ -685,6 +696,9 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 \setsectionframes{7}
 
 %---------------------------------------------------------------%
+
+% TODO: just say is a CG type FEM
+% TODO: can a discontinuous subscale is used for stabilization
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
@@ -716,6 +730,8 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% move this after the space time slide
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
@@ -797,6 +813,9 @@ In our situation:
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: instead of introducing the mean value linearization, do derivation for linear case
+% TODO: then introduce the approximations and the linearization about u_h
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Dual Problem: Mean Value Linearization}
@@ -931,6 +950,8 @@ Want mesh producing the smallest output error indicator:
 
 %---------------------------------------------------------------%
 
+% TODO: put emphasis on what we need is model how the error changes when the mesh changes
+
 \stepcounter{sectionframecount}
 \begin{frame}[t]{MOESS\footnote{M. Yano and D. L. Darmofal 2012}: Error Sampling and Synthesis}
 \vspace{-12pt}
@@ -957,6 +978,8 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: as said before put this on top
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Adaptation Cycle}
