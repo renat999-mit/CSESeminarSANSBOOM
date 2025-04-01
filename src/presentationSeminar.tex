@@ -184,7 +184,7 @@
   \begin{minipage}[t]{1\linewidth}
     \vspace{5pt}
     \tikz [remember picture,baseline] \node (start2) {}; Compute noise at ground \tikz [remember picture,baseline] \node (end2) {}; and
-    \tikz [remember picture,baseline] \node (start3) {}; $\dfrac{d(\text{Noise})}{dX} = \dfrac{\partial (\text{Noise})}{\partial p_{nf}} \dfrac{d p_{nf}}{d X}$ \tikz [remember picture,baseline] \node (end3) {};.
+    \tikz [remember picture,baseline] \node (start3) {}; $\dfrac{d(\text{Noise})}{dX} = \dfrac{d (\text{Noise})}{d p_{nf}} \dfrac{d p_{nf}}{d X}$ \tikz [remember picture,baseline] \node (end3) {};.
   \end{minipage}
 
   \begin{tikzpicture}[remember picture,overlay]
@@ -230,18 +230,18 @@
 \end{minipage}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-5.2cm, yshift=-2cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=-5.2cm, yshift=-2.1cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    \small Error in noise
+    \small Error in Noise
 
     \end{minipage}
   };
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0cm, yshift=-2cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=0cm, yshift=-2.1cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    \small Error in $|\partial (\text{Noise})/\partial p_{nf}|$
+    \small Error in $|d (\text{Noise})/d p_{nf}|$
 
     \end{minipage}
   };
@@ -395,6 +395,8 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \end{frame}
 
 %---------------------------------------------------------------%
+
+% TODO: indicate ground and nearfield
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Space-time Adaptive Method}
@@ -1210,8 +1212,10 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 
 %---------------------------------------------------------------%
 
+% TODO: indicate ground and nearfield
+
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation: Pressure Solution}
+\begin{frame}[t]{Propagation: Pressure Perturbation Solution}
 
 \begin{tikzpicture}[remember picture,overlay]
 
