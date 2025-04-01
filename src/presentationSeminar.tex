@@ -4,6 +4,7 @@
 \usetikzlibrary{fit,calc}
 \usepackage{graphicx}
 \usepackage{media9}
+\usepackage{appendixnumberbeamer} % Excludes appendix frames from total frame count
 
 \setbeamerfont{section in head/foot}{size=\small}
 \setbeamerfont{footnote}{size=\tiny}
@@ -81,6 +82,7 @@
 %=============================================================================%
 %=============================================================================%
 % Title page
+
 \begin{frame}[plain]{CSE Community Seminar}
     \vspace{1.5cm}
     \titlepage
@@ -103,10 +105,11 @@
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
+% Section: Motivation
 
-\section{Motivation and Overview}
+\section{Motivation}
 
-\setsectionframes{5}
+\setsectionframes{3}
 
 %---------------------------------------------------------------%
 
@@ -153,12 +156,10 @@
 
 %---------------------------------------------------------------%
 
-% TODO: modify last equation to have only dNoise/dpn dpn/dX
-%
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Solution Approach: Broad Picture}
   \begin{minipage}[t]{0.55\linewidth}
-    \vspace{-20pt} % This forces the minipage to start at the very top
+    \vspace{-20pt}
     Multidisciplinary design optimization\footnotemark:
     \begin{itemize}
       \item Parametric geometry generator.
@@ -182,24 +183,40 @@
 
   \begin{minipage}[t]{1\linewidth}
     \vspace{5pt}
-    All together:
-    $\dfrac{d(\text{Noise})}{dX} = \dfrac{\partial (\text{Noise})}{\partial p_{gs}} \dfrac{\partial p_{gs}}{\partial p_{ns}} \dfrac{d p_{ns}}{d Q} \dfrac{dQ}{dT} \dfrac{dT}{dX}$.
+    \tikz [remember picture,baseline] \node (start2) {}; Compute noise at ground \tikz [remember picture,baseline] \node (end2) {}; and
+    \tikz [remember picture,baseline] \node (start3) {}; $\dfrac{d(\text{Noise})}{dX} = \dfrac{\partial (\text{Noise})}{\partial p_{nf}} \dfrac{d p_{nf}}{d X}$ \tikz [remember picture,baseline] \node (end3) {};.
   \end{minipage}
 
-  % Use a TikZ node with 'fit' to enclose the marked area.
   \begin{tikzpicture}[remember picture,overlay]
     \node[draw=red, dashed, thick, inner xsep=8pt, inner ysep=2pt,
           fit=(start) (end), xshift=-2mm, yshift=-0.4mm] {};
   \end{tikzpicture}
 
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
+    \node (img) [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
       at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
+
+    \node[anchor=south west, font=\small, black, xshift=31mm, yshift=-23mm] at (img.north west) {$p_{nf}$};
+
+    \node[anchor=south west, font=\small, black, xshift=12mm, yshift=-11mm] at (img.north west) {$X$};
+
+    \node[anchor=south west, font=\small, black, xshift=25mm, yshift=-50.5mm] at (img.north west) {Noise};
+
     \node[anchor=north east, xshift=-4.4cm, yshift=-6.8cm]
       at (current page.north east) {\tiny\color{gray} Source: [1]};
   \end{tikzpicture}
 
-  \vspace{-8pt}\footnotetext{D. L. Rodriguez et. al. 2025}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[draw=red, dashed, thick, inner xsep=-5pt, inner ysep=4pt,
+          fit=(start2) (end2), xshift=0mm, yshift=1mm] {};
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[draw=red, dashed, thick, inner xsep=-50pt, inner ysep=13pt,
+          fit=(start3) (end3), xshift=5.9mm, yshift=1.1mm] {};
+  \end{tikzpicture}
+
+  \vspace{-35pt}\footnotetext{D. L. Rodriguez et. al. 2025}
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -213,20 +230,56 @@
 \end{minipage}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-8.5cm, yshift=-2.8cm]
+  \node[anchor=north east, xshift=-5.2cm, yshift=-2cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    \small Error in noise
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=0cm, yshift=-2cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    \small Error in $|\partial (\text{Noise})/\partial p_{nf}|$
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-8.5cm, yshift=-2.4cm]
     at (current page.north east) {\includegraphics[height=3.5cm]{../figs/motivation/BSELConvergencesBOOM.png}};
-  \node[anchor=north east, xshift=-11cm, yshift=-6.4cm]
+  \node[anchor=north east, xshift=-11cm, yshift=-6cm]
     at (current page.north east) {\tiny\color{gray} Source: [2]};
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.5cm, yshift=-2.8cm]
+  \node[anchor=north east, xshift=-1.5cm, yshift=-2.4cm]
     at (current page.north east) {\includegraphics[height=3.5cm]{../figs/motivation/sensitivityNormErrorsBOOM.png}};
-  \node[anchor=north east, xshift=-5.5cm, yshift=-6.4cm]
+  \node[anchor=north east, xshift=-5.5cm, yshift=-6cm]
     at (current page.north east) {\tiny\color{gray} Source: [2]};
 \end{tikzpicture}
 
-\vspace{3.5cm}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-6cm, yshift=-6.4cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    \scriptsize ($\approx 10^{11}$ DOF for $10^{-3}$ error)
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=0cm, yshift=-6.4cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    \scriptsize ( $\approx 10^{10}$ DOF for $10^{-2}$ error )
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\vspace{2.3cm}
 \begin{minipage}[t]{1\linewidth}
   \textbf{Our goal:}
   Reduce the significant computational cost involved. Enable efficient, automated high accuracy predictions of boom propagation and design sensitivities through adaptive control of numerical error.
@@ -236,64 +289,21 @@
 
 \end{frame}
 
-%---------------------------------------------------------------%
-
-% TODO: include titles in the figures
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation Problem: Space-time Adaptive Method}
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
-    at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
-\end{tikzpicture}
-
-\begin{minipage}[t]{1\linewidth}
-  \vspace{4.8cm}
-  But, space-time unstructured requires coupled solve over entire space-time domain.
-\end{minipage}
-
-\end{frame}
-
-%---------------------------------------------------------------%
-
-% TODO: hold off this one a bit, for after boom modeling and before shock capturing
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation Problem: Methodology Overview}
-  \vspace{20pt}
-  \begin{minipage}[t]{1\linewidth}
-    \begin{enumerate}
-      \item Boom Propagation Modeling.
-      \vspace{10pt}
-      \item Shock Capturing.
-      \vspace{10pt}
-      \item Ground Signal Filtering.
-      \vspace{10pt}
-      \item FEM Discretization and Output Error Estimation.
-      \vspace{10pt}
-      \item Output-based Mesh Adaptation.
-    \end{enumerate}
-
-  \end{minipage}
-\end{frame}
-
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% Section: Boom propagation modeling
+% Section: Boom propagation modeling and Adaptive Approach
 
 \begin{frame}[plain]
   \vfill
   \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}Boom Propagation Modeling}
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}Boom Propagation Modeling and Adaptive Approach}
   \vfill
 \end{frame}
 
+\section{Boom Propagation Modeling and Adaptive Approach}
 
-\section{Boom Propagation Modeling}
-
-\setsectionframes{3}
+\setsectionframes{5}
 
 %---------------------------------------------------------------%
 
@@ -314,30 +324,39 @@
 
 %---------------------------------------------------------------%
 
-% TODO: mention parabolic equation, sigma is time-like direction
-% TODO: time-marching in sigma direction as the typical way of solving it
-
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Augmented Burgers System}
-  To model sonic boom propagation we use the augmented Burgers system of equations:
+  \vspace{-10pt}
+  To model sonic boom propagation we use the augmented Burgers system of equations, for the states $(P, \tilde{P}_{\text{O}_2}, \tilde{P}_{\text{N}_2})$:
 
+  \vspace{-10pt}
   \begin{equation}
+    \small
     \dfrac{\partial P}{\partial \sigma}
     -\dfrac{1}{2}\dfrac{\partial \ln(\rho_0c_0/A_{n0})}{\partial \sigma}P
     -\dfrac{1}{2}\dfrac{\partial P^2}{\partial \tau}
     -\dfrac{1}{\Gamma}\dfrac{\partial ^2 P}{\partial \tau^2}
     -\dfrac{\partial }{\partial \tau}\left(\sum_{\nu} C_\nu \dfrac{\partial\tilde{P}_\nu}{\partial \tau}\right)
-    =0,
+    =0\text{ on }\Omega,
+    \label{e:augmented_burgers}
   \end{equation}
 
+  \vspace{-3pt}
   \begin{equation}
-    -\dfrac{\partial \tilde{P}_\nu}{\partial \tau} + \dfrac{P - \tilde{P}_\nu}{\theta_\nu} = 0,~~~~\nu = \{\text{O}_2,\text{N}_2\},
+    \small
+    -\dfrac{\partial \tilde{P}_\nu}{\partial \tau} + \dfrac{P - \tilde{P}_\nu}{\theta_\nu} = 0\text{ on }\Omega,~~~~\nu = \{\text{O}_2,\text{N}_2\},
   \end{equation}
   which includes:
   \begin{itemize}
     \item Thermoviscous diffusion.
     \item Atmospheric absorption by relaxation species (O$_2$ and N$_2$).
     \item Ray tube area variation.
+  \end{itemize}
+
+  \textbf{Remarks:}
+  \begin{itemize}
+    \item Eq (\ref{e:augmented_burgers}) is parabolic, with $\sigma$ the time-like direction.
+    \item It is typically solved with a time-marching scheme.
   \end{itemize}
 
 \end{frame}
@@ -357,7 +376,6 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
   \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
     \begin{minipage}{0.4\textwidth}
       \textbf{Additionally, models for:}
@@ -376,54 +394,133 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 
 \end{frame}
 
-%--------------
-% put space-time adaptive approach here
+%---------------------------------------------------------------%
 
-%=============================================================================%
-%=============================================================================%
-%=============================================================================%
-% Section: Shock capturing
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Space-time Adaptive Method}
 
-\begin{frame}[plain]
-  \vfill
-  \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}Shock Capturing}
-  \vfill
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
+    at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
+\end{tikzpicture}
+
+\begin{minipage}[t]{1\linewidth}
+  \vspace{4.8cm}
+  But, space-time unstructured requires coupled solve over entire space-time domain.
+\end{minipage}
+
 \end{frame}
 
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Output-based Adaptation Cycle}
+
+  \textbf{Output of interest:} Loudness at ground.
+
+  \vspace{5pt}
+  \textbf{Adaptive cycle scheme:}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-0.1cm, yshift=-3cm]
+    at (current page.north east) {\includegraphics[height=4.2cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+  \end{tikzpicture}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+%=============================================================================%
+% Section: Discretization and Shock capturing
+
+\begin{frame}[plain, t]
+  \vspace{2cm}
+  \centering
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}Discretization and Shock Capturing}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    % Place the full image (faded version)
+    \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm, opacity=0.2] (img)
+      at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipA) at ($(img.north west)+(2.8cm,-0.29cm)$);
+    \coordinate (clipB) at ($(img.north west)+(4.6cm,-1.3cm)$);
+
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipA) rectangle (clipB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
+
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipA) rectangle (clipB);
+  \end{tikzpicture}
+
+\end{frame}
 
 \section{Discretization and Shock Capturing}
-
-% TODO: refactor section. put burgers + av at the top
-% then say how e_av is computed using the sensor value
-% and then say how the sensor is defined
 
 \setsectionframes{6}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
+\begin{frame}[t]{Continuous Galerkin type FEM}
+  \textbf{CG weak statement:}
+
+  \vspace{10pt}
+  Find $\boldsymbol{u}_{h} \in \mathcal{V}_{h,p}$ such that:
+  \begin{equation}
+    \mathcal{R}(\boldsymbol{v}_{h},\boldsymbol{u}_{h}) = 0,~~\forall \boldsymbol{v}_{h} \in \mathcal{V}_{h,p},
+    \label{e:multiscale_weak_statement}
+  \end{equation}
+  where the space $\mathcal{V}_{h,p}$ contains polynomials of order $p$ in $\Omega$.
+
+  \vspace{10pt}
+  \textbf{Remarks:}
+  \begin{itemize}
+    \item A discontinuous subscale is used for stabilization, and the resulting method is known as Variational Multiscale with Discontinuous Subscales.
+    \item The discretization is adjoint consistent.
+  \end{itemize}
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
 \begin{frame}[t]{The Need for Artificial Viscosity}
+\vspace{-10pt}
 \textbf{Challenge:} Discontinuities (shocks) in the solutions, leading to unstable
 numerical solves and lack of convergence.
 
-\vspace{20pt}
+\vspace{5pt}
 \textbf{Goal:} Smoothen discontinuities to improve stability, while not modifying
 the already smooth areas.
 
-\vspace{20pt}
-\textbf{Solution Approach:} Employ a shock sensor, $s$, to keep track of discontinuities, and use that information to add localized artificial viscosity.
+\vspace{5pt}
+\textbf{Approach:} Employ a shock sensor, $s$, to keep track of discontinuities, and use that information to add localized artificial viscosity.
 
-\vspace{8pt}
-\begin{itemize}
-  \item Shock sensor design requirements:
-  \begin{itemize}
-    \item $s \approx 1$ in shock areas.
-    \item $s \approx 0$ away from shocks.
-    \item Order $\mathcal{O}(h^p)$.
-    \item $s$ smooth.
-  \end{itemize}
-\end{itemize}
+\vspace{10pt}
+Add extra diffusion term in Burgers equation:
+\vspace{-2pt}
+\begin{equation}
+  \footnotesize
+  \dfrac{\partial P}{\partial \sigma}
+  -\dfrac{1}{2}\dfrac{\partial \ln(\rho_0c_0/A_{n0})}{\partial \sigma}P
+  -\dfrac{1}{2}\dfrac{\partial P^2}{\partial \tau}
+  -\dfrac{1}{\Gamma}\dfrac{\partial ^2 P}{\partial \tau^2}
+  -\dfrac{\partial }{\partial \tau}\left(\sum_{\nu} C_\nu \dfrac{\partial\tilde{P}_\nu}{\partial \tau}\right)
+  \underbrace{- \dfrac{\partial}{\partial \tau} \left(\epsilon_{\text{AV}}\dfrac{\partial P}{\partial \tau}\right)}_{\text{extra term}}
+  =0,
+\end{equation}
+with $\epsilon_{\text{AV}}$ as:
+\vspace{-2pt}
+\begin{equation}
+  \footnotesize
+  \epsilon_{\text{AV}} := \underbrace{\dfrac{1}{2}\dfrac{H_{\tau\tau}}{p}|P|}_{\text{AV}_{\text{max}}}s.
+\end{equation}
 
 \end{frame}
 
@@ -431,19 +528,24 @@ the already smooth areas.
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{PDE-based Shock Sensor\footnotemark}
+\vspace{-10pt}
 
-The shock sensor becomes a state itself, $s$, with its own equation:
-
+\textbf{Shock sensor design requirements:}
+\begin{itemize}
+    \item $s \approx 1$ in shock areas, of order $\mathcal{O}(h)$.
+    \item $s \approx 0$ away from shocks, of order $\mathcal{O}(h^p)$.
+    \item $s$ smooth.
+\end{itemize}
+\textbf{Define PDE for shock sensor $s$:}
 \begin{equation}
-  \underbrace{s - C_1s_{\text{grad}}}_{\text{source term}} + \underbrace{\dfrac{C_2}{p^2}\nabla \cdot \left(H^2_{00}\dfrac{\partial s}{\partial \tau} + H^2_{01}\dfrac{\partial s}{\partial \sigma},H^2_{10}\dfrac{\partial s}{\partial \tau}+H^2_{11}\dfrac{\partial s}{\partial \sigma}\right)}_{\text{diffusion term}} = 0.
+  \underbrace{s - C_1s_{\text{grad}}}_{\text{source term}} + \underbrace{C_2\nabla \cdot \left(\dfrac{H^TH}{p^2} \nabla s\right)}_{\text{diffusion term}} = 0\text{ on }\Omega.
 	\label{e:sensor_source}
 \end{equation}
 
 \begin{itemize}
-  \item $s_{\text{grad}}$: Shock indicator based on pressure solution gradient.
-  \item $p$: polynomial solution order.
-  \item $H$: element size field.
+  \item $s_{\text{grad}}$: \textbf{Shock indicator} based on pressure solution gradient.
   \item Diffusion term: to have a smooth sensor solution.
+  \item $H$: element size field.
 \end{itemize}
 
 \footnotetext{G. E. Barter and D. L. Darmofal 2007}
@@ -451,75 +553,19 @@ The shock sensor becomes a state itself, $s$, with its own equation:
 
 %---------------------------------------------------------------%
 
-% TODO: keep eq 4, removing the max thing
-% TODO: remove explicit formula (save as back-up)
-
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
-
   Starting point:
   \begin{equation}
-    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~~ \xi_1 \simeq \max_{x\in\Omega} \xi(x),~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
+    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
   \end{equation}
-  then:
-  \begin{equation}
-    s_\text{grad} := s_\text{grad}(\hat{\xi}) = \dfrac{\hat{\xi} [\tanh(p^2\hat{\xi})]^{p-1}}{1+\exp\left[-k \left(\hat{\xi} - \alpha(p)\right)\right]},
-    \label{e:s_grad}
-  \end{equation}
-  where $k,\alpha(p) \in \mathbb{R}$.
-\end{frame}
-
-%---------------------------------------------------------------%
-
-% TODO: dash line for linear case
-% TODO: combine with previous one
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
-  \vspace{-10pt}
-  \begin{equation}
-    \small
-    s_\text{grad} := s_\text{grad}(\hat{\xi}) = \dfrac{\hat{\xi} [\tanh(p^2\hat{\xi})]^{p-1}}{1+\exp\left[-k \left(\hat{\xi} - \alpha(p)\right)\right]},
-    \label{e:s_grad}
-  \end{equation}
-
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-2.5cm, yshift=-3.2cm]
+    \node[anchor=north east, xshift=-2.5cm, yshift=-3.3cm]
     at (current page.north east) {\includegraphics[height=5.7cm]{../figs/shock_capturing/s_grad.pdf}};
   \end{tikzpicture}
-  \end{frame}
-
-%---------------------------------------------------------------%
-
-% TODO: flip order of equations
-% TODO: put this slide above and combine with sensor equation slide
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Addition of Artificial Viscosity to the Burgers Equation}
-Compute artificial viscosity coefficient $\epsilon_{\text{AV}}$:
-
-\begin{equation}
-  \epsilon_{\text{AV}} := \dfrac{1}{2}\dfrac{H_{00}}{p}|P|s.
-\end{equation}
-
-Add extra diffusion term in Burgers equation:
-
-\begin{equation}
-  \small
-  \dfrac{\partial P}{\partial \sigma}
-  -\dfrac{1}{2}\dfrac{\partial \ln(\rho_0c_0/A_{n0})}{\partial \sigma}P
-  -\dfrac{1}{2}\dfrac{\partial P^2}{\partial \tau}
-  -\dfrac{1}{\Gamma}\dfrac{\partial ^2 P}{\partial \tau^2}
-  -\dfrac{\partial }{\partial \tau}\left(\sum_{\nu} C_\nu \dfrac{\partial\tilde{P}_\nu}{\partial \tau}\right)
-  \underbrace{- \dfrac{\partial}{\partial \tau} \left(\epsilon_{\text{AV}}\dfrac{\partial P}{\partial \tau}\right)}_{\text{extra term}}
-  =0.
-\end{equation}
-
 \end{frame}
 
 %---------------------------------------------------------------%
-
-% TODO: repeat this slide putting the different plots one at a time
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Test With Smooth Problem}
@@ -532,33 +578,46 @@ Smooth problem with available exact solution:
 \end{itemize}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
-  \node[anchor=north east, xshift=-4.3cm, yshift=-3.7cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=-1.5cm, yshift=-3.5cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    Solution L2 error
+    \small Solution L2 error
 
     \end{minipage}
   };
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
-  \node[anchor=north east, xshift=2cm, yshift=-3.7cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=-3cm, yshift=-3.8cm]
+  at (current page.north east) {\includegraphics[height=5cm]{../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf}};
+\end{tikzpicture}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Test With Smooth Problem}
+\vspace{-10pt}
+Smooth problem with available exact solution:
+
+\begin{itemize}
+  \item Solve without artificial viscosity.
+  \item Solve with artificial viscosity and see how it affects convergence.
+\end{itemize}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+  \node[anchor=north east, xshift=-1.3cm, yshift=-3.2cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    Output error
+    \small Output error
 
     \end{minipage}
   };
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-6cm, yshift=-4.1cm]
-  at (current page.north east) {\includegraphics[height=4.5cm]{../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf}};
-\end{tikzpicture}
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0cm, yshift=-4.1cm]
-  at (current page.north east) {\includegraphics[height=4.5cm]{../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf}};
+  \node[anchor=north east, xshift=-2.6cm, yshift=-3.5cm]
+  at (current page.north east) {\includegraphics[height=5.5cm]{../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf}};
 \end{tikzpicture}
 
 \end{frame}
@@ -566,15 +625,35 @@ Smooth problem with available exact solution:
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% Ground signal filtering
+% Section: Ground signal filtering
 
-\begin{frame}[plain]
-  \vfill
+\begin{frame}[plain, t]
+  \vspace{2cm}
   \centering
   {\usebeamerfont{title}\usebeamercolor[fg]{title}Ground Signal Filtering}
-  \vfill
-\end{frame}
 
+  \begin{tikzpicture}[remember picture,overlay]
+    % Place the full image (faded version)
+    \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm, opacity=0.2] (img)
+      at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipA) at ($(img.north west)+(2.8cm,-1.2cm)$);
+    \coordinate (clipB) at ($(img.north west)+(4.6cm,-1.7cm)$);
+
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipA) rectangle (clipB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
+
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipA) rectangle (clipB);
+  \end{tikzpicture}
+
+\end{frame}
 
 \section{Ground Signal Filtering}
 
@@ -584,19 +663,20 @@ Smooth problem with available exact solution:
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Relevant Loudness Metrics}
+\vspace{-10pt}
 The human ear is less sensitive to low audio frequencies.
 
 \vspace{10pt}
 There is a family of weighting filter curves that account for this relative loudness perceived by humans: A/B/C/D/-SEL curves.
 
 \vspace{10pt}
-(Ground pressure signal) $p(t)\to \text{ Weighting filter }\to \tilde{p}(t)$ (Filtered signal)
+$\underbrace{p(\tau)}_{\text{Ground pressure signal}}\to~~~\text{Weighting filter}~~~\to\underbrace{\tilde{p}(\tau)}_{\text{Filtered signal}}$
 
 \vspace{10pt}
 Sound exposure:
 
 \begin{equation}
-  E = \int_{t_0}^{t_{\text{f}}} \tilde{p}(t)~dt.
+  E = \dfrac{1}{\omega_{\text{ref}}}\int_{\tau_0}^{\tau_{\text{f}}} [\tilde{p}(\tau)]^2~d\tau.
 \end{equation}
 
 \vspace{10pt}
@@ -655,7 +735,7 @@ Convert transfer function in complex frequency domain:
 to a \textbf{system of ODE's} in the time domain (to solve in \textit{ground} boundary):
 
 \begin{equation}
-  \dfrac{d\bar{u}}{dt} =
+  \dfrac{d\bar{u}}{d\tau} =
       \begin{pmatrix}
           0 & 1 & 0 & 0 & 0\\
           -a^2 & -2a & 0 & 0 & 0\\
@@ -667,9 +747,9 @@ to a \textbf{system of ODE's} in the time domain (to solve in \textit{ground} bo
       +
       \begin{pmatrix}
           0 \\
-          K^{1/3}p(t)\\
+          K^{1/3}p(\tau)\\
           0\\
-          K^{2/3}p(t)\\
+          K^{2/3}p(\tau)\\
           0
       \end{pmatrix},
   \end{equation}
@@ -679,81 +759,39 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% FEM Discretization and Output Error Estimation
+% Section: Output Error Estimation
 
-% TODO: Remove FEM part from here (as it will be with shock capturing)
-% TODO: Combine with mesh adaptation
-
-\begin{frame}[plain]
-  \vfill
+\begin{frame}[plain, t]
+  \vspace{2cm}
   \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}FEM Discretization and Output Error Estimation}
-  \vfill
-\end{frame}
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}Output Error Estimation}
 
-\section{FEM Discretization and Output Error Estimation}
+  \begin{tikzpicture}[remember picture,overlay]
+    % Place the full image (faded version)
+    \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm, opacity=0.2] (img)
+      at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
 
-\setsectionframes{7}
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipA) at ($(img.north west)+(5cm,-0.29cm)$);
+    \coordinate (clipB) at ($(img.north west)+(6.8cm,-1.8cm)$);
 
-%---------------------------------------------------------------%
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipA) rectangle (clipB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
 
-% TODO: just say is a CG type FEM
-% TODO: can a discontinuous subscale is used for stabilization
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
-  % \vspace{pt}
-  \textbf{Discretization of $\Omega$:}
-
-  \vspace{5pt}
-  $\mathcal{T}_h := \{\kappa\}_{\kappa = 1}^K$ is a triangulation of the domain $\Omega$ into $K$ elements.
-
-
-  \vspace{10pt}
-  \textbf{Propose solution:}
-
-  $\boldsymbol{u}_h := \bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}_{h,p^\prime}^\prime$, ~~~~$\bar{\boldsymbol{u}}_{h,p} \in \overline{\mathcal{V}}_{h,p}$,~~ $\boldsymbol{u}^\prime_{h,p^\prime} \in \mathcal{V}^\prime_{h,p^\prime}$.
-
-  \vspace{10pt}
-  \textbf{VMSD solution spaces:}
-
-  \vspace{-15pt}
-  \begin{equation}
-    \text{(\textit{Coarse} scale) } \overline{\mathcal{V}}_{h,p} := \{\boldsymbol{v}\in [C^0(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^p(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\},
-  \end{equation}
-
-  \vspace{-15pt}
-  \begin{equation}
-    \text{(\textit{Fine} scale) } \mathcal{V}^\prime_{h,p^\prime} := \{\boldsymbol{v}\in [L^2(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^{p^\prime}(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\}.
-  \end{equation}
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipA) rectangle (clipB);
+  \end{tikzpicture}
 
 \end{frame}
 
-%---------------------------------------------------------------%
+\section{Output Error Estimation}
 
-% move this after the space time slide
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
-  \textbf{Weak statement:}
-
-  \vspace{10pt}
-  \textbf{Find $(\bar{\boldsymbol{u}}_{h,p}$, $\boldsymbol{u}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime}$ such that:}
-  \begin{equation}
-    \mathcal{R}(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) = 0,~~\forall (\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime}.
-    \label{e:multiscale_weak_statement}
-  \end{equation}
-
-  \vspace{10pt}
-  \textbf{Remarks:}
-  \begin{itemize}
-    \item $\boldsymbol{u}^\prime_{h,p^\prime}$ DOFs are element-wise decoupled. Thus, they can be static condensed and the total cost becomes the same as a CG method.
-    \item For same accuracy requirement, more efficient (less DOFs) than CG and DG.
-    \item Adjoint consistent.
-  \end{itemize}
-\end{frame}
-
-%---------------------------------------------------------------%
+\setsectionframes{5}
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Output Functional}
@@ -814,89 +852,85 @@ In our situation:
 
 %---------------------------------------------------------------%
 
-% TODO: instead of introducing the mean value linearization, do derivation for linear case
-% TODO: then introduce the approximations and the linearization about u_h
-
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Dual Problem: Mean Value Linearization}
-  We define the mean value linearizations of the residual and output functional as:
+\begin{frame}[t]{Dual Problem and Error for Linear Case}
+  \vspace{-10pt}
+  We assume linear residual and output functional, and define the \textbf{dual} (adjoint) problem as:
+
+  \vspace{5pt}
+  Find $\boldsymbol{\psi} \in \mathcal{W}$ such that:
 
   \begin{equation}
-     \overline{\mathcal{R}}^\prime [\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{v},\boldsymbol{w}) := \int_0^1 \mathcal{R}^\prime[\boldsymbol{u}_h + \theta(\underbrace{\boldsymbol{u}-\boldsymbol{u}_h)}_{\Delta \boldsymbol{u}:=}] (\boldsymbol{v},\boldsymbol{w})~d\theta,
+      \mathcal{R}(\boldsymbol{\psi},\boldsymbol{w}) - \mathcal{J}(\boldsymbol{w}) = 0, ~~\forall \boldsymbol{w} \in \mathcal{W}.
   \end{equation}
-
+  From there:
+  \vspace{2pt}
   \begin{equation}
-      \overline{\mathcal{J}}^\prime [\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{w}) := \int_0^1 \mathcal{J}^\prime [\boldsymbol{u}_h + \theta(\boldsymbol{u}-\boldsymbol{u}_h)](\boldsymbol{w})~d\theta.
+    \begin{split}
+        \varepsilon(\boldsymbol{u}_h) &= \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h) \\
+        &= \mathcal{J}(\Delta \boldsymbol{u})\\
+        &=\mathcal{R}(\boldsymbol{\psi},\Delta \boldsymbol{u}) \\
+        &= \underbrace{\mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u})}_{= 0} + \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}) \underbrace{- \mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}_h)}_{=-\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h)}\\
+        &= -\Big[\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u})\Big]\text{ (Dual weighted residual error expression)}
+    \end{split}
   \end{equation}
-
-  \vspace{10pt}
-  Then, the \textbf{dual} (adjoint) problem is:
-
-  \vspace{10pt}
-  Find $\boldsymbol{\psi}^\text{mv} \in \mathcal{W} \cup \mathcal{V}_{h}$ such that:
-
-  \begin{equation}
-      \overline{\mathcal{R}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{\psi}^\text{mv},\boldsymbol{w}) - \overline{\mathcal{J}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{w}) = 0, ~~\forall \boldsymbol{w} \in \mathcal{W} \cup \mathcal{V}_h.
-  \end{equation}
-
 \end{frame}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{DWR From Mean Value Linearization}
-  We start from:
+\begin{frame}[t]{Approximations: DWR Error Estimate}
+  So far:
   \begin{equation}
-    \begin{split}
-        \varepsilon(\boldsymbol{u}_h) = \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h) &=
-        -\overline{\mathcal{J}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\Delta \boldsymbol{u})\\
-        &=-\overline{\mathcal{R}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}_h + \Delta \boldsymbol{u}](\boldsymbol{\psi}^\text{mv},\Delta \boldsymbol{u}).
-    \end{split}
-    \end{equation}
-After some work, we obtain the corrected DWR error expression:
+    \varepsilon(\boldsymbol{u}_h) = -\Big[\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u})\Big].
+  \end{equation}
 
-\begin{equation}
-  \varepsilon(\boldsymbol{u}_h) = -\Big[\mathcal{R}(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u})\Big].
-  \label{e:dwr_corrected_exact}
-\end{equation}
-
-\vspace{10pt}
-\textbf{Two issues:}
+  \textbf{Issues:}
 
 \begin{itemize}
   \item Primal exact solution $\boldsymbol{u}$ is not available.
-  \item The mean value adjoint $\boldsymbol{\psi}^{\text{mv}}$ is not computationally tractable.
+  \item Residual and output functional are in general nonlinear.
+  \item Even if they are linear, adjoint exact solution $\boldsymbol{\psi}$ is not available.
 \end{itemize}
+
+\vspace{10pt}
+\textbf{First approximation}:
+
+  \begin{equation}
+    \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}) \approx
+    \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}_h),
+  \end{equation}
+  justified on a shock dominated problem with AV.
 
 \end{frame}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Approximations: DWR Estimate}
+\begin{frame}[t]{Approximations: DWR Error Estimate}
   \vspace{-10pt}
-  \textbf{First approximation}:
 
-  \begin{equation}
-    \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}) \approx
-    \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}_h),
-  \end{equation}
-  justified on a shock dominated problem with AV.
 
   \vspace{5pt}
-  \textbf{Second approximation:} Tractable adjoint:
+  \textbf{Second approximation:}
 
   \vspace{10pt}
-  $\boldsymbol{\psi}^\text{mv}$ is approximated with a numerical adjoint $\boldsymbol{\psi}_{\hat{h}}$ defined by\footnotemark:
+  $\boldsymbol{\psi}$ is approximated with a numerical adjoint $\boldsymbol{\psi}_{\hat{h}}$ defined by\footnotemark:
 
-  Find $\boldsymbol{\psi}_{\hat{h}} \in \mathcal{V}_{\hat{h}}$ such that:
+  $\boldsymbol{\psi}_{\hat{h}} \in \mathcal{V}_{\hat{h},\hat{p}}$ such that:
 
 \begin{equation}
-  \mathcal{J}^\prime[\boldsymbol{u}_h](\tilde{\boldsymbol{u}}) - \mathcal{R}^\prime[\boldsymbol{u}_h](\boldsymbol{\psi}_{\hat{h}},\tilde{\boldsymbol{u}}) = \mathcal{J}^*(\boldsymbol{\psi}_{\hat{h}}) - \mathcal{R}^*(\tilde{\boldsymbol{u}},\boldsymbol{\psi}_{\hat{h}}),~~\forall \tilde{\boldsymbol{u}} \in \mathcal{V}_{\hat{h}}.
+  \mathcal{R}^\prime[\boldsymbol{u}_h](\boldsymbol{\psi}_{\hat{h}},\tilde{\boldsymbol{u}}) - \mathcal{J}^\prime[\boldsymbol{u}_h](\tilde{\boldsymbol{u}}) = 0,~~~\forall \tilde{\boldsymbol{u}} \in \mathcal{V}_{\hat{h},\hat{p}},
 \end{equation}
+where:
 
+\begin{itemize}
+  \item $\mathcal{R}^\prime[\boldsymbol{u}_h]$ and $\mathcal{J}^\prime[\boldsymbol{u}_h]$ are the linearizations of $\mathcal{R}$ and $\mathcal{J}$ about $\boldsymbol{u}_h$.
+  \item $\tilde{\boldsymbol{u}}$ represents a perturbation from $\boldsymbol{u}_h$.
+  \item The space $\mathcal{V}_{\hat{h},\hat{p}}$ contains polynomials of order $\hat{p}=p+1$.
+\end{itemize}
 \vspace{10pt}
-\textbf{DWR error estimate:}
+\textbf{Final DWR error estimate:}
 \begin{equation}
   \varepsilon(\boldsymbol{u}_h) \approx -\Big[\mathcal{R}(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)\Big].
 \end{equation}
@@ -908,26 +942,47 @@ After some work, we obtain the corrected DWR error expression:
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
-% Output-based Mesh Adaptation
+% Section: Mesh adaptation
 
-\begin{frame}[plain]
-  \vfill
+\begin{frame}[plain, t]
+  \vspace{2cm}
   \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}Output-based Mesh Adaptation}
-  \vfill
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}Mesh Adaptation}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    % Place the full image (faded version)
+    \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm, opacity=0.2] (img)
+      at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipA) at ($(img.north west)+(6.45cm,-2.4cm)$);
+    \coordinate (clipB) at ($(img.north west)+(8.3cm,-3.95cm)$);
+
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipA) rectangle (clipB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
+
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipA) rectangle (clipB);
+  \end{tikzpicture}
+
 \end{frame}
 
-
-\section{Output-based Mesh Adaptation}
+\section{Mesh Adaptation}
 
 \setsectionframes{3}
 
+\stepcounter{sectionframecount}
+
 %---------------------------------------------------------------%
 
-\stepcounter{sectionframecount}
 \begin{frame}[t]{Continuous Optimization: Mesh-Metric Duality}
 \vspace{-10pt}
-Want mesh producing the smallest output error indicator:
+Want mesh producing the smallest output error indicator $\mathcal{E}$:
 
 \begin{equation}
   \hat{\mathcal{T}}_h = \arg \inf_{\mathcal{T}_h \in \mathbb{T}(\Omega)} \mathcal{E}(\mathcal{T}_h),~~~\mathcal{C}(\mathcal{T}_h) < C.
@@ -950,59 +1005,100 @@ Want mesh producing the smallest output error indicator:
 
 %---------------------------------------------------------------%
 
-% TODO: put emphasis on what we need is model how the error changes when the mesh changes
-
 \stepcounter{sectionframecount}
 \begin{frame}[t]{MOESS\footnote{M. Yano and D. L. Darmofal 2012}: Error Sampling and Synthesis}
-\vspace{-12pt}
-Need model for error indicator $\mathcal{E}(\mathcal{M})$.
+\vspace{-5pt}
+\textbf{Need model for error indicator $\mathcal{E}(\mathcal{M})$}: How $\mathcal{E}$ changes with $\mathcal{M}$.
 
-Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 2015} DWR error estimates in \textit{enriched} local patches.
+\vspace{10pt}
+\textbf{First step:} Compute nodal\footnote{T. Richter and T. Wick 2015} error indicators based on the DWR error estimate. Use partition of unity given by linear tent functions $\{\phi_v\}$.
+
+\begin{equation}
+  \varepsilon_v = -\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
+  \label{e:corrected_dwr_nodal}
+\end{equation}
+
+\begin{equation}
+  \eta_v := |\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)| + |\mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)|,~~~ \eta := \sum_{v} \eta_v \equiv \mathcal{E}
+  \label{e:corrected_dwr_nodal}
+\end{equation}
+
+\textbf{Next:} Recompute solution and nodal indicators in refined \textit{local patches} in the mesh.
+
+\vspace{5pt}
+The comparison of the nodal error indicators before and after the local solves gives information about how $\mathcal{E}$ changes with $\mathcal{M}$.
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{MOESS: Error Sampling and Synthesis}
+\vspace{-12pt}
+\textbf{Local solves:} Loop over edges in the mesh and solve for $\boldsymbol{u}_h^\epsilon$ in refined local patch.
+$\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon) = 0,~~~\forall \boldsymbol{v}_h^\epsilon \in \mathcal{V}_{h,p}^\epsilon$.
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-2cm, yshift=-2.7cm]
   at (current page.north east) {\includegraphics[height=4.0cm]{../figs/mesh_adaptation/local_patches.png}};
 \end{tikzpicture}
 
-\vspace{3.1cm}
+\vspace{4.3cm}
+\textbf{Nodal indicator for vertices in inner patch:}
 \begin{equation}
-  \text{Nodal error estimate: }\varepsilon_v^\epsilon = -\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon) + \mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h),
-  \label{e:dwr_est_base_local}
-\end{equation}
-\vspace{-10pt}
-\begin{equation}
-  \text{Nodal error indicator: }\eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
+  \eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
   \label{e:dwr_ind_base_local}
 \end{equation}
 
 \end{frame}
 
-%---------------------------------------------------------------%
+%=============================================================================%
+%=============================================================================%
+%=============================================================================%
+% Section: Results for Practial Case
 
-% TODO: as said before put this on top
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Adaptation Cycle}
+\begin{frame}[plain, t]
+  \vspace{2cm}
+  \centering
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}Results for Practical Case}
 
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-0.1cm, yshift=-2.7cm]
-    at (current page.north east) {\includegraphics[height=4.2cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    % Place the full image (faded version)
+    \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm, opacity=0.2] (img)
+      at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipA) at ($(img.north west)+(0.1cm,-0.19cm)$);
+    \coordinate (clipB) at ($(img.north west)+(2.55cm,-1.9cm)$);
+
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipA) rectangle (clipB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
+
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipA) rectangle (clipB);
+
+    % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+    \coordinate (clipAA) at ($(img.north west)+(8.95cm,-0.19cm)$);
+    \coordinate (clipBB) at ($(img.north west)+(11.35cm,-1.95cm)$);
+
+    % Overlay a copy of the image clipped to the region of interest (full opacity).
+    \begin{scope}[remember picture,overlay]
+      \clip (clipAA) rectangle (clipBB);
+      \node[anchor=north east, xshift=-0.6cm, yshift=-3.5cm]
+        at (current page.north east) {\includegraphics[height=3.8cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
+    \end{scope}
+
+    % Draw a red dashed box around the highlighted region.
+    \draw[red, dashed, thick] (clipAA) rectangle (clipBB);
   \end{tikzpicture}
 
 \end{frame}
-
-%=============================================================================%
-%=============================================================================%
-%=============================================================================%
-% Results for Practial Case
-
-\begin{frame}[plain]
-  \vfill
-  \centering
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}Results for Practical Case}
-  \vfill
-\end{frame}
-
 
 \section{Results for Practical Case}
 
@@ -1083,7 +1179,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=0.7cm, yshift=-5.1cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
       \begin{itemize}
@@ -1118,7 +1214,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \begin{frame}[t]{Propagation: Pressure Solution}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=-6.3cm, yshift=-3cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     $p=1$
@@ -1128,7 +1224,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     $p=2$
@@ -1165,7 +1261,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \begin{frame}[t]{Propagation: Final Adapted Mesh for 8K Target DOF}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=-3.5cm, yshift=-1.8cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     $p=1$
@@ -1175,7 +1271,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=2.5cm, yshift=-1.8cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     $p=2$
@@ -1213,7 +1309,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \begin{frame}[t]{Different Adaptation Outputs and Their Adjoints}
 
   \begin{tikzpicture}[remember picture,overlay]
-    % Place the minipage 1cm from the left and 1cm down from the top
+
     \node[anchor=north east, xshift=-6.3cm, yshift=-3cm] at (current page.north east) {%
       \begin{minipage}{0.5\textwidth}
       $\mathcal{J}_{\text{BSEL}}$
@@ -1223,7 +1319,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
   \end{tikzpicture}
 
   \begin{tikzpicture}[remember picture,overlay]
-    % Place the minipage 1cm from the left and 1cm down from the top
+
     \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
       \begin{minipage}{0.5\textwidth}
       $\mathcal{J}_p$
@@ -1259,7 +1355,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \stepcounter{sectionframecount}
 \begin{frame}[t]{At Ground: Pressure Signal and Its Filtering}
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=-4.5cm, yshift=-1.4cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     Pressure Signal
@@ -1269,7 +1365,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=1.5cm, yshift=-1.4cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     B-SEL Filter Output
@@ -1308,7 +1404,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \begin{frame}[t]{At Ground: Loudness Convergence with Mesh Refinement}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=-1.4cm, yshift=-1.8cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     B-SEL loudness
@@ -1330,7 +1426,7 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 \begin{frame}[t]{At Nearfield: Loudness Sensitivity}
 
 \begin{tikzpicture}[remember picture,overlay]
-  % Place the minipage 1cm from the left and 1cm down from the top
+
   \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
     \begin{minipage}{0.8\textwidth}
     B-SEL loudness sensitivity to nearfield signal
@@ -1352,7 +1448,6 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
 %=============================================================================%
 %=============================================================================%
 % Conclusion
-
 
 % remove the headline
 {
@@ -1391,359 +1486,107 @@ Loop over edges in the mesh and compute nodal\footnote{T. Richter and T. Wick 20
   \vfill
 \end{frame}
 
+%=============================================================================%
+%=============================================================================%
+%=============================================================================%
+% Backup Slides
+%=============================================================================%
+%=============================================================================%
+%=============================================================================%
+
+\appendix
+
+\section{Backup}
+
+\setsectionframes{4}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
+  % \vspace{pt}
+  \textbf{Discretization of $\Omega$:}
+
+  \vspace{5pt}
+  $\mathcal{T}_h := \{\kappa\}_{\kappa = 1}^K$ is a triangulation of the domain $\Omega$ into $K$ elements.
+
+
+  \vspace{10pt}
+  \textbf{Propose solution:}
+
+  $\boldsymbol{u}_h := \bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}_{h,p^\prime}^\prime$, ~~~~$\bar{\boldsymbol{u}}_{h,p} \in \overline{\mathcal{V}}_{h,p}$,~~ $\boldsymbol{u}^\prime_{h,p^\prime} \in \mathcal{V}^\prime_{h,p^\prime}$.
+
+  \vspace{10pt}
+  \textbf{VMSD solution spaces:}
+
+  \vspace{-15pt}
+  \begin{equation}
+    \text{(\textit{Coarse} scale) } \overline{\mathcal{V}}_{h,p} := \{\boldsymbol{v}\in [C^0(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^p(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\},
+  \end{equation}
+
+  \vspace{-15pt}
+  \begin{equation}
+    \text{(\textit{Fine} scale) } \mathcal{V}^\prime_{h,p^\prime} := \{\boldsymbol{v}\in [L^2(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^{p^\prime}(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\}.
+  \end{equation}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+% move this after the space time slide
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
+  \textbf{Weak statement:}
+
+  \vspace{10pt}
+  \textbf{Find $(\bar{\boldsymbol{u}}_{h,p}$, $\boldsymbol{u}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime}$ such that:}
+  \begin{equation}
+    \mathcal{R}(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) = 0,~~\forall (\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime}.
+    \label{e:multiscale_weak_statement}
+  \end{equation}
+
+  \vspace{10pt}
+  \textbf{Remarks:}
+  \begin{itemize}
+    \item $\boldsymbol{u}^\prime_{h,p^\prime}$ DOFs are element-wise decoupled. Thus, they can be static condensed and the total cost becomes the same as a CG method.
+    \item For same accuracy requirement, more efficient (less DOFs) than CG and DG.
+    \item Adjoint consistent.
+  \end{itemize}
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
+
+  Starting point:
+  \begin{equation}
+    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~~ \xi_1 \simeq \max_{x\in\Omega} \xi(x),~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
+  \end{equation}
+  then:
+  \begin{equation}
+    s_\text{grad} := s_\text{grad}(\hat{\xi}) = \dfrac{\hat{\xi} [\tanh(p^2\hat{\xi})]^{p-1}}{1+\exp\left[-k \left(\hat{\xi} - \alpha(p)\right)\right]},
+    \label{e:s_grad}
+  \end{equation}
+  where $k,\alpha(p) \in \mathbb{R}$.
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
+  \vspace{-10pt}
+  \begin{equation}
+    \small
+    s_\text{grad} := s_\text{grad}(\hat{\xi}) = \dfrac{\hat{\xi} [\tanh(p^2\hat{\xi})]^{p-1}}{1+\exp\left[-k \left(\hat{\xi} - \alpha(p)\right)\right]},
+    \label{e:s_grad}
+  \end{equation}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-2.5cm, yshift=-3.2cm]
+    at (current page.north east) {\includegraphics[height=5.7cm]{../figs/shock_capturing/s_grad.pdf}};
+  \end{tikzpicture}
+  \end{frame}
+
 \end{document}
-
-%=============================================================================%
-%=============================================================================%
-%=============================================================================%
-% Original VMSD and Error Estimate separate sections
-
-% %=============================================================================%
-% %=============================================================================%
-% %=============================================================================%
-% % Discretization
-
-% \begin{frame}[plain]
-%   \vfill
-%   \centering
-%   {\usebeamerfont{title}\usebeamercolor[fg]{title}FEM discretization for ADR system}
-%   \vfill
-% \end{frame}
-
-% \section{FEM discretization for ADR system}
-
-% \setsectionframes{6}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Analytic problem}
-%   \begin{minipage}[t]{1\linewidth}
-%     Want to solve general nonlinear ADR system on a 2D domain $\Omega$:
-
-%     \begin{equation}
-%       \nabla \cdot \left[\boldsymbol{F}(\boldsymbol{u}) - \boldsymbol{G}(\boldsymbol{u},\nabla \boldsymbol{u}) \right] + \boldsymbol{\mathcal{S}}(\boldsymbol{u},\nabla \boldsymbol{u}) - \boldsymbol{f} = 0 \text{ on } \Omega,
-%       \label{e:ADR_pde}
-%     \end{equation}
-
-%     \begin{equation}
-%       \boldsymbol{u} = \boldsymbol{u}_b \text{ on } \partial \Omega.
-%     \end{equation}
-
-%     Where:
-
-%     \begin{itemize}
-%       \item $\boldsymbol{u}$: solution of interest (with $m$ states)
-%       \item $\boldsymbol{F}$: advective flux operator
-%       \item $\boldsymbol{G}$: viscous flux operator
-%       \item $\boldsymbol{\mathcal{S}}$: source term operator
-%       \item $\boldsymbol{f}$: forcing function
-%       \item $\boldsymbol{u}_b$: given boundary function/data
-%     \end{itemize}
-%   \end{minipage}
-% \end{frame}
-
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Variational Multiscale with Discontinuous Subscales (VMSD) Method}
-%   \begin{minipage}[t]{1\linewidth}
-%     \vspace{-15pt}
-%     \textbf{Discretization of $\Omega$:}
-
-%     \vspace{5pt}
-%     $\mathcal{T}_h := \{\kappa\}_{\kappa = 1}^K$ is a triangulation of the domain $\Omega$ into $K$ elements.
-
-%     \vspace{5pt}
-%     $\mathcal{E}_h^0$: the set of interior traces.
-
-%     \vspace{5pt}
-%     $\mathcal{E}_h^{\partial}$: the set of boundary traces.
-%   \end{minipage}
-
-%   \vspace{5pt}
-%   \textbf{Propose solution:}
-
-%   $\boldsymbol{u}_h := \bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}_{h,p^\prime}^\prime$, ~~~~$\bar{\boldsymbol{u}}_{h,p} \in \overline{\mathcal{V}}_{h,p}$, $\boldsymbol{u}^\prime_{h,p^\prime} \in \mathcal{V}^\prime_{h,p^\prime}$
-
-%   \vspace{5pt}
-%   \textbf{VMSD solution spaces:}
-
-%   \vspace{-15pt}
-%   \begin{equation}
-%     \text{(\textit{Coarse} scale) } \overline{\mathcal{V}}_{h,p} := \{\boldsymbol{v}\in [C^0(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^p(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\},
-%   \end{equation}
-
-%   \vspace{-15pt}
-%   \begin{equation}
-%     \text{(\textit{Fine} scale) } \mathcal{V}^\prime_{h,p^\prime} := \{\boldsymbol{v}\in [L^2(\Omega)]^m : \boldsymbol{v}|_\kappa \in [\mathcal{P}^{p^\prime}(\kappa)]^m, \forall \kappa \in \mathcal{T}_h\}.
-%   \end{equation}
-
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{VMSD: residual formulation}
-%   \textbf{VMSD weak statement: find $(\bar{\boldsymbol{u}}_{h,p}$, $\boldsymbol{u}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime}$ such that:}
-%   \begin{equation}
-%     \mathcal{R}_{h}(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) = 0,~~\forall (\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime}) \in \overline{\mathcal{V}}_{h,p} \times \mathcal{V}^\prime_{h,p^\prime},
-%     \label{e:multiscale_weak_statement}
-%   \end{equation}
-
-%   where $\mathcal{R}_h$ is the residual form. We break it down as:
-
-%   \begin{equation}
-%     \begin{split}
-%     \mathcal{R}_h(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) :&= \mathcal{R}_F(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime})\\
-%     &+\mathcal{R}_G(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime})\\
-%     &+\mathcal{R}_S(\bar{\boldsymbol{v}}_{h,p},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}).
-%     \label{e:residual_fluxes_breakdown}
-%   \end{split}
-%   \end{equation}
-
-%   \textbf{Notation heads-up:}
-%   \begin{equation*}
-%     (\boldsymbol{a},\boldsymbol{b})_\kappa := \int_\kappa \boldsymbol{a}^T\boldsymbol{b} ~d\kappa,~~~~~~~~~~\left<\boldsymbol{a},\boldsymbol{b}\right>_{\partial \kappa} := \int_{\partial \kappa} \boldsymbol{a}^T\boldsymbol{b}~d\partial\kappa,
-%   \end{equation*}
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{VMSD: advective term and upwinding}
-
-% \textbf{Advective term $\mathcal{R}_F$:}
-
-% \begin{equation}
-%   \small
-%   \begin{split}
-%     {\mathcal{R}}_F&({\bar{\boldsymbol{v}}_{h,p}},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) := \\
-%     &\sum_{\kappa \in \mathcal{T}_h} \left(-\nabla\bar{\boldsymbol{v}}_{h,p},\boldsymbol{F}(\bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}^\prime_{h,p^\prime}) \right)_\kappa + \sum_{\epsilon \in \mathcal{E}^\partial_h} \left<\bar{\boldsymbol{v}}_{h,p},\boldsymbol{F}_{n,b}(\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}_b)\right>_\epsilon\\
-%     &+\sum_{\kappa \in \mathcal{T}_h} \Big[ \left(-\nabla\boldsymbol{v}^\prime_{h,p^\prime},\boldsymbol{F}(\bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}^\prime_{h,p^\prime})\right)_\kappa + \left<\boldsymbol{v}^\prime_{h,p^\prime},\boldsymbol{\mathcal{H}}(\bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}^\prime_{h,p^\prime},\bar{\boldsymbol{u}}_{h,p},\hat{n}^+) \right>_{\partial\kappa}\Big],
-%   \end{split}
-% \end{equation}
-% where:
-% \begin{itemize}
-%   \item $\boldsymbol{F}_{n,b}$: Boundary advective flux operator
-%   \item $\boldsymbol{\mathcal{H}}$: Upwind flux operator
-% \end{itemize}
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{VMSD: coarse scale viscous term and BR2 stabilization\footnotemark}
-
-% \textbf{Coarse scale viscous term $\mathcal{R}_{G}^{\text{coarse}}$:}
-
-% \vspace{-10pt}
-% \begin{equation}
-%   \small
-%   \begin{split}
-%     &\mathcal{R}_G^\text{coarse}(\bar{\boldsymbol{v}}_{h,p};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) :=\\
-%     &\quad \sum_{\kappa \in \mathcal{T}_h} \Big[ \left(\nabla \bar{\boldsymbol{v}}_{h,p}, \boldsymbol{G}\left(\bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}^\prime_{h,p^\prime}, \nabla \bar{\boldsymbol{u}}_{h,p} + \nabla \boldsymbol{u}^\prime_{h,p^\prime}\right)\right)_\kappa - \left<\hat{n}\cdot \boldsymbol{G}_{\nabla \boldsymbol{u}}^T \nabla \bar{\boldsymbol{v}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}\right>_{\partial \kappa} \Big]\\
-%     &- \sum_{\epsilon \in \mathcal{E}_h^\partial} \Big[ \left<\bar{\boldsymbol{v}}_{h,p}, \boldsymbol{G}_{n,b}(\boldsymbol{u}_b,\bar{\boldsymbol{u}}_{h,p},\nabla \bar{\boldsymbol{u}}_{h,p}+\nabla \boldsymbol{u}^\prime_{h,p^\prime}+\eta_\partial\boldsymbol{r}_{p}^\epsilon(\bar{\boldsymbol{u}}_{h,p}-\boldsymbol{u}_b)) \right>_{\epsilon}\\
-%     &\qquad\qquad - \left<\hat{n}\cdot \boldsymbol{G}_{\nabla \boldsymbol{u}}^T \nabla \bar{\boldsymbol{v}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}\right>_{\epsilon}\Big],
-%   \end{split}
-% \end{equation}
-
-% \vspace{-20pt}
-% where:
-
-
-% \begin{itemize}
-%   \item $\boldsymbol{G}_{\nabla \boldsymbol{u}}^T$: Diffusion tensor
-%   \item $\boldsymbol{G}_{n,b}$: Boundary viscous flux operator
-%   \item $\boldsymbol{r}_p^\epsilon$: Boundary lifting operator
-% \end{itemize}
-
-% \footnotetext{F. Bassi and S. Rebay 2000}
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{VMSD: source and forcing term}
-
-% \textbf{Source and forcing term $\mathcal{R}_{S}$:}
-
-% \vspace{-10pt}
-% \begin{equation}
-%   \small
-%   \begin{split}
-%     \mathcal{R}_S(&{\bar{\boldsymbol{v}}_{h,p}},\boldsymbol{v}^\prime_{h,p^\prime};\bar{\boldsymbol{u}}_{h,p},\boldsymbol{u}^\prime_{h,p^\prime}) := \\
-%     &\sum_{\kappa \in \mathcal{T}_h}\left(\bar{\boldsymbol{v}}_{h,p}+\boldsymbol{v}^\prime_{h,p^\prime},\boldsymbol{\mathcal{S}}(\bar{\boldsymbol{u}}_{h,p} + \boldsymbol{u}^\prime_{h,p^\prime},\nabla \bar{\boldsymbol{u}}_{h,p} + \nabla \boldsymbol{u}^\prime_{h,p^\prime}+\boldsymbol{R}_{h,p^\prime}^\kappa(\boldsymbol{u}^\prime_{h,p^\prime})) - \boldsymbol{f}\right)_\kappa,
-%   \end{split}
-% \end{equation}
-
-% where $\boldsymbol{R}_{h,p}^\kappa$ is an operator representing the sum of the lifting operators on the element $\kappa$:
-
-% \begin{equation}
-%   \boldsymbol{R}_{h,p^\prime}^\kappa(\boldsymbol{u}^\prime_{h,p^\prime}) = \sum_{\epsilon \in \partial \kappa} \boldsymbol{r}_{p^\prime}^{\kappa,\epsilon}(\boldsymbol{u}^\prime_{h,p^\prime}).
-% \end{equation}
-
-% \end{frame}
-
-% %=============================================================================%
-% %=============================================================================%
-% %=============================================================================%
-% % Output error estimation
-
-% \begin{frame}[plain]
-%   \vfill
-%   \centering
-%   {\usebeamerfont{title}\usebeamercolor[fg]{title}Output Error Estimation}
-%   \vfill
-% \end{frame}
-
-
-% \section{Output Error Estimation}
-
-% \setsectionframes{5}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Output functional}
-%   In general, consider output functional of the form:
-%   \begin{equation}
-%     \mathcal{J}(\boldsymbol{u}) := \int_{\Omega} g_v(\boldsymbol{u})dV + \int_{\partial \Omega} g_b(\boldsymbol{u})dS.
-%     \label{e:general_output_functional}
-%   \end{equation}
-
-% We define output error as:
-
-% \begin{equation}
-%   \varepsilon (\boldsymbol{u}_h) := \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h).
-% \end{equation}
-
-% \vspace{8pt}
-% For general nonlinear problem, the output error can be approximated using the \textbf{dual weighted residual} (DWR) method.
-
-% \vspace{10pt}
-% Needs \textbf{correction} for asymptotically consistent problems.
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Residual consistency}
-% \vspace{-10pt}
-%   \begin{itemize}
-%     \item We say the residual form $\mathcal{R}$ is consistent if:
-%     \begin{equation}
-%       \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = 0,~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
-%     \end{equation}
-%     where $\boldsymbol{u}$ is the exact solution.
-%     \item We say the residual form $\mathcal{R}$ is asymptotically consistent if:
-
-%     \begin{equation}
-%       \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
-%       \label{e:asymptotic_consistent}
-%     \end{equation}
-%     where $\boldsymbol{u}$ is the exact solution, $\alpha>0$, and $h$ is a characteristic element size in $\mathcal{T}_h$.
-%   \end{itemize}
-
-% In our situation:
-
-% \begin{equation}
-%   \begin{split}
-%   \mathcal{R}(\boldsymbol{v}_h,&\boldsymbol{u}_h) =
-%   \mathcal{R}^C(\boldsymbol{v}_h,\boldsymbol{u}_h) + \underbrace{\mathcal{R}^A(\boldsymbol{v}_h,\boldsymbol{u}_h)}_{\text{AV term}}.
-%   \end{split}
-%   \label{e:residual_C_A_decomposition}
-% \end{equation}
-
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Dual problem: mean value linearization}
-%   We define the mean value linearizations of the residual and output functional as:
-
-%   \begin{equation}
-%      \overline{\mathcal{R}}^\prime [\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{v},\boldsymbol{w}) := \int_0^1 \mathcal{R}^\prime[\boldsymbol{u}_h + \theta(\underbrace{\boldsymbol{u}-\boldsymbol{u}_h)}_{\Delta \boldsymbol{u}:=}] (\boldsymbol{v},\boldsymbol{w})~d\theta,
-%   \end{equation}
-
-%   \begin{equation}
-%       \overline{\mathcal{J}}^\prime [\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{w}) := \int_0^1 \mathcal{J}^\prime [\boldsymbol{u}_h + \theta(\boldsymbol{u}-\boldsymbol{u}_h)](\boldsymbol{w})~d\theta.
-%   \end{equation}
-
-%   \vspace{10pt}
-%   Then, the \textbf{dual} (adjoint) problem is:
-
-%   \vspace{10pt}
-%   Find $\boldsymbol{\psi}^\text{mv} \in \mathcal{W} \cup \mathcal{V}_{h}$ such that:
-
-%   \begin{equation}
-%       \overline{\mathcal{R}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{\psi}^\text{mv},\boldsymbol{w}) - \overline{\mathcal{J}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\boldsymbol{w}) = 0, ~~\forall \boldsymbol{w} \in \mathcal{W} \cup \mathcal{V}_h.
-%   \end{equation}
-
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{DWR from mean value linearization}
-%   We start from:
-%   \begin{equation}
-%     \begin{split}
-%         \varepsilon(\boldsymbol{u}_h) = \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h) &=
-%         -\overline{\mathcal{J}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}](\Delta \boldsymbol{u})\\
-%         &=-\overline{\mathcal{R}}^\prime[\boldsymbol{u}_h,\boldsymbol{u}_h + \Delta \boldsymbol{u}](\boldsymbol{\psi}^\text{mv},\Delta \boldsymbol{u}).
-%     \end{split}
-%     \end{equation}
-% After some work, we obtain the corrected DWR error expression:
-
-% \begin{equation}
-%   \varepsilon(\boldsymbol{u}_h) = -\Big[\mathcal{R}(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u})\Big].
-%   \label{e:dwr_corrected_exact}
-% \end{equation}
-
-% \vspace{10pt}
-% \textbf{Two issues:}
-
-% \begin{itemize}
-%   \item Primal exact solution $\boldsymbol{u}$ is not available.
-%   \item The mean value adjoint $\boldsymbol{\psi}^{\text{mv}}$ is not computationally tractable.
-% \end{itemize}
-
-% \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Approximations: DWR estimate}
-%   \vspace{-10pt}
-%   \textbf{First approximation}:
-
-%   \begin{equation}
-%     \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}) \approx
-%     \mathcal{R}^A(\boldsymbol{\psi}^\text{mv},\boldsymbol{u}_h),
-%   \end{equation}
-%   justified on a shock dominated problem with AV.
-
-%   \vspace{5pt}
-%   \textbf{Second approximation:} Tractable adjoint
-
-%   \vspace{10pt}
-%   $\boldsymbol{\psi}^\text{mv}$ is approximated with a numerical adjoint $\boldsymbol{\psi}_{\hat{h}}$ defined by\footnotemark:
-
-%   Find $\boldsymbol{\psi}_{\hat{h}} \in \mathcal{V}_{\hat{h}}$ such that:
-
-% \begin{equation}
-%   \mathcal{J}^\prime[\boldsymbol{u}_h](\tilde{\boldsymbol{u}}) - \mathcal{R}^\prime[\boldsymbol{u}_h](\boldsymbol{\psi}_{\hat{h}},\tilde{\boldsymbol{u}}) = \mathcal{J}^*(\boldsymbol{\psi}_{\hat{h}}) - \mathcal{R}^*(\tilde{\boldsymbol{u}},\boldsymbol{\psi}_{\hat{h}}),~~\forall \tilde{\boldsymbol{u}} \in \mathcal{V}_{\hat{h}}.
-% \end{equation}
-
-% \vspace{10pt}
-% \textbf{DWR error estimate:}
-% \begin{equation}
-%   \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h) \approx -\Big[\mathcal{R}(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)\Big].
-% \end{equation}
-
-% \footnotetext{M. Yano and D. L. Darmofal 2012}
-
-% \end{frame}
