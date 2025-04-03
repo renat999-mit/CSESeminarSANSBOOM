@@ -65,7 +65,7 @@
 
 \usecolortheme{beaver}
 
-\title[CSE Community Seminar]{A Loudness-based Adaptive, Higher-order Finite Element Method for Sonic Boom Propagation }
+\title[CSE Community Seminar]{A Space-time Adaptive, Higher-order Finite Element Method for Sonic Boom}
 \author[R. Trono Figueras]{%
   R. Trono Figueras\\[1ex]
   {\small David L. Darmofal, Marshall C. Galbraith, Steven R. Allmaras}
@@ -121,19 +121,25 @@
 
     Enable supersonic commercial flights overland.
 
+    \uncover<2->
+    {
     \vspace{10pt}
     \textbf{Main challenge:}
 
     \begin{itemize}
       \item Negative impact of sonic boom loudness on humans, other animals, and structures.
     \end{itemize}
+    }
 
+    \uncover<3->
+    {
     \vspace{10pt}
     \textbf{Study sonic boom to:}
     \begin{itemize}
       \item Predict loudness sensitivities to airplane geometry.
       \item Perform airplane shape optimization to reduce loudness at ground.
     \end{itemize}
+    }
   \end{minipage}
 
   \begin{tikzpicture}[remember picture,overlay]
@@ -144,6 +150,8 @@
     % https://www.lockheedmartin.com/en-us/products/x-59-quiet-supersonic.html
   \end{tikzpicture}
 
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=-0.2cm, yshift=-5.2cm]
       at (current page.north east) {\includegraphics[height=3cm]{../figs/motivation/sonicboomX59Art.png}};
@@ -151,7 +159,7 @@
       at (current page.north east) {\tiny\color{gray} Source: michigandaily.com};
     % https://www.michigandaily.com/opinion/columns/bring-back-the-supersonic-jet-faster/
   \end{tikzpicture}
-
+  }
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -163,6 +171,8 @@
     Multidisciplinary design optimization\footnotemark:
     \begin{itemize}
       \item Parametric geometry generator.
+      \uncover<2->
+      {
       \item CFD solver.
       \begin{itemize}
         \item Euler/Navier-Stokes in 3D.
@@ -176,22 +186,34 @@
         \item Species relaxation.
         \item Non-uniform atmosphere. \tikz [remember picture,baseline] \node (end) {};
       \end{itemize}
+      }
+      \uncover<3->
+      {
       \vspace{3pt}
       \item Numerical optimizer.
+      }
     \end{itemize}
   \end{minipage}
 
+  \uncover<4->
+  {
   \begin{minipage}[t]{1\linewidth}
     \vspace{5pt}
     \tikz [remember picture,baseline] \node (start2) {}; Compute noise at ground \tikz [remember picture,baseline] \node (end2) {}; and
     \tikz [remember picture,baseline] \node (start3) {}; $\dfrac{d(\text{Noise})}{dX} = \dfrac{d (\text{Noise})}{d p_{nf}} \dfrac{d p_{nf}}{d X}$ \tikz [remember picture,baseline] \node (end3) {};.
   \end{minipage}
+  }
 
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node[draw=red, dashed, thick, inner xsep=8pt, inner ysep=2pt,
           fit=(start) (end), xshift=-2mm, yshift=-0.4mm] {};
   \end{tikzpicture}
+  }
 
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node (img) [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
       at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
@@ -205,7 +227,10 @@
     \node[anchor=north east, xshift=-4.4cm, yshift=-6.8cm]
       at (current page.north east) {\tiny\color{gray} Source: [1]};
   \end{tikzpicture}
+  }
 
+  \uncover<4->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node[draw=red, dashed, thick, inner xsep=-5pt, inner ysep=4pt,
           fit=(start2) (end2), xshift=0mm, yshift=1mm] {};
@@ -215,8 +240,9 @@
     \node[draw=red, dashed, thick, inner xsep=-50pt, inner ysep=13pt,
           fit=(start3) (end3), xshift=5.9mm, yshift=1.1mm] {};
   \end{tikzpicture}
+  }
 
-  \vspace{-35pt}\footnotetext{D. L. Rodriguez et. al. 2025}
+  \vspace{-55pt}\footnotetext{D. L. Rodriguez et. al. 2025}
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -279,11 +305,14 @@
   };
 \end{tikzpicture}
 
+\uncover<2->
+{
 \vspace{2.3cm}
 \begin{minipage}[t]{1\linewidth}
   \textbf{Our goal:}
   Reduce the significant computational cost involved. Enable efficient, automated high accuracy predictions of boom propagation and design sensitivities through adaptive control of numerical error.
 \end{minipage}
+}
 
 \vspace{-8pt}\footnotetext{S. K. Rallabhandi et. al. 2023}
 
@@ -329,6 +358,8 @@
   \vspace{-10pt}
   To model sonic boom propagation we use the augmented Burgers system of equations, for the states $(P, \tilde{P}_{\text{O}_2}, \tilde{P}_{\text{N}_2})$:
 
+  \uncover<2->
+  {
   \vspace{-10pt}
   \begin{equation}
     \small
@@ -352,13 +383,16 @@
     \item Atmospheric absorption by relaxation species (O$_2$ and N$_2$).
     \item Ray tube area variation.
   \end{itemize}
+  }
 
+  \uncover<3->
+  {
   \textbf{Remarks:}
   \begin{itemize}
     \item Eq (\ref{e:augmented_burgers}) is parabolic, with $\sigma$ the time-like direction.
     \item It is typically solved with a time-marching scheme.
   \end{itemize}
-
+  }
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -375,6 +409,8 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
   at (current page.north east) {\includegraphics[height=5.0cm]{../figs/boom_modeling/atmosphereStandard.pdf}};
 \end{tikzpicture}
 
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
     \begin{minipage}{0.4\textwidth}
@@ -391,12 +427,11 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
     \end{minipage}
   };
 \end{tikzpicture}
+}
 
 \end{frame}
 
 %---------------------------------------------------------------%
-
-% TODO: indicate ground and nearfield
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Space-time Adaptive Method}
@@ -404,12 +439,19 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
     at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
+
+  \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-9mm] at (img.north west) {Ground};
+
+  \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-46.5mm] at (img.north west) {Nearfield};
 \end{tikzpicture}
 
+\uncover<2->
+{
 \begin{minipage}[t]{1\linewidth}
   \vspace{4.8cm}
-  But, space-time unstructured requires coupled solve over entire space-time domain.
+  But, space-time unstructured requires solving an optimization problem for the mesh.
 \end{minipage}
+}
 
 \end{frame}
 
@@ -465,7 +507,7 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 
 \section{Discretization and Shock Capturing}
 
-\setsectionframes{6}
+\setsectionframes{5}
 
 %---------------------------------------------------------------%
 
@@ -481,12 +523,16 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
   \end{equation}
   where the space $\mathcal{V}_{h,p}$ contains polynomials of order $p$ in $\Omega$.
 
+  \uncover<2->
+  {
   \vspace{10pt}
   \textbf{Remarks:}
   \begin{itemize}
     \item A discontinuous subscale is used for stabilization, and the resulting method is known as Variational Multiscale with Discontinuous Subscales.
     \item The discretization is adjoint consistent.
   \end{itemize}
+  }
+
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -497,13 +543,20 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \textbf{Challenge:} Discontinuities (shocks) in the solutions, leading to unstable
 numerical solves and lack of convergence.
 
+\uncover<2->
+{
 \vspace{5pt}
 \textbf{Goal:} Smoothen discontinuities to improve stability, while not modifying
 the already smooth areas.
+}
 
+\uncover<3->{
 \vspace{5pt}
 \textbf{Approach:} Employ a shock sensor, $s$, to keep track of discontinuities, and use that information to add localized artificial viscosity.
+}
 
+\uncover<4->
+{
 \vspace{10pt}
 Add extra diffusion term in Burgers equation:
 \vspace{-2pt}
@@ -523,6 +576,7 @@ with $\epsilon_{\text{AV}}$ as:
   \footnotesize
   \epsilon_{\text{AV}} := \underbrace{\dfrac{1}{2}\dfrac{H_{\tau\tau}}{p}|P|}_{\text{AV}_{\text{max}}}s.
 \end{equation}
+}
 
 \end{frame}
 
@@ -538,16 +592,26 @@ with $\epsilon_{\text{AV}}$ as:
     \item $s \approx 0$ away from shocks, of order $\mathcal{O}(h^p)$.
     \item $s$ smooth.
 \end{itemize}
+\uncover<2->
+{
 \textbf{Define PDE for shock sensor $s$:}
 \begin{equation}
-  \underbrace{s - C_1s_{\text{grad}}}_{\text{source term}} + \underbrace{C_2\nabla \cdot \left(\dfrac{H^TH}{p^2} \nabla s\right)}_{\text{diffusion term}} = 0\text{ on }\Omega.
+  \underbrace{s - C_1s_{\text{grad}}}_{\text{source term}}} \uncover<3->{+ \underbrace{C_2\nabla \cdot \left(\dfrac{H^TH}{p^2} \nabla s\right)}_{\text{diffusion term}}} \uncover<2->{= 0\text{ on }\Omega.}
 	\label{e:sensor_source}
 \end{equation}
 
 \begin{itemize}
+  \uncover<2->
+  {
   \item $s_{\text{grad}}$: \textbf{Shock indicator} based on pressure solution gradient.
+  }
+
+  \uncover<3->
+  {
   \item Diffusion term: to have a smooth sensor solution.
   \item $H$: element size field.
+  }
+
 \end{itemize}
 
 \footnotetext{G. E. Barter and D. L. Darmofal 2007}
@@ -557,13 +621,22 @@ with $\epsilon_{\text{AV}}$ as:
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Shock Indicator $s_{\text{grad}}$}
-  Starting point:
+  \vspace{-10pt}
+  Identify pressure changes in $\tau$ direction:
   \begin{equation}
     \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
   \end{equation}
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-2.5cm, yshift=-3.3cm]
+    \node[anchor=north east, xshift=0cm, yshift=-3.4cm]
     at (current page.north east) {\includegraphics[height=5.7cm]{../figs/shock_capturing/s_grad.pdf}};
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-7.7cm, yshift=-3.6cm] at (current page.north east) {%
+      \begin{minipage}{0.4\textwidth}
+        Define $s_{grad}(\hat{\xi})$ to meet design requirements
+      \end{minipage}
+    };
   \end{tikzpicture}
 \end{frame}
 
@@ -579,6 +652,8 @@ Smooth problem with available exact solution:
   \item Solve with artificial viscosity and see how it affects convergence.
 \end{itemize}
 
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-1.5cm, yshift=-3.5cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
@@ -592,6 +667,7 @@ Smooth problem with available exact solution:
   \node[anchor=north east, xshift=-3cm, yshift=-3.8cm]
   at (current page.north east) {\includegraphics[height=5cm]{../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf}};
 \end{tikzpicture}
+}
 
 \end{frame}
 
@@ -664,29 +740,38 @@ Smooth problem with available exact solution:
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Relevant Loudness Metrics}
+\begin{frame}[t]{At Ground: Relevant Loudness Metrics}
 \vspace{-10pt}
 The human ear is less sensitive to low audio frequencies.
 
 \vspace{10pt}
 There is a family of weighting filter curves that account for this relative loudness perceived by humans: A/B/C/D/-SEL curves.
 
+\uncover<2->
+{
 \vspace{10pt}
 $\underbrace{p(\tau)}_{\text{Ground pressure signal}}\to~~~\text{Weighting filter}~~~\to\underbrace{\tilde{p}(\tau)}_{\text{Filtered signal}}$
+}
 
+\uncover<3->
+{
 \vspace{10pt}
 Sound exposure:
 
 \begin{equation}
   E = \dfrac{1}{\omega_{\text{ref}}}\int_{\tau_0}^{\tau_{\text{f}}} [\tilde{p}(\tau)]^2~d\tau.
 \end{equation}
+}
 
-\vspace{10pt}
+\uncover<4->
+{
+\vspace{4pt}
 Loudness level in dB:
 
 \begin{equation}
   \text{Loudness} = 10\log_{10}\left(\dfrac{E}{E_0}\right),~~~ E_0 = 400~ (\mu\text{Pa})^2s.
 \end{equation}
+}
 
 \end{frame}
 
@@ -697,14 +782,19 @@ Loudness level in dB:
 \vspace{-10pt}
 We focus on the B-SEL curve, and the approach can be generalized to any other.
 
+\uncover<2->
+{
 \vspace{10pt}
 Transfer function in the complex frequency domain:
 
 \begin{equation}
-  H_B(s) =\dfrac{\tilde{P}(s)}{P(s)} = \dfrac{c_B s^3}{(s+2\pi f_1)^2(s+2\pi f_{2B})(s+2\pi f_4)^2},
+  H_B(\chi) =\dfrac{\tilde{P}(\chi)}{P(\chi)} = \dfrac{c_B \chi^3}{(\chi+2\pi f_1)^2(\chi+2\pi f_{2B})(\chi+2\pi f_4)^2},
   \label{e:continuous_transfer}
 \end{equation}
+}
 
+\uncover<3->
+{
 \vspace{10pt}
 \begin{itemize}
   \item $c_B = 5.99185 \times 10^9$
@@ -717,13 +807,13 @@ Transfer function in the complex frequency domain:
   \node[anchor=north east, xshift=0.5cm, yshift=-4.5cm]
   at (current page.north east) {\includegraphics[height=4.2cm]{../figs/signal_filtering/bode_mag.pdf}};
 \end{tikzpicture}
-
+}
 \end{frame}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Filter Application: ODE Approach}
+\begin{frame}[t]{Filter Application at Ground: ODE Approach}
 \vspace{-10pt}
 Common filtering techniques not suitable for our unstructured grid.
 
@@ -731,7 +821,7 @@ Common filtering techniques not suitable for our unstructured grid.
 Convert transfer function in complex frequency domain:
 
 \begin{equation}
-  \tilde{P}(s) =P(s)\dfrac{K^{1/3}}{(s+a)^2}\dfrac{K^{1/3}s^2}{(s+c)^2}\dfrac{K^{1/3}s}{(s+b)},
+  \tilde{P}(\chi) =P(\chi)\dfrac{K^{1/3}}{(\chi+a)^2}\dfrac{K^{1/3}\chi^2}{(\chi+c)^2}\dfrac{K^{1/3}\chi}{(\chi+b)},
 \end{equation}
 
 to a \textbf{system of ODE's} in the time domain (to solve in \textit{ground} boundary):
@@ -796,13 +886,17 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 \setsectionframes{5}
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Output Functional}
+\begin{frame}[t]{Output Functional and Error}
   In general, consider output functional of the form:
   \begin{equation}
     \mathcal{J}(\boldsymbol{u}) := \int_{\Omega} g_v(\boldsymbol{u})dV + \int_{\partial \Omega} g_b(\boldsymbol{u})dS.
     \label{e:general_output_functional}
   \end{equation}
+(In our case $\mathcal{J}(\boldsymbol{u}) = \int_{\text{ground}} [\tilde{p}(\tau)]^2~d\tau$)
 
+\uncover<2->
+{
+\vspace{10pt}
 We define output error as:
 
 \begin{equation}
@@ -811,12 +905,15 @@ We define output error as:
 
 \vspace{8pt}
 For general nonlinear problem, the output error can be approximated using the \textbf{dual weighted residual} (DWR) method.
+}
 
+\uncover<3->
+{
 \vspace{10pt}
-Needs \textbf{correction}\footnotemark for asymptotically consistent problems.
+Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotically consistent).
+}
 
 \footnotetext{B. Couchman 2020}
-
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -825,20 +922,26 @@ Needs \textbf{correction}\footnotemark for asymptotically consistent problems.
 \begin{frame}[t]{Residual Consistency}
 \vspace{-10pt}
   \begin{itemize}
-    \item We say the residual form $\mathcal{R}$ is consistent if:
+    \item We say the residual form $\mathcal{R}$ is \textbf{consistent} if:
     \begin{equation}
       \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = 0,~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution.
-    \item We say the residual form $\mathcal{R}$ is asymptotically consistent if:
+
+    \uncover<2->
+    {
+    \item We say the residual form $\mathcal{R}$ is \textbf{asymptotically consistent} if:
 
     \begin{equation}
       \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
       \label{e:asymptotic_consistent}
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution, $\alpha>0$, and $h$ is a characteristic element size in $\mathcal{T}_h$.
+    }
   \end{itemize}
 
+\uncover<3->
+{
 \vspace{10pt}
 In our situation:
 
@@ -849,6 +952,7 @@ In our situation:
   \end{split}
   \label{e:residual_C_A_decomposition}
 \end{equation}
+}
 
 \end{frame}
 
@@ -865,15 +969,19 @@ In our situation:
   \begin{equation}
       \mathcal{R}(\boldsymbol{\psi},\boldsymbol{w}) - \mathcal{J}(\boldsymbol{w}) = 0, ~~\forall \boldsymbol{w} \in \mathcal{W}.
   \end{equation}
+
+  \uncover<2->
+  {
   From there:
+  }
   \vspace{2pt}
   \begin{equation}
     \begin{split}
-        \varepsilon(\boldsymbol{u}_h) &= \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h) \\
-        &= \mathcal{J}(\Delta \boldsymbol{u})\\
-        &=\mathcal{R}(\boldsymbol{\psi},\Delta \boldsymbol{u}) \\
-        &= \underbrace{\mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u})}_{= 0} + \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}) \underbrace{- \mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}_h)}_{=-\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h)}\\
-        &= -\Big[\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u})\Big]\text{ (Dual weighted residual error expression)}
+      \uncover<2->{\varepsilon(\boldsymbol{u}_h) &= \mathcal{J}(\boldsymbol{u}) - \mathcal{J}(\boldsymbol{u}_h)~~~(\Delta \boldsymbol{u}:= \boldsymbol{u}-\boldsymbol{u}_h)} \\
+      &\uncover<2->{= \mathcal{J}(\Delta \boldsymbol{u})} \\
+      &\uncover<3->{= \mathcal{R}(\boldsymbol{\psi},\Delta \boldsymbol{u})} \\
+      &\uncover<4->{= \underbrace{\mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u})}_{= 0} + \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}) \underbrace{- \mathcal{R}^C(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}_h)}_{=-\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h)}} \\
+      &\uncover<5->{= -\Big[\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u})\Big]\text{ (Dual weighted residual error expression)}}
     \end{split}
   \end{equation}
 \end{frame}
@@ -887,56 +995,64 @@ In our situation:
     \varepsilon(\boldsymbol{u}_h) = -\Big[\mathcal{R}(\boldsymbol{\psi},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u})\Big].
   \end{equation}
 
+  \uncover<2->
+  {
   \textbf{Issues:}
 
-\begin{itemize}
-  \item Primal exact solution $\boldsymbol{u}$ is not available.
-  \item Residual and output functional are in general nonlinear.
-  \item Even if they are linear, adjoint exact solution $\boldsymbol{\psi}$ is not available.
-\end{itemize}
+  \begin{itemize}
+    \item Primal exact solution $\boldsymbol{u}$ is not available.
+    \item Residual and output functional are in general nonlinear.
+    \item Even if they are linear, adjoint exact solution $\boldsymbol{\psi}$ is not available.
+  \end{itemize}
+  }
 
-\vspace{10pt}
-\textbf{First approximation}:
+  \uncover<3->
+  {
+  \vspace{10pt}
+  \textbf{First approximation}:
 
   \begin{equation}
     \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}) \approx
     \mathcal{R}^A(\boldsymbol{\psi},\boldsymbol{u}_h),
   \end{equation}
   justified on a shock dominated problem with AV.
-
+  }
 \end{frame}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Approximations: DWR Error Estimate}
-  \vspace{-10pt}
-
-
-  \vspace{5pt}
+  \vspace{-5pt}
   \textbf{Second approximation:}
 
   \vspace{10pt}
   $\boldsymbol{\psi}$ is approximated with a numerical adjoint $\boldsymbol{\psi}_{\hat{h}}$ defined by\footnotemark:
 
+  \uncover<2->
+  {
   $\boldsymbol{\psi}_{\hat{h}} \in \mathcal{V}_{\hat{h},\hat{p}}$ such that:
 
-\begin{equation}
-  \mathcal{R}^\prime[\boldsymbol{u}_h](\boldsymbol{\psi}_{\hat{h}},\tilde{\boldsymbol{u}}) - \mathcal{J}^\prime[\boldsymbol{u}_h](\tilde{\boldsymbol{u}}) = 0,~~~\forall \tilde{\boldsymbol{u}} \in \mathcal{V}_{\hat{h},\hat{p}},
-\end{equation}
-where:
+  \begin{equation}
+    \mathcal{R}^\prime[\boldsymbol{u}_h](\boldsymbol{\psi}_{\hat{h}},\tilde{\boldsymbol{u}}) - \mathcal{J}^\prime[\boldsymbol{u}_h](\tilde{\boldsymbol{u}}) = 0,~~~\forall \tilde{\boldsymbol{u}} \in \mathcal{V}_{\hat{h},\hat{p}},
+  \end{equation}
+  where:
 
-\begin{itemize}
-  \item $\mathcal{R}^\prime[\boldsymbol{u}_h]$ and $\mathcal{J}^\prime[\boldsymbol{u}_h]$ are the linearizations of $\mathcal{R}$ and $\mathcal{J}$ about $\boldsymbol{u}_h$.
-  \item $\tilde{\boldsymbol{u}}$ represents a perturbation from $\boldsymbol{u}_h$.
-  \item The space $\mathcal{V}_{\hat{h},\hat{p}}$ contains polynomials of order $\hat{p}=p+1$.
-\end{itemize}
-\vspace{10pt}
-\textbf{Final DWR error estimate:}
-\begin{equation}
-  \varepsilon(\boldsymbol{u}_h) \approx -\Big[\mathcal{R}(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)\Big].
-\end{equation}
+  \begin{itemize}
+    \item $\mathcal{R}^\prime[\boldsymbol{u}_h]$ and $\mathcal{J}^\prime[\boldsymbol{u}_h]$ are the linearizations of $\mathcal{R}$ and $\mathcal{J}$ about $\boldsymbol{u}_h$.
+    \item $\tilde{\boldsymbol{u}}$ represents a perturbation from $\boldsymbol{u}_h$.
+    \item The space $\mathcal{V}_{\hat{h},\hat{p}}$ contains polynomials of order $\hat{p}=p+1$.
+  \end{itemize}
+  }
 
+  \uncover<3->
+  {
+  \vspace{10pt}
+  \textbf{Final DWR error estimate:}
+  \begin{equation}
+    \varepsilon(\boldsymbol{u}_h) \approx -\Big[\mathcal{R}(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) - \mathcal{R}^A(\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)\Big].
+  \end{equation}
+  }
 \footnotetext{M. Yano and D. L. Darmofal 2012}
 
 \end{frame}
@@ -990,6 +1106,8 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
   \hat{\mathcal{T}}_h = \arg \inf_{\mathcal{T}_h \in \mathbb{T}(\Omega)} \mathcal{E}(\mathcal{T}_h),~~~\mathcal{C}(\mathcal{T}_h) < C.
 \end{equation}
 
+\uncover<2->
+{
 \textbf{Continuous relaxation}\footnotemark to address intractability of discrete problem.
 
 \begin{equation}
@@ -1000,7 +1118,7 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
   \node[anchor=north east, xshift=-1.1cm, yshift=-5.1cm]
   at (current page.north east) {\includegraphics[height=3.4cm]{../figs/mesh_adaptation/mesh_metric_duality.png}};
 \end{tikzpicture}
-
+}
 \footnotetext{A. Loseille and F. Alauzet 2011}
 
 \end{frame}
@@ -1012,9 +1130,14 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
 \vspace{-5pt}
 \textbf{Need model for error indicator $\mathcal{E}(\mathcal{M})$}: How $\mathcal{E}$ changes with $\mathcal{M}$.
 
+\uncover<2->
+{
 \vspace{10pt}
 \textbf{First step:} Compute nodal\footnote{T. Richter and T. Wick 2015} error indicators based on the DWR error estimate. Use partition of unity given by linear tent functions $\{\phi_v\}$.
+}
 
+\uncover<3->
+{
 \begin{equation}
   \varepsilon_v = -\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
   \label{e:corrected_dwr_nodal}
@@ -1024,12 +1147,15 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
   \eta_v := |\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)| + |\mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)|,~~~ \eta := \sum_{v} \eta_v \equiv \mathcal{E}
   \label{e:corrected_dwr_nodal}
 \end{equation}
+}
 
+\uncover<4->
+{
 \textbf{Next:} Recompute solution and nodal indicators in refined \textit{local patches} in the mesh.
 
 \vspace{5pt}
 The comparison of the nodal error indicators before and after the local solves gives information about how $\mathcal{E}$ changes with $\mathcal{M}$.
-
+}
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -1037,20 +1163,27 @@ The comparison of the nodal error indicators before and after the local solves g
 \stepcounter{sectionframecount}
 \begin{frame}[t]{MOESS: Error Sampling and Synthesis}
 \vspace{-12pt}
+
+\uncover<2->
+{
 \textbf{Local solves:} Loop over edges in the mesh and solve for $\boldsymbol{u}_h^\epsilon$ in refined local patch.
 $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon) = 0,~~~\forall \boldsymbol{v}_h^\epsilon \in \mathcal{V}_{h,p}^\epsilon$.
+}
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-2cm, yshift=-2.7cm]
   at (current page.north east) {\includegraphics[height=4.0cm]{../figs/mesh_adaptation/local_patches.png}};
 \end{tikzpicture}
 
+\uncover<3->
+{
 \vspace{4.3cm}
 \textbf{Nodal indicator for vertices in inner patch:}
 \begin{equation}
   \eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
   \label{e:dwr_ind_base_local}
 \end{equation}
+}
 
 \end{frame}
 
@@ -1131,14 +1264,16 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Preliminary: Run Summary}
 
-\begin{enumerate}
+  \begin{enumerate}
   \item \textbf{Set:}
-  \begin{itemize}
-    \item Case parameters/conditions.
-    \item Initial 2D mesh.
-    \item Target DOF.
-    \item Number of adaptive iterations ($N$).
-  \end{itemize}
+    \begin{itemize}
+      \item Case parameters/conditions.
+      \item Initial 2D mesh.
+      \item Target DOF.
+      \item Number of adaptive iterations ($N$).
+    \end{itemize}
+  \uncover<2->
+  {
   \item \textbf{Loop, $i \in \{1,...,N\}$:}
   \begin{itemize}
     \item Extract \textit{ground} boundary and form 1D mesh for filter ODE.
@@ -1155,6 +1290,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \item Nodal error sampling and synthesis.
     \item Adapt mesh.
   \end{itemize}
+  }
 \end{enumerate}
 
 
@@ -1171,31 +1307,40 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \item Airplane altitude: $z_a = 16459.2$ m.
     \item Ground altitude: $110$ m.
     \item Ground reflection factor: $1.9$.
+    \uncover<2->
+    {
     \item Nearfield signal (initial condition):
+    }
   \end{itemize}
 \end{minipage}
 
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-5.5cm, yshift=-4.6cm]
   at (current page.north east) {\includegraphics[height=4.4cm]{../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf}};
 \end{tikzpicture}
-
+}
 \begin{tikzpicture}[remember picture,overlay]
 
   \node[anchor=north east, xshift=0.7cm, yshift=-5.1cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
       \begin{itemize}
+        \uncover<3->
+        {
         \item Domain dimensions:
         $\Omega = [-1,2] \times [0,257]$
         \vspace{8pt}
         \item Output for adaptation:
         $\mathcal{J}_{\text{BSEL}} = \int_{\text{ground}} [\tilde{p}(t)]^2~dt$
+        }
+        \uncover<4->
+        {
         \vspace{8pt}
         \item Also for comparison:
         $\mathcal{J}_{p} = \int_{\text{ground}} [p(t)]^2~dt$
+        }
       \end{itemize}
-
-
     \end{minipage}
   };
 \end{tikzpicture}
@@ -1227,6 +1372,8 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
   };
 \end{tikzpicture}
 
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
 
   \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
@@ -1236,6 +1383,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \end{minipage}
   };
 \end{tikzpicture}
+}
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-6.5cm, yshift=-1.3cm]
@@ -1245,8 +1393,14 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-1.5cm, yshift=-1.3cm]
   at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/sbw3_P1_128K_P_field.png}};
+
+  \node[anchor=south west, font=\scriptsize, black, xshift=100mm, yshift=13mm] at (img.north west) {Ground};
+
+  \node[anchor=south west, font=\scriptsize, black, xshift=100mm, yshift=-15mm] at (img.north west) {Nearfield};
 \end{tikzpicture}
 
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-6.5cm, yshift=-5.3cm]
   at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/sbw3_P2_128K_P_lines.png}};
@@ -1256,6 +1410,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
   \node[anchor=north east, xshift=-1.5cm, yshift=-5.3cm]
   at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/sbw3_P2_128K_P_field.png}};
 \end{tikzpicture}
+}
 
 \end{frame}
 
@@ -1322,6 +1477,8 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     };
   \end{tikzpicture}
 
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
 
     \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
@@ -1331,6 +1488,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
       \end{minipage}
     };
   \end{tikzpicture}
+  }
 
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=-6.5cm, yshift=-1.3cm]
@@ -1342,6 +1500,8 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf}};
   \end{tikzpicture}
 
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=-6.5cm, yshift=-5.3cm]
     at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/adjointAdaptToP2_P2_128K.png}};
@@ -1351,7 +1511,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \node[anchor=north east, xshift=-0.5cm, yshift=-5.3cm]
     at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf}};
   \end{tikzpicture}
-
+  }
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -1388,6 +1548,8 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
   at (current page.north east) {\includegraphics[height=4.3cm]{../figs/SBW3results/comparisonBSEL.pdf}};
 \end{tikzpicture}
 
+\uncover<2->
+{
 \vspace{2.6cm}
 \scriptsize Comparison with NASA \textit{sBOOM} code\footnotemark:
 \begin{itemize}
@@ -1399,6 +1561,8 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \item 1.2B DOF in total (space-time).
   \end{itemize}
 \end{itemize}
+}
+
 \footnotetext{S. K. Rallabhandi et. al. 2023}
 \end{frame}
 
@@ -1457,24 +1621,30 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 {
 \setbeamertemplate{headline}{} % disable headline for this frame only
 \begin{frame}[t]{Concluding Remarks}
-    \textbf{Work completed:}
-    \begin{itemize}
-      \item Higher-order FEM to solve sonic boom propagation problem.
-      \item Unstructured space-time mesh adaptation.
-      \item Loudness error estimate driving mesh adaptation.
-    \end{itemize}
+  \textbf{Work completed:}
+  \begin{itemize}
+    \item Higher-order FEM to solve sonic boom propagation problem.
+    \item Unstructured space-time mesh adaptation.
+    \item Loudness error estimate driving mesh adaptation.
+  \end{itemize}
 
-    \textbf{Outcome:}
-    \begin{itemize}
-      \item Significant reduction in space-time DOF count, at the expense of solving the dual problem.
+  \uncover<2->
+  {
+  \textbf{Outcome:}
+  \begin{itemize}
+      \item Significant reduction in space-time DOF count, at the expense of solving the optimization problem for the mesh.
       \item The above is highlighted when using higher-order solutions, as quadratic solutions converge the output faster than linear solutions.
     \end{itemize}
+  }
 
+  \uncover<3->
+  {
     \vspace{15pt}
     \textbf{Ongoing effort:}
     \begin{itemize}
       \item Study convergence of loudness sensitivity to nearfield signal.
     \end{itemize}
+  }
 \end{frame}
 }
 

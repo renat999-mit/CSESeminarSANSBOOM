@@ -36,7 +36,7 @@ xi_hat = np.linspace(0,1.25,1000)
 
 fig, ax = plt.subplots()
 
-ax.plot(xi_hat, xi_hat, lw = 0.8, ls = 'dashed', label = r'Linear reference', color = 'g')
+ax.plot(xi_hat, xi_hat, lw = 0.85, ls = 'dashed', label = r'Linear reference', color = 'orange')
 ax.plot(xi_hat, s_grad(xi_hat, 1), label = r'$s_{grad}(\hat{\xi})$, $p=1$', color = 'b')
 ax.plot(xi_hat, s_grad(xi_hat, 2), label = r'$s_{grad}(\hat{\xi})$, $p=2$', color = 'r')
 ax.axvline(1, lw = 0.5, ls = 'dashed', color = 'k')
