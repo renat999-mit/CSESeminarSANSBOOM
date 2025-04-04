@@ -170,14 +170,20 @@
     \vspace{-20pt}
     Multidisciplinary design optimization\footnotemark:
     \begin{itemize}
-      \item Parametric geometry generator.
       \uncover<2->
+      {
+      \item Parametric geometry generator.
+      }
+      \uncover<3->
       {
       \item CFD solver.
       \begin{itemize}
         \item Euler/Navier-Stokes in 3D.
         \item Uniform atmosphere.
       \end{itemize}
+      }
+      \uncover<4->
+      {
       \tikz [remember picture,baseline] \node (start) {};
       \item \textit{Sonic boom propagation tool}
       \begin{itemize}
@@ -187,7 +193,7 @@
         \item Non-uniform atmosphere. \tikz [remember picture,baseline] \node (end) {};
       \end{itemize}
       }
-      \uncover<3->
+      \uncover<5->
       {
       \vspace{3pt}
       \item Numerical optimizer.
@@ -195,7 +201,7 @@
     \end{itemize}
   \end{minipage}
 
-  \uncover<4->
+  \uncover<6->
   {
   \begin{minipage}[t]{1\linewidth}
     \vspace{5pt}
@@ -204,7 +210,7 @@
   \end{minipage}
   }
 
-  \uncover<2->
+  \uncover<4->
   {
   \begin{tikzpicture}[remember picture,overlay]
     \node[draw=red, dashed, thick, inner xsep=8pt, inner ysep=2pt,
@@ -212,24 +218,76 @@
   \end{tikzpicture}
   }
 
-  \uncover<2->
-  {
   \begin{tikzpicture}[remember picture,overlay]
-    \node (img) [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
+    \uncover<2->
+    {
+    \node (img) [anchor=north east, xshift=-0.2cm, yshift=-1.5cm, opacity=0.1]
       at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
+    }
 
-    \node[anchor=south west, font=\small, black, xshift=31mm, yshift=-23mm] at (img.north west) {$p_{nf}$};
 
-    \node[anchor=south west, font=\small, black, xshift=12mm, yshift=-11mm] at (img.north west) {$X$};
 
-    \node[anchor=south west, font=\small, black, xshift=25mm, yshift=-50.5mm] at (img.north west) {Noise};
-
-    \node[anchor=north east, xshift=-4.4cm, yshift=-6.8cm]
+    \uncover<2->
+    {
+      \node[anchor=north east, xshift=-4.4cm, yshift=-6.8cm]
       at (current page.north east) {\tiny\color{gray} Source: [1]};
-  \end{tikzpicture}
+      }
+
+      \uncover<2->
+      {
+        % Define coordinates for the region to emphasize relative to the image node.
+        % These coordinates are offsets from the image's north west corner.
+        \coordinate (clipA) at ($(img.north west)+(0.7cm,-0.6cm)$);
+        \coordinate (clipB) at ($(img.north west)+(2.2cm,-1.3cm)$);
+        % Overlay a copy of the image clipped to the region of interest (full opacity).
+        \begin{scope}[remember picture,overlay]
+          \clip (clipA) rectangle (clipB);
+          \node [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
+          at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
+        \end{scope}
+        }
+
+
+
+  \uncover<3->
+  {
+  % Define coordinates for the region to emphasize relative to the image node.
+    % These coordinates are offsets from the image's north west corner.
+      \coordinate (clipAA) at ($(img.north west)+(0.4cm,-0.3cm)$);
+      \coordinate (clipBB) at ($(img.north west)+(5.2cm,-2.45cm)$);
+      % Overlay a copy of the image clipped to the region of interest (full opacity).
+      \begin{scope}[remember picture,overlay]
+        \clip (clipAA) rectangle (clipBB);
+        \node [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
+        at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
+      \end{scope}
   }
 
   \uncover<4->
+  {
+      % Overlay a copy of the image clipped to the region of interest (full opacity).
+      \begin{scope}[remember picture,overlay]
+        \node [anchor=north east, xshift=-0.2cm, yshift=-1.5cm]
+        at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/CFDandProp.png}};
+      \end{scope}
+  }
+
+  \uncover<2->
+  {
+  \node[anchor=south west, font=\small, black, xshift=12mm, yshift=-11mm] at (img.north west) {$X$};
+  }
+    \uncover<3->
+    {
+    \node[anchor=south west, font=\small, black, xshift=31mm, yshift=-23mm] at (img.north west) {$p_{nf}$};
+    }
+
+    \uncover<4->
+    {
+    \node[anchor=south west, font=\small, black, xshift=25mm, yshift=-50.5mm] at (img.north west) {Noise};
+    }
+  \end{tikzpicture}
+
+  \uncover<6->
   {
   \begin{tikzpicture}[remember picture,overlay]
     \node[draw=red, dashed, thick, inner xsep=-5pt, inner ysep=4pt,
@@ -249,7 +307,8 @@
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation Problem: Motivation for Mesh Adaptation}
-
+\uncover<2->
+{
 \vspace{-10pt}
 \begin{minipage}[t]{1\linewidth}
   Results for standard time-marching methods\footnotemark:
@@ -265,7 +324,7 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0cm, yshift=-2.1cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=0cm, yshift=-2.0cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
     \small Error in $|d (\text{Noise})/d p_{nf}|$
 
@@ -304,10 +363,10 @@
     \end{minipage}
   };
 \end{tikzpicture}
-
-\uncover<2->
-{
+}
 \vspace{2.3cm}
+\uncover<3->
+{
 \begin{minipage}[t]{1\linewidth}
   \textbf{Our goal:}
   Reduce the significant computational cost involved. Enable efficient, automated high accuracy predictions of boom propagation and design sensitivities through adaptive control of numerical error.
@@ -315,7 +374,6 @@
 }
 
 \vspace{-8pt}\footnotetext{S. K. Rallabhandi et. al. 2023}
-
 \end{frame}
 
 %=============================================================================%
@@ -332,7 +390,7 @@
 
 \section{Boom Propagation Modeling and Adaptive Approach}
 
-\setsectionframes{5}
+\setsectionframes{4}
 
 %---------------------------------------------------------------%
 
@@ -395,41 +453,41 @@
   }
 \end{frame}
 
-%---------------------------------------------------------------%
+% %---------------------------------------------------------------%
 
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Atmosphere Model: Standard}
+% \stepcounter{sectionframecount}
+% \begin{frame}[t]{Atmosphere Model: Standard}
 
-Atmosphere model refers to how the atmospheric properties depend on altitude.
+% Atmosphere model refers to how the atmospheric properties depend on altitude.
 
-\textbf{Standard model:} First two layers:
+% \textbf{Standard model:} First two layers:
 
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-5.5cm, yshift=-3.5cm]
-  at (current page.north east) {\includegraphics[height=5.0cm]{../figs/boom_modeling/atmosphereStandard.pdf}};
-\end{tikzpicture}
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=-5.5cm, yshift=-3.5cm]
+%   at (current page.north east) {\includegraphics[height=5.0cm]{../figs/boom_modeling/atmosphereStandard.pdf}};
+% \end{tikzpicture}
 
-\uncover<2->
-{
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
-    \begin{minipage}{0.4\textwidth}
-      \textbf{Additionally, models for:}
-      \par\medskip
-      \begin{itemize}
-        \item Density and speed of sound: $\rho_0$, $c_0$,
-        \item Gol'berg number: $\Gamma$,
-        \item Relaxation coefficients: $C_\nu, \theta_\nu$,
-        \item Ray tube area: $A_{n0}$,
-      \end{itemize}
+% \uncover<2->
+% {
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
+%     \begin{minipage}{0.4\textwidth}
+%       \textbf{Additionally, models for:}
+%       \par\medskip
+%       \begin{itemize}
+%         \item Density and speed of sound: $\rho_0$, $c_0$,
+%         \item Gol'berg number: $\Gamma$,
+%         \item Relaxation coefficients: $C_\nu, \theta_\nu$,
+%         \item Ray tube area: $A_{n0}$,
+%       \end{itemize}
 
-      as functions of atmospheric properties.
-    \end{minipage}
-  };
-\end{tikzpicture}
-}
+%       as functions of atmospheric properties.
+%     \end{minipage}
+%   };
+% \end{tikzpicture}
+% }
 
-\end{frame}
+% \end{frame}
 
 %---------------------------------------------------------------%
 
@@ -440,9 +498,9 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
   \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
     at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
 
-  \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-9mm] at (img.north west) {Ground};
+  % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-9mm] at (img.north west) {Ground};
 
-  \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-46.5mm] at (img.north west) {Nearfield};
+  % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-46.5mm] at (img.north west) {Nearfield};
 \end{tikzpicture}
 
 \uncover<2->
@@ -460,16 +518,18 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Output-based Adaptation Cycle}
 
-  \textbf{Output of interest:} Loudness at ground.
+
 
   \vspace{5pt}
   \textbf{Adaptive cycle scheme:}
 
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-0.1cm, yshift=-3cm]
+    \node[anchor=north east, xshift=-0.1cm, yshift=-2.7cm]
     at (current page.north east) {\includegraphics[height=4.2cm]{../figs/mesh_adaptation/adaptation_cycle.png}};
   \end{tikzpicture}
 
+  \vspace{4.8cm}
+  \textbf{Output of interest:} Loudness at ground.
 \end{frame}
 
 %=============================================================================%
@@ -528,7 +588,7 @@ Atmosphere model refers to how the atmospheric properties depend on altitude.
   \vspace{10pt}
   \textbf{Remarks:}
   \begin{itemize}
-    \item A discontinuous subscale is used for stabilization, and the resulting method is known as Variational Multiscale with Discontinuous Subscales.
+    \item A discontinuous subscale is used for stabilization, and the resulting method is known as Variational Multiscale with Discontinuous Subscales (VMSD).
     \item The discretization is adjoint consistent.
   \end{itemize}
   }
@@ -588,7 +648,7 @@ with $\epsilon_{\text{AV}}$ as:
 
 \textbf{Shock sensor design requirements:}
 \begin{itemize}
-    \item $s \approx 1$ in shock areas, of order $\mathcal{O}(h)$.
+    \item $s \approx 1$ in shock areas.
     \item $s \approx 0$ away from shocks, of order $\mathcal{O}(h^p)$.
     \item $s$ smooth.
 \end{itemize}
@@ -624,8 +684,11 @@ with $\epsilon_{\text{AV}}$ as:
   \vspace{-10pt}
   Identify pressure changes in $\tau$ direction:
   \begin{equation}
-    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
+    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~\hat{\xi} := \dfrac{\xi}{\xi_1},
   \end{equation}
+
+  \uncover<2->
+  {
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=0cm, yshift=-3.4cm]
     at (current page.north east) {\includegraphics[height=5.7cm]{../figs/shock_capturing/s_grad.pdf}};
@@ -638,6 +701,7 @@ with $\epsilon_{\text{AV}}$ as:
       \end{minipage}
     };
   \end{tikzpicture}
+  }
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -784,8 +848,8 @@ We focus on the B-SEL curve, and the approach can be generalized to any other.
 
 \uncover<2->
 {
-\vspace{10pt}
-Transfer function in the complex frequency domain:
+\vspace{7pt}
+Transfer function in the complex frequency ($\chi$) domain:
 
 \begin{equation}
   H_B(\chi) =\dfrac{\tilde{P}(\chi)}{P(\chi)} = \dfrac{c_B \chi^3}{(\chi+2\pi f_1)^2(\chi+2\pi f_{2B})(\chi+2\pi f_4)^2},
@@ -817,15 +881,20 @@ Transfer function in the complex frequency domain:
 \vspace{-10pt}
 Common filtering techniques not suitable for our unstructured grid.
 
+\uncover<2->
+{
 \vspace{8pt}
 Convert transfer function in complex frequency domain:
 
 \begin{equation}
-  \tilde{P}(\chi) =P(\chi)\dfrac{K^{1/3}}{(\chi+a)^2}\dfrac{K^{1/3}\chi^2}{(\chi+c)^2}\dfrac{K^{1/3}\chi}{(\chi+b)},
+  \tilde{P}(\chi) =P(\chi)\dfrac{K \chi^3}{(\chi+a)^2(\chi+b)(\chi+c)^2},
 \end{equation}
 
-to a \textbf{system of ODE's} in the time domain (to solve in \textit{ground} boundary):
+to a \textbf{system of ODE's} in the $\tau$ domain (to solve in \textit{ground} boundary):
+}
 
+\uncover<3->
+{
 \begin{equation}
   \dfrac{d\bar{u}}{d\tau} =
       \begin{pmatrix}
@@ -846,6 +915,7 @@ to a \textbf{system of ODE's} in the time domain (to solve in \textit{ground} bo
       \end{pmatrix},
   \end{equation}
 where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditions.
+}
 \end{frame}
 
 %=============================================================================%
@@ -924,7 +994,7 @@ Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotic
   \begin{itemize}
     \item We say the residual form $\mathcal{R}$ is \textbf{consistent} if:
     \begin{equation}
-      \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = 0,~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
+      \mathcal{R}(\boldsymbol{v},\boldsymbol{u}) = 0,~~\forall \boldsymbol{v} \in \mathcal{V},
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution.
 
@@ -933,7 +1003,7 @@ Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotic
     \item We say the residual form $\mathcal{R}$ is \textbf{asymptotically consistent} if:
 
     \begin{equation}
-      \mathcal{R}(\boldsymbol{v}_h,\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v}_h \in \mathcal{V}_h,
+      \mathcal{R}(\boldsymbol{v},\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v} \in \mathcal{V},
       \label{e:asymptotic_consistent}
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution, $\alpha>0$, and $h$ is a characteristic element size in $\mathcal{T}_h$.
@@ -1139,7 +1209,7 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
 \uncover<3->
 {
 \begin{equation}
-  \varepsilon_v = -\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
+  \varepsilon_v := -\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
   \label{e:corrected_dwr_nodal}
 \end{equation}
 
@@ -1162,22 +1232,20 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{MOESS: Error Sampling and Synthesis}
-\vspace{-12pt}
 
 \uncover<2->
 {
-\textbf{Local solves:} Loop over edges in the mesh and solve for $\boldsymbol{u}_h^\epsilon$ in refined local patch.
-$\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon) = 0,~~~\forall \boldsymbol{v}_h^\epsilon \in \mathcal{V}_{h,p}^\epsilon$.
+\textbf{Local solve:} Solve for $\boldsymbol{u}_h^\epsilon \in \mathcal{V}_{h,p}^\epsilon$ s.t. $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon) = 0,~~~\forall \boldsymbol{v}_h^\epsilon \in \mathcal{V}_{h,p}^\epsilon$.
 }
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-2cm, yshift=-2.7cm]
-  at (current page.north east) {\includegraphics[height=4.0cm]{../figs/mesh_adaptation/local_patches.png}};
+  \node[anchor=north east, xshift=-1.4cm, yshift=-2.4cm]
+  at (current page.north east) {\includegraphics[height=4.5cm]{../figs/mesh_adaptation/local_patches.png}};
 \end{tikzpicture}
 
 \uncover<3->
 {
-\vspace{4.3cm}
+\vspace{4.7cm}
 \textbf{Nodal indicator for vertices in inner patch:}
 \begin{equation}
   \eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
@@ -1237,7 +1305,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 
 \section{Results for Practical Case}
 
-\setsectionframes{10}
+\setsectionframes{9}
 
 %---------------------------------------------------------------%
 
@@ -1247,9 +1315,9 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 \textbf{Software: Solution Adaptive Numerical Simulator (SANS)\footnotemark}
 \begin{itemize}
   \item C++ framework to numerically solve partial differential equations.
-  \item Extensive use of templates for efficient yet general code.
+  % \item Extensive use of templates for efficient yet general code.
   \item Supports several CG and DG discretizations, with output-based mesh adaptation.
-  \item Automatic differentiation via operator overloading.
+  % \item Automatic differentiation via operator overloading.
   \item MPI parallelization.
   \item Unit testing and continuous integration.
   \item Open source.
@@ -1267,7 +1335,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
   \begin{enumerate}
   \item \textbf{Set:}
     \begin{itemize}
-      \item Case parameters/conditions.
+      \item Case parameters and nearfield condition.
       \item Initial 2D mesh.
       \item Target DOF.
       \item Number of adaptive iterations ($N$).
@@ -1276,15 +1344,15 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
   {
   \item \textbf{Loop, $i \in \{1,...,N\}$:}
   \begin{itemize}
-    \item Extract \textit{ground} boundary and form 1D mesh for filter ODE.
+    % \item Extract \textit{ground} boundary and form 1D mesh for filter ODE.
     \item Solve primal problem:
     \begin{itemize}
       \item $[$Burgers system + shock sensor$]$ in 2D mesh.
-      \item Filter ODE in 1D mesh (ground boundary).
+      \item Filter ODE in ground boundary.
     \end{itemize}
     \item Solve adjoint problem:
     \begin{itemize}
-      \item Adjoint ODE in 1D mesh (ground boundary).
+      \item Adjoint ODE in ground boundary.
       \item $[$Burgers system + shock sensor$]$ adjoint in 2D mesh.
     \end{itemize}
     \item Nodal error sampling and synthesis.
@@ -1306,7 +1374,6 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \item Airplane Mach number: $M_a = 1.4$.
     \item Airplane altitude: $z_a = 16459.2$ m.
     \item Ground altitude: $110$ m.
-    \item Ground reflection factor: $1.9$.
     \uncover<2->
     {
     \item Nearfield signal (initial condition):
@@ -1317,7 +1384,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 \uncover<2->
 {
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-5.5cm, yshift=-4.6cm]
+  \node[anchor=north east, xshift=-5.5cm, yshift=-4.3cm]
   at (current page.north east) {\includegraphics[height=4.4cm]{../figs/SBW3results/nearfield_nondimensional_SBW3_Case2_az0.pdf}};
 \end{tikzpicture}
 }
@@ -1332,13 +1399,13 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
         $\Omega = [-1,2] \times [0,257]$
         \vspace{8pt}
         \item Output for adaptation:
-        $\mathcal{J}_{\text{BSEL}} = \int_{\text{ground}} [\tilde{p}(t)]^2~dt$
+        $\mathcal{J}_{\text{BSEL}} = \int_{\text{ground}} [\tilde{p}(\tau)]^2~d\tau$
         }
         \uncover<4->
         {
         \vspace{8pt}
         \item Also for comparison:
-        $\mathcal{J}_{p} = \int_{\text{ground}} [p(t)]^2~dt$
+        $\mathcal{J}_{p} = \int_{\text{ground}} [p(\tau)]^2~d\tau$
         }
       \end{itemize}
     \end{minipage}
@@ -1356,8 +1423,6 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 \end{frame}
 
 %---------------------------------------------------------------%
-
-% TODO: indicate ground and nearfield
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation: Pressure Perturbation Solution}
@@ -1588,27 +1653,27 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 
 \end{frame}
 
-%---------------------------------------------------------------%
+% %---------------------------------------------------------------%
 
-\stepcounter{sectionframecount}
-\begin{frame}[t]{At Nearfield: Loudness Sensitivity}
+% \stepcounter{sectionframecount}
+% \begin{frame}[t]{At Nearfield: Loudness Sensitivity}
 
-\begin{tikzpicture}[remember picture,overlay]
+% \begin{tikzpicture}[remember picture,overlay]
 
-  \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
-    \begin{minipage}{0.8\textwidth}
-    B-SEL loudness sensitivity to nearfield signal
+%   \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
+%     \begin{minipage}{0.8\textwidth}
+%     B-SEL loudness sensitivity to nearfield signal
 
-    \end{minipage}
-  };
-\end{tikzpicture}
+%     \end{minipage}
+%   };
+% \end{tikzpicture}
 
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
-  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
-\end{tikzpicture}
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
+%   at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
+% \end{tikzpicture}
 
-\end{frame}
+% \end{frame}
 
 %---------------------------------------------------------------%
 
@@ -1646,7 +1711,28 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
     \end{itemize}
   }
 \end{frame}
+
+\begin{frame}[t]{At Nearfield: Loudness Sensitivity}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+  \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
+    \begin{minipage}{0.8\textwidth}
+    B-SEL loudness sensitivity to nearfield signal
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
+  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
+\end{tikzpicture}
+
+\end{frame}
 }
+
+%---------------------------------------------------------------%
 
 %=============================================================================%
 %=============================================================================%
@@ -1736,7 +1822,7 @@ $\mathcal{R}_{\text{local}}(\boldsymbol{v}_h^\epsilon,\boldsymbol{u}_h^\epsilon)
 
   Starting point:
   \begin{equation}
-    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~~ \xi_1 \simeq \max_{x\in\Omega} \xi(x),~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
+    \xi := \dfrac{H_{\tau\tau}}{p} \left|\dfrac{\partial P}{\partial \tau}\right|,~~~\hat{\xi} = \dfrac{\xi}{\xi_1},
   \end{equation}
   then:
   \begin{equation}

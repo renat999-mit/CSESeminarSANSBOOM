@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743692862.36393 "/Users/renat/presentation/src/presentationSeminar.tex" "presentationSeminar.pdf" "presentationSeminar" 1743692868.39095 0
+["pdflatex"] 1743792516.76065 "/Users/renat/presentation/src/presentationSeminar.tex" "presentationSeminar.pdf" "presentationSeminar" 1743792522.70555 0
   "../figs/SBW3results/ComparisonGround.pdf" 1743172545.32599 101809 8a6aa0fc1d87504b8a9e65ca5f281360 ""
   "../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf" 1743171530.36573 468825 c9f3d53a41fe649ba080e966c26e9b2c ""
   "../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf" 1743170234.30768 462102 79b923d3286cb78d85f9c4bc5b186d28 ""
@@ -16,7 +16,6 @@
   "../figs/SBW3results/sbw3_P2_128K_P_field.png" 1743168955.75254 439577 42f088177989f500e5927f9fe6d79c3e ""
   "../figs/SBW3results/sbw3_P2_128K_P_lines.png" 1743168962.83762 84842 85d1d389864e2075dc7b7fec2c872a55 ""
   "../figs/boom_modeling/Coordinate_System_.pdf" 1742501722.27402 3782160 76f38e350985c75933bc08c28c40e5c3 ""
-  "../figs/boom_modeling/atmosphereStandard.pdf" 1742566492.04085 136053 55ce429d408a8ee38ada5e7af41a931f ""
   "../figs/mesh_adaptation/adaptation_cycle.png" 1742839954.6555 162850 fa4f5d438026928a5d0b8bdc9afa53dc ""
   "../figs/mesh_adaptation/local_patches.png" 1742837049.52323 296653 6be5ece964a8ade49302b17635b9e25a ""
   "../figs/mesh_adaptation/mesh_metric_duality.png" 1742835329.48401 389565 68e3d781a9501d88f2271998924afde4 ""
@@ -33,7 +32,7 @@
   "../figs/title_page/aeroastro_logo.jpg" 1743426372.83094 12521 f2dbf472f4e3088973b8754eb45eb924 ""
   "../figs/title_page/mit_logo.png" 1743426278.76043 18274 7845586bd362f6b6b194d3c37cf08a6a ""
   "../figs/title_page/mitccse_logo.jpeg" 1743428102.51667 6916 00d54781746927ca8d6838dbf5948789 ""
-  "/Users/renat/presentation/src/presentationSeminar.tex" 1743692856.12374 60057 3c134aa10c6f78301ccb1a86d1e24fac ""
+  "/Users/renat/presentation/src/presentationSeminar.tex" 1743792516.50817 62587 ed2c8a0c09c9760d6406fea4798683c2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecso0800.tfm" 1136768653 3584 9d213a5e33aba09782ffab939fc38a6f ""
@@ -294,10 +293,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1728742410.36958 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1728742390 8221432 7522761d810b62ea7b5084862ef63d6d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "presentationSeminar.aux" 1743692868.26043 17941 6de4adcaf1a640491190e0a740b5b450 "pdflatex"
-  "presentationSeminar.nav" 1743692868.26243 6467 4f6acb7c6baa2aa643af56a36938ffbc "pdflatex"
-  "presentationSeminar.out" 1743692868.26225 1401 5cc53cb418a4467a88c439b05b85bb45 "pdflatex"
-  "presentationSeminar.tex" 1743692856.12374 60057 3c134aa10c6f78301ccb1a86d1e24fac ""
+  "presentationSeminar.aux" 1743792522.56933 18889 b36f2232ecda12f9b92ca5e93d480d2b "pdflatex"
+  "presentationSeminar.nav" 1743792522.57125 6391 99b3876bbd00b6387005549181a5612d "pdflatex"
+  "presentationSeminar.out" 1743792522.57107 1401 5cc53cb418a4467a88c439b05b85bb45 "pdflatex"
+  "presentationSeminar.tex" 1743792516.50817 62587 ed2c8a0c09c9760d6406fea4798683c2 ""
   (generated)
   "presentationSeminar.aux"
   "presentationSeminar.log"
