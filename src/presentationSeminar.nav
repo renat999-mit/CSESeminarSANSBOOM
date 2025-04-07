@@ -7,25 +7,25 @@
 \headcommand {\beamer@framepages {2}{4}}
 \headcommand {\slideentry {1}{0}{2}{5/10}{}{0}}
 \headcommand {\beamer@framepages {5}{10}}
-\headcommand {\slideentry {1}{0}{3}{11/13}{}{0}}
-\headcommand {\beamer@framepages {11}{13}}
-\headcommand {\slideentry {1}{0}{4}{14/14}{}{0}}
-\headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@sectionpages {2}{14}}
-\headcommand {\beamer@subsectionpages {2}{14}}
-\headcommand {\sectionentry {2}{Boom Propagation Modeling and Adaptive Approach}{15}{Boom Propagation Modeling and Adaptive Approach}{0}}
-\headcommand {\slideentry {2}{0}{1}{15/15}{}{0}}
-\headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {2}{0}{2}{16/18}{}{0}}
-\headcommand {\beamer@framepages {16}{18}}
-\headcommand {\slideentry {2}{0}{3}{19/20}{}{0}}
-\headcommand {\beamer@framepages {19}{20}}
-\headcommand {\slideentry {2}{0}{4}{21/21}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{11/12}{}{0}}
+\headcommand {\beamer@framepages {11}{12}}
+\headcommand {\slideentry {1}{0}{4}{13/15}{}{0}}
+\headcommand {\beamer@framepages {13}{15}}
+\headcommand {\slideentry {1}{0}{5}{16/16}{}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@sectionpages {2}{16}}
+\headcommand {\beamer@subsectionpages {2}{16}}
+\headcommand {\sectionentry {2}{Boom Propagation Modeling and Adaptive Approach}{17}{Boom Propagation Modeling and Adaptive Approach}{0}}
+\headcommand {\slideentry {2}{0}{1}{17/17}{}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {2}{0}{2}{18/20}{}{0}}
+\headcommand {\beamer@framepages {18}{20}}
+\headcommand {\slideentry {2}{0}{3}{21/21}{}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {2}{0}{5}{22/22}{}{0}}
+\headcommand {\slideentry {2}{0}{4}{22/22}{}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\beamer@sectionpages {15}{22}}
-\headcommand {\beamer@subsectionpages {15}{22}}
+\headcommand {\beamer@sectionpages {17}{22}}
+\headcommand {\beamer@subsectionpages {17}{22}}
 \headcommand {\sectionentry {3}{Discretization and Shock Capturing}{23}{Discretization and Shock Capturing}{0}}
 \headcommand {\slideentry {3}{0}{1}{23/24}{}{0}}
 \headcommand {\beamer@framepages {23}{24}}
@@ -83,12 +83,12 @@
 \headcommand {\sectionentry {7}{Results for Practical Case}{77}{Results for Practical Case}{0}}
 \headcommand {\slideentry {7}{0}{1}{77/77}{}{0}}
 \headcommand {\beamer@framepages {77}{77}}
-\headcommand {\slideentry {7}{0}{2}{78/79}{}{0}}
-\headcommand {\beamer@framepages {78}{79}}
-\headcommand {\slideentry {7}{0}{3}{80/83}{}{0}}
-\headcommand {\beamer@framepages {80}{83}}
-\headcommand {\slideentry {7}{0}{4}{84/85}{}{0}}
-\headcommand {\beamer@framepages {84}{85}}
+\headcommand {\slideentry {7}{0}{2}{78/80}{}{0}}
+\headcommand {\beamer@framepages {78}{80}}
+\headcommand {\slideentry {7}{0}{3}{81/84}{}{0}}
+\headcommand {\beamer@framepages {81}{84}}
+\headcommand {\slideentry {7}{0}{4}{85/85}{}{0}}
+\headcommand {\beamer@framepages {85}{85}}
 \headcommand {\slideentry {7}{0}{5}{86/86}{}{0}}
 \headcommand {\beamer@framepages {86}{86}}
 \headcommand {\slideentry {7}{0}{6}{87/87}{}{0}}
@@ -105,27 +105,31 @@
 \headcommand {\beamer@framepages {96}{96}}
 \headcommand {\slideentry {7}{0}{12}{97/97}{}{0}}
 \headcommand {\beamer@framepages {97}{97}}
-\headcommand {\gdef \insertmainframenumber {43}}
-\headcommand {\partentry {\translate {Appendix}}{1}}
-\headcommand {\beamer@partpages {1}{97}}
-\headcommand {\beamer@sectionpages {77}{97}}
-\headcommand {\beamer@subsectionpages {77}{97}}
-\headcommand {\beamer@appendixpages {98}}
-\headcommand {\beamer@sectionpages {98}{97}}
-\headcommand {\beamer@subsectionpages {98}{97}}
-\headcommand {\sectionentry {8}{Backup}{98}{Backup}{1}}
-\headcommand {\slideentry {8}{0}{1}{98/98}{}{1}}
+\headcommand {\slideentry {7}{0}{13}{98/98}{}{0}}
 \headcommand {\beamer@framepages {98}{98}}
-\headcommand {\slideentry {8}{0}{2}{99/99}{}{1}}
+\headcommand {\gdef \insertmainframenumber {44}}
+\headcommand {\partentry {\translate {Appendix}}{1}}
+\headcommand {\beamer@partpages {1}{98}}
+\headcommand {\beamer@sectionpages {77}{98}}
+\headcommand {\beamer@subsectionpages {77}{98}}
+\headcommand {\beamer@appendixpages {99}}
+\headcommand {\beamer@sectionpages {99}{98}}
+\headcommand {\beamer@subsectionpages {99}{98}}
+\headcommand {\sectionentry {8}{Backup}{99}{Backup}{1}}
+\headcommand {\slideentry {8}{0}{1}{99/99}{}{1}}
 \headcommand {\beamer@framepages {99}{99}}
-\headcommand {\slideentry {8}{0}{3}{100/100}{}{1}}
+\headcommand {\slideentry {8}{0}{2}{100/100}{}{1}}
 \headcommand {\beamer@framepages {100}{100}}
-\headcommand {\slideentry {8}{0}{4}{101/101}{}{1}}
+\headcommand {\slideentry {8}{0}{3}{101/101}{}{1}}
 \headcommand {\beamer@framepages {101}{101}}
-\headcommand {\beamer@partpages {98}{101}}
-\headcommand {\beamer@subsectionpages {98}{101}}
-\headcommand {\beamer@sectionpages {98}{101}}
-\headcommand {\beamer@documentpages {101}}
-\headcommand {\gdef \inserttotalframenumber {4}}
-\headcommand {\gdef \inserttotalframenumber {43}}
-\headcommand {\gdef \appendixtotalframenumber {4}}
+\headcommand {\slideentry {8}{0}{4}{102/102}{}{1}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\slideentry {8}{0}{5}{103/103}{}{1}}
+\headcommand {\beamer@framepages {103}{103}}
+\headcommand {\beamer@partpages {99}{103}}
+\headcommand {\beamer@subsectionpages {99}{103}}
+\headcommand {\beamer@sectionpages {99}{103}}
+\headcommand {\beamer@documentpages {103}}
+\headcommand {\gdef \inserttotalframenumber {5}}
+\headcommand {\gdef \inserttotalframenumber {44}}
+\headcommand {\gdef \appendixtotalframenumber {5}}
