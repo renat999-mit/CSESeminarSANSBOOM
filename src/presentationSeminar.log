@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.12)  9 APR 2025 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.12)  9 APR 2025 18:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1581,27 +1581,27 @@ Package pdftex.def Info: ../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pd
  [86
 
 ]
-<../figs/SBW3results/ComparisonGround.pdf, id=3023, 434.94058pt x 298.8983pt>
+<../figs/SBW3results/ComparisonGround.pdf, id=3023, 424.65942pt x 297.34268pt>
 File: ../figs/SBW3results/ComparisonGround.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/ComparisonGround.pdf>
 Package pdftex.def Info: ../figs/SBW3results/ComparisonGround.pdf  used on input line 1551.
-(pdftex.def)             Requested size: 178.03477pt x 122.34692pt.
-<../figs/SBW3results/comparisonBSEL.pdf, id=3024, 438.74841pt x 298.8983pt>
+(pdftex.def)             Requested size: 174.73355pt x 122.34692pt.
+<../figs/SBW3results/comparisonBSEL.pdf, id=3024, 428.46727pt x 297.34268pt>
 File: ../figs/SBW3results/comparisonBSEL.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/comparisonBSEL.pdf>
 Package pdftex.def Info: ../figs/SBW3results/comparisonBSEL.pdf  used on input line 1551.
-(pdftex.def)             Requested size: 179.59343pt x 122.34692pt.
+(pdftex.def)             Requested size: 176.30035pt x 122.34692pt.
  [87
 
  <../figs/SBW3results/ComparisonGround.pdf> <../figs/SBW3results/comparisonBSEL.pdf>]
 File: ../figs/SBW3results/ComparisonGround.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/ComparisonGround.pdf>
 Package pdftex.def Info: ../figs/SBW3results/ComparisonGround.pdf  used on input line 1551.
-(pdftex.def)             Requested size: 178.03477pt x 122.34692pt.
+(pdftex.def)             Requested size: 174.73355pt x 122.34692pt.
 File: ../figs/SBW3results/comparisonBSEL.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/comparisonBSEL.pdf>
 Package pdftex.def Info: ../figs/SBW3results/comparisonBSEL.pdf  used on input line 1551.
-(pdftex.def)             Requested size: 179.59343pt x 122.34692pt.
+(pdftex.def)             Requested size: 176.30035pt x 122.34692pt.
  [88
 
 ]
@@ -1641,12 +1641,12 @@ Package pdftex.def Info: ../figs/SBW3results/loudnessConvergenceForSeminar.pdf  
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 1655.
+(hyperref)                removing `\translate ' on input line 1657.
 
 <../figs/backup/boomCarpet.png, id=3354, 1489.565pt x 513.92pt>
 File: ../figs/backup/boomCarpet.png Graphic file (type png)
 <use ../figs/backup/boomCarpet.png>
-Package pdftex.def Info: ../figs/backup/boomCarpet.png  used on input line 1671.
+Package pdftex.def Info: ../figs/backup/boomCarpet.png  used on input line 1673.
 (pdftex.def)             Requested size: 354.61633pt x 122.34692pt.
 [96
 
@@ -1654,12 +1654,12 @@ Package pdftex.def Info: ../figs/backup/boomCarpet.png  used on input line 1671.
 <../figs/backup/nearfieldSeveralPhi.png, id=3389, 726.715pt x 428.60126pt>
 File: ../figs/backup/nearfieldSeveralPhi.png Graphic file (type png)
 <use ../figs/backup/nearfieldSeveralPhi.png>
-Package pdftex.def Info: ../figs/backup/nearfieldSeveralPhi.png  used on input line 1688.
+Package pdftex.def Info: ../figs/backup/nearfieldSeveralPhi.png  used on input line 1690.
 (pdftex.def)             Requested size: 168.8486pt x 99.58464pt.
 <../figs/backup/loudnessCarpet.png, id=3390, 741.77126pt x 414.54875pt>
 File: ../figs/backup/loudnessCarpet.png Graphic file (type png)
 <use ../figs/backup/loudnessCarpet.png>
-Package pdftex.def Info: ../figs/backup/loudnessCarpet.png  used on input line 1688.
+Package pdftex.def Info: ../figs/backup/loudnessCarpet.png  used on input line 1690.
 (pdftex.def)             Requested size: 178.1872pt x 99.58464pt.
  [97
 
@@ -1667,7 +1667,7 @@ Package pdftex.def Info: ../figs/backup/loudnessCarpet.png  used on input line 1
 <../figs/boom_modeling/atmosphereStandard.pdf, id=3426, 413.77051pt x 298.8983pt>
 File: ../figs/boom_modeling/atmosphereStandard.pdf Graphic file (type pdf)
 <use ../figs/boom_modeling/atmosphereStandard.pdf>
-Package pdftex.def Info: ../figs/boom_modeling/atmosphereStandard.pdf  used on input line 1722.
+Package pdftex.def Info: ../figs/boom_modeling/atmosphereStandard.pdf  used on input line 1724.
 (pdftex.def)             Requested size: 196.9408pt x 142.26378pt.
  [98
 
@@ -1677,24 +1677,24 @@ Package pdftex.def Info: ../figs/boom_modeling/atmosphereStandard.pdf  used on i
 pdfTeX warning (ext4): destination with the same identifier (name{e:multiscale_weak_statement}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1774 \end{frame}
+l.1776 \end{frame}
                    [100
 
 ] [101
 
 ]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1808.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1810.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{e:s_grad}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1808   \end{frame}
+l.1810   \end{frame}
                     
 File: ../figs/shock_capturing/s_grad.pdf Graphic file (type pdf)
 <use ../figs/shock_capturing/s_grad.pdf>
-Package pdftex.def Info: ../figs/shock_capturing/s_grad.pdf  used on input line 1808.
+Package pdftex.def Info: ../figs/shock_capturing/s_grad.pdf  used on input line 1810.
 (pdftex.def)             Requested size: 226.81012pt x 162.18062pt.
  [102
 
@@ -1702,19 +1702,27 @@ Package pdftex.def Info: ../figs/shock_capturing/s_grad.pdf  used on input line 
 <../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf, id=3603, 430.12085pt x 297.34268pt>
 File: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf Graphic file (type pdf)
 <use ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf>
-Package pdftex.def Info: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf  used on input line 1837.
+Package pdftex.def Info: ../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf  used on input line 1839.
 (pdftex.def)             Requested size: 205.79935pt x 142.26378pt.
  [103
 
  <../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf>] [104
 
 ]
-<../figs/SBW3results/loudnessSensistivity.pdf, id=3691, 448.01196pt x 302.20377pt>
+<../figs/backup/ErrorEstimate_AdaptToLoudness.pdf, id=3692, 426.64043pt x 297.34268pt>
+File: ../figs/backup/ErrorEstimate_AdaptToLoudness.pdf Graphic file (type pdf)
+<use ../figs/backup/ErrorEstimate_AdaptToLoudness.pdf>
+Package pdftex.def Info: ../figs/backup/ErrorEstimate_AdaptToLoudness.pdf  used on input line 1900.
+(pdftex.def)             Requested size: 265.37366pt x 184.9429pt.
+ [105
+
+ <../figs/backup/ErrorEstimate_AdaptToLoudness.pdf>]
+<../figs/SBW3results/loudnessSensistivity.pdf, id=3746, 448.01196pt x 302.20377pt>
 File: ../figs/SBW3results/loudnessSensistivity.pdf Graphic file (type pdf)
 <use ../figs/SBW3results/loudnessSensistivity.pdf>
-Package pdftex.def Info: ../figs/SBW3results/loudnessSensistivity.pdf  used on input line 1897.
+Package pdftex.def Info: ../figs/SBW3results/loudnessSensistivity.pdf  used on input line 1921.
 (pdftex.def)             Requested size: 274.18242pt x 184.9429pt.
- [105
+ [106
 
  <../figs/SBW3results/loudnessSensistivity.pdf>]
 \tf@nav=\write6
@@ -1743,18 +1751,18 @@ Package rerunfilecheck Info: File `presentationSeminar.out' has not changed.
 (rerunfilecheck)             Checksum: 5CC53CB418A4467A88C439B05B85BB45;1401.
  ) 
 Here is how much of TeX's memory you used:
- 27024 strings out of 474116
- 551992 string characters out of 5743681
+ 27039 strings out of 474116
+ 552533 string characters out of 5743681
  1962187 words of memory out of 5000000
- 48619 multiletter control sequences out of 15000+600000
+ 48632 multiletter control sequences out of 15000+600000
  583873 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,27n,123p,441b,1182s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfso0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
-Output written on presentationSeminar.pdf (105 pages, 11000943 bytes).
+Output written on presentationSeminar.pdf (106 pages, 11009313 bytes).
 PDF statistics:
- 3902 PDF objects out of 4296 (max. 8388607)
- 3494 compressed objects within 35 object streams
- 230 named destinations out of 1000 (max. 500000)
- 374 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3957 PDF objects out of 4296 (max. 8388607)
+ 3542 compressed objects within 36 object streams
+ 232 named destinations out of 1000 (max. 500000)
+ 379 words of extra memory for PDF output out of 10000 (max. 10000000)
 

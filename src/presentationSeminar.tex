@@ -187,7 +187,7 @@
       \tikz [remember picture,baseline] \node (start) {};
       \item \textit{Sonic boom propagation tool}
       \begin{itemize}
-        \item 2D problem.
+        \item Unsteady 1D problem (or 2D).
         \item Weakly non-linear.
         \item Species relaxation.
         \item Non-uniform atmosphere. \tikz [remember picture,baseline] \node (end) {};
@@ -213,8 +213,8 @@
   \uncover<4->
   {
   \begin{tikzpicture}[remember picture,overlay]
-    \node[draw=red, dashed, thick, inner xsep=8pt, inner ysep=2pt,
-          fit=(start) (end), xshift=-2mm, yshift=-0.4mm] {};
+    \node[draw=red, dashed, thick, inner xsep=15pt, inner ysep=2pt,
+          fit=(start) (end), xshift=-0.7mm, yshift=-0.4mm] {};
   \end{tikzpicture}
   }
 
@@ -837,7 +837,7 @@ Transfer function in the complex frequency ($\chi$) domain:
 \uncover<3->
 {
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.1cm, yshift=-4cm]
+  \node[anchor=north east, xshift=-1.1cm, yshift=-4.1cm]
   at (current page.north east) {\includegraphics[height=5cm]{../figs/signal_filtering/bode_mag.pdf}};
 \end{tikzpicture}
 }
@@ -1580,6 +1580,8 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \end{frame}
 
+
+
 %=============================================================================%
 %=============================================================================%
 %=============================================================================%
@@ -1602,7 +1604,7 @@ The comparison of the nodal error indicators before and after the local solves g
   {
   \textbf{Outcome:}
   \begin{itemize}
-      \item Significant reduction in space-time DOF count, at the expense of solving the optimization problem for the mesh.
+      \item Significant reduction in space-time DOF count, at the expense of solving 2D problem and optimization for the mesh.
       \item The above is highlighted when using higher-order solutions, as quadratic solutions converge the output faster than linear solutions.
     \end{itemize}
   }
@@ -1656,7 +1658,7 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \section{Backup}
 
-\setsectionframes{5}
+\setsectionframes{11}
 
 %---------------------------------------------------------------%
 
@@ -1877,6 +1879,28 @@ Smooth problem with available exact solution:
 
 %---------------------------------------------------------------%
 
+\stepcounter{sectionframecount}
+\begin{frame}[t]{At Ground: Loudness Error Estimate}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+  \node[anchor=north east, xshift=-2.4cm, yshift=-1.8cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    B-SEL loudness error estimate
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-1.8cm, yshift=-2.3cm]
+  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/backup/ErrorEstimate_AdaptToLoudness.pdf}};
+\end{tikzpicture}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+\stepcounter{sectionframecount}
 \begin{frame}[t]{Ongoing Effort: Loudness Sensitivity to Nearfield Signal}
 
   \begin{tikzpicture}[remember picture,overlay]
