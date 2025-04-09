@@ -359,6 +359,10 @@
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation Problem: Motivation for Mesh Adaptation}
+\vspace{-10pt}
+\small \textbf{Target noise level at ground:} below 75 dB.
+
+\small \textbf{Target noise accuracy in simulations:} \textit{reliably} at order of 0.1 dB.
 \uncover<2->
 {
 \vspace{-10pt}
@@ -367,61 +371,63 @@
 \end{minipage}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-5.2cm, yshift=-2.1cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=-4.5cm, yshift=-2.8cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    \small Error in Noise
+    \scriptsize Approximate Error in Noise
 
     \end{minipage}
   };
 \end{tikzpicture}
 
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0cm, yshift=-2.0cm] at (current page.north east) {%
-    \begin{minipage}{0.5\textwidth}
-    \small Error in $|d (\text{Noise})/d p_{nf}|$
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=0cm, yshift=-2.0cm] at (current page.north east) {%
+%     \begin{minipage}{0.5\textwidth}
+%     \small Error in $|d (\text{Noise})/d p_{nf}|$
 
-    \end{minipage}
-  };
-\end{tikzpicture}
+%     \end{minipage}
+%   };
+% \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-8.5cm, yshift=-2.4cm]
-    at (current page.north east) {\includegraphics[height=3.5cm]{../figs/motivation/BSELConvergencesBOOM.png}};
-  \node[anchor=north east, xshift=-11cm, yshift=-6cm]
+  \node[anchor=north east, xshift=-6.1cm, yshift=-3.1cm]
+    at (current page.north east) {\includegraphics[height=4.25cm]{../figs/motivation/errorInNoisesBOOM.pdf}};
+  \node[anchor=north east, xshift=-10.15cm, yshift=-6.35cm]
     at (current page.north east) {\tiny\color{gray} Source: [2]};
 \end{tikzpicture}
 
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.5cm, yshift=-2.4cm]
-    at (current page.north east) {\includegraphics[height=3.5cm]{../figs/motivation/sensitivityNormErrorsBOOM.png}};
-  \node[anchor=north east, xshift=-5.5cm, yshift=-6cm]
-    at (current page.north east) {\tiny\color{gray} Source: [2]};
-\end{tikzpicture}
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=-1.5cm, yshift=-2.4cm]
+%     at (current page.north east) {\includegraphics[height=3.5cm]{../figs/motivation/sensitivityNormErrorsBOOM.png}};
+%   \node[anchor=north east, xshift=-5.5cm, yshift=-6cm]
+%     at (current page.north east) {\tiny\color{gray} Source: [2]};
+% \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-6cm, yshift=-6.4cm] at (current page.north east) {%
+  \node[anchor=north east, xshift=0cm, yshift=-5.3cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    \scriptsize ($\approx 10^{11}$ DOF for $10^{-3}$ error)
+    \scriptsize ($\approx 10^{10}$ DOF for $10^{-2}$ approx. error)
 
     \end{minipage}
   };
 \end{tikzpicture}
 
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0cm, yshift=-6.4cm] at (current page.north east) {%
-    \begin{minipage}{0.5\textwidth}
-    \scriptsize ( $\approx 10^{10}$ DOF for $10^{-2}$ error )
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node[anchor=north east, xshift=0cm, yshift=-6.4cm] at (current page.north east) {%
+%     \begin{minipage}{0.5\textwidth}
+%     \scriptsize ( $\approx 10^{10}$ DOF for $10^{-2}$ error )
 
-    \end{minipage}
-  };
-\end{tikzpicture}
+%     \end{minipage}
+%   };
+% \end{tikzpicture}
 }
-\vspace{2.3cm}
+\vspace{3.8cm}
 \uncover<3->
 {
 \begin{minipage}[t]{1\linewidth}
   \textbf{Our goal:}
-  Reduce the significant computational cost involved. Enable efficient, automated high accuracy predictions of boom propagation and design sensitivities through adaptive control of numerical error.
+  Reduce the significant computational cost involved.
+
+  Enable efficient, automated high accuracy predictions of boom propagation and design sensitivities through adaptive control of numerical error.
 \end{minipage}
 }
 
@@ -500,77 +506,15 @@
   \textbf{Remarks:}
   \begin{itemize}
     \item Eq (\ref{e:augmented_burgers}) is parabolic, with $\sigma$ the time-like direction.
-    \item It is typically solved with a time-marching scheme.
+    \item It is typically solved with a time-marching scheme. \textbf{Not in our case.}
   \end{itemize}
   }
 \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Atmosphere Model: Standard}
-
-% Atmosphere model refers to how the atmospheric properties depend on altitude.
-
-% \textbf{Standard model:} First two layers:
-
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-5.5cm, yshift=-3.5cm]
-%   at (current page.north east) {\includegraphics[height=5.0cm]{../figs/boom_modeling/atmosphereStandard.pdf}};
-% \end{tikzpicture}
-
-% \uncover<2->
-% {
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
-%     \begin{minipage}{0.4\textwidth}
-%       \textbf{Additionally, models for:}
-%       \par\medskip
-%       \begin{itemize}
-%         \item Density and speed of sound: $\rho_0$, $c_0$,
-%         \item Gol'berg number: $\Gamma$,
-%         \item Relaxation coefficients: $C_\nu, \theta_\nu$,
-%         \item Ray tube area: $A_{n0}$,
-%       \end{itemize}
-
-%       as functions of atmospheric properties.
-%     \end{minipage}
-%   };
-% \end{tikzpicture}
-% }
-
-% \end{frame}
-
-%---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{Space-time Adaptive Method}
-
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
-%     at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
-
-%   % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-9mm] at (img.north west) {Ground};
-
-%   % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-46.5mm] at (img.north west) {Nearfield};
-% \end{tikzpicture}
-
-% \uncover<2->
-% {
-% \begin{minipage}[t]{1\linewidth}
-%   \vspace{4.8cm}
-%   But, space-time unstructured requires solving an optimization problem for the mesh.
-% \end{minipage}
-% }
-
-% \end{frame}
 
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Output-based Adaptation Cycle}
-
-
 
   \vspace{5pt}
   \textbf{Adaptive cycle scheme:}
@@ -756,6 +700,7 @@ with $\epsilon_{\text{AV}}$ as:
   }
 \end{frame}
 
+
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
@@ -771,39 +716,10 @@ Smooth problem with available exact solution:
 \uncover<2->
 {
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.5cm, yshift=-3.5cm] at (current page.north east) {%
+
+  \node[anchor=north east, xshift=-2.75cm, yshift=-3.2cm] at (current page.north east) {%
     \begin{minipage}{0.5\textwidth}
-    \small Solution L2 error
-
-    \end{minipage}
-  };
-\end{tikzpicture}
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-3cm, yshift=-3.8cm]
-  at (current page.north east) {\includegraphics[height=5cm]{../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf}};
-\end{tikzpicture}
-}
-
-\end{frame}
-
-%---------------------------------------------------------------%
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Test With Smooth Problem}
-\vspace{-10pt}
-Smooth problem with available exact solution:
-
-\begin{itemize}
-  \item Solve without artificial viscosity.
-  \item Solve with artificial viscosity and see how it affects convergence.
-\end{itemize}
-
-\begin{tikzpicture}[remember picture,overlay]
-
-  \node[anchor=north east, xshift=-1.3cm, yshift=-3.2cm] at (current page.north east) {%
-    \begin{minipage}{0.5\textwidth}
-    \small Output error
+    \small Output error for adaptive refinement
 
     \end{minipage}
   };
@@ -811,9 +727,17 @@ Smooth problem with available exact solution:
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-2.6cm, yshift=-3.5cm]
-  at (current page.north east) {\includegraphics[height=5.5cm]{../figs/shock_capturing/OutputErrorTravelingWave_Consistent_adaptive.pdf}};
+  at (current page.north east) {\includegraphics[height=5.5cm]{../figs/shock_capturing/outputErrorP1only.pdf}};
 \end{tikzpicture}
+}
 
+\uncover<3->
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-2.6cm, yshift=-3.5cm]
+    at (current page.north east) {\includegraphics[height=5.5cm]{../figs/shock_capturing/outputError.pdf}};
+  \end{tikzpicture}
+}
 \end{frame}
 
 %=============================================================================%
@@ -900,10 +824,11 @@ We focus on the B-SEL curve, and the approach can be generalized to any other.
 
 \uncover<2->
 {
-\vspace{7pt}
+\vspace{4pt}
 Transfer function in the complex frequency ($\chi$) domain:
-
+\vspace{-5pt}
 \begin{equation}
+  \small
   H_B(\chi) =\dfrac{\tilde{P}(\chi)}{P(\chi)} = \dfrac{c_B \chi^3}{(\chi+2\pi f_1)^2(\chi+2\pi f_{2B})(\chi+2\pi f_4)^2},
   \label{e:continuous_transfer}
 \end{equation}
@@ -911,17 +836,9 @@ Transfer function in the complex frequency ($\chi$) domain:
 
 \uncover<3->
 {
-\vspace{10pt}
-\begin{itemize}
-  \item $c_B = 5.99185 \times 10^9$
-  \item $f_1 = 20.598997$ Hz
-  \item $f_{2B} = 158.48932$ Hz
-  \item $f_4 = 12194.217$ Hz
-\end{itemize}
-
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0.5cm, yshift=-4.5cm]
-  at (current page.north east) {\includegraphics[height=4.2cm]{../figs/signal_filtering/bode_mag.pdf}};
+  \node[anchor=north east, xshift=-1.1cm, yshift=-4cm]
+  at (current page.north east) {\includegraphics[height=5cm]{../figs/signal_filtering/bode_mag.pdf}};
 \end{tikzpicture}
 }
 \end{frame}
@@ -1009,12 +926,11 @@ where $\bar{u}=(u_0,u_1,u_2,u_3,\tilde{p})^T$, with homogeneous initial conditio
 
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Output Functional and Error}
-  In general, consider output functional of the form:
+  We consider the following output functional:
   \begin{equation}
-    \mathcal{J}(\boldsymbol{u}) := \int_{\Omega} g_v(\boldsymbol{u})dV + \int_{\partial \Omega} g_b(\boldsymbol{u})dS.
-    \label{e:general_output_functional}
+    \mathcal{J}(\boldsymbol{u}) := \int_{\text{ground}} [\tilde{p}(\tau)]^2~d\tau.
+    \label{e:output_functional}
   \end{equation}
-(In our case $\mathcal{J}(\boldsymbol{u}) = \int_{\text{ground}} [\tilde{p}(\tau)]^2~d\tau$)
 
 \uncover<2->
 {
@@ -1026,7 +942,7 @@ We define output error as:
 \end{equation}
 
 \vspace{8pt}
-For general nonlinear problem, the output error can be approximated using the \textbf{dual weighted residual} (DWR) method.
+For our nonlinear problem, the output error can be approximated using the \textbf{dual weighted residual} (DWR) method.
 }
 
 \uncover<3->
@@ -1034,7 +950,6 @@ For general nonlinear problem, the output error can be approximated using the \t
 \vspace{10pt}
 Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotically consistent).
 }
-
 \footnotetext{B. Couchman 2020}
 \end{frame}
 
@@ -1044,18 +959,18 @@ Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotic
 \begin{frame}[t]{Residual Consistency}
 \vspace{-10pt}
   \begin{itemize}
-    \item We say the residual form $\mathcal{R}$ is \textbf{consistent} if:
+    \item We say a form $\mathcal{R}^C$ is \textbf{consistent} if:
     \begin{equation}
-      \mathcal{R}(\boldsymbol{v},\boldsymbol{u}) = 0,~~\forall \boldsymbol{v} \in \mathcal{V},
+      \mathcal{R}^C(\boldsymbol{v},\boldsymbol{u}) = 0,~~\forall \boldsymbol{v} \in \mathcal{V},
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution.
 
     \uncover<2->
     {
-    \item We say the residual form $\mathcal{R}$ is \textbf{asymptotically consistent} if:
+    \item We say a form $\mathcal{R}^A$ is \textbf{asymptotically consistent} if:
 
     \begin{equation}
-      \mathcal{R}(\boldsymbol{v},\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v} \in \mathcal{V},
+      \mathcal{R}^A(\boldsymbol{v},\boldsymbol{u}) = \mathcal{O}(h^\alpha),~~\forall \boldsymbol{v} \in \mathcal{V},
       \label{e:asymptotic_consistent}
     \end{equation}
     where $\boldsymbol{u}$ is the exact solution, $\alpha>0$, and $h$ is a characteristic element size in $\mathcal{T}_h$.
@@ -1066,16 +981,15 @@ Needs \textbf{correction}\footnotemark for artificial viscosity term (asymptotic
 {
 \vspace{10pt}
 In our situation:
-
+\vspace{-5pt}
 \begin{equation}
   \begin{split}
-  \mathcal{R}(\boldsymbol{v}_h,&\boldsymbol{u}_h) =
-  \mathcal{R}^C(\boldsymbol{v}_h,\boldsymbol{u}_h) + \underbrace{\mathcal{R}^A(\boldsymbol{v}_h,\boldsymbol{u}_h)}_{\text{AV term}}.
+  \mathcal{R}(\boldsymbol{v}_h,&\boldsymbol{u}_h) :=
+  \underbrace{\mathcal{R}^C(\boldsymbol{v}_h,\boldsymbol{u}_h)}_{:= \mathcal{R}^{CG}} + \underbrace{\mathcal{R}^A(\boldsymbol{v}_h,\boldsymbol{u}_h)}_{:=\mathcal{R}^{\text{AV}}}.
   \end{split}
   \label{e:residual_C_A_decomposition}
 \end{equation}
 }
-
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -1261,12 +1175,12 @@ Want mesh producing the smallest output error indicator $\mathcal{E}$:
 \uncover<3->
 {
 \begin{equation}
-  \varepsilon_v := -\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
+  \varepsilon_v := -\mathcal{R}(\phi_v \Delta \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h) + \mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h),
   \label{e:corrected_dwr_nodal}
 \end{equation}
 
 \begin{equation}
-  \eta_v := |\mathcal{R}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)| + |\mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)|,~~~ \eta := \sum_{v} \eta_v \equiv \mathcal{E}
+  \eta_v := |\mathcal{R}(\phi_v \Delta \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)| + |\mathcal{R}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h)|,~~~ \eta := \sum_{v} \eta_v \equiv \mathcal{E}
   \label{e:corrected_dwr_nodal}
 \end{equation}
 }
@@ -1300,11 +1214,10 @@ The comparison of the nodal error indicators before and after the local solves g
 \vspace{4.7cm}
 \textbf{Nodal indicator for vertices in inner patch:}
 \begin{equation}
-  \eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
+  \eta_v^\epsilon = |\mathcal{R}_\text{local}(\phi_v \Delta \boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}_h^\epsilon)| + |\mathcal{R}_\text{local}^A(\phi_v\boldsymbol{\psi}_{\hat{h}},\boldsymbol{u}^\epsilon_h)|.
   \label{e:dwr_ind_base_local}
 \end{equation}
 }
-
 \end{frame}
 
 %=============================================================================%
@@ -1357,7 +1270,7 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \section{Results for Practical Case}
 
-\setsectionframes{9}
+\setsectionframes{8}
 
 %---------------------------------------------------------------%
 
@@ -1379,48 +1292,6 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \end{frame}
 
-%---------------------------------------------------------------%
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Preliminary: Run Summary}
-  \vspace{-10pt}
-  \begin{enumerate}
-  \item \textbf{Set:}
-    \begin{itemize}
-      \item Case parameters and nearfield condition.
-      \item Initial 2D mesh.
-      \item Target DOF.
-      \item Number of adaptive iterations ($N$).
-    \end{itemize}
-  \uncover<2->
-  {
-  \item \textbf{Loop, $i \in \{1,...,N\}$:}
-  \begin{itemize}
-    % \item Extract \textit{ground} boundary and form 1D mesh for filter ODE.
-    \item Solve primal problem:
-    \begin{itemize}
-      \item $[$Burgers system + shock sensor$]$ in 2D mesh.
-      \item Filter ODE in ground boundary.
-    \end{itemize}
-    \item Solve adjoint problem:
-    \begin{itemize}
-      \item Adjoint ODE in ground boundary.
-      \item $[$Burgers system + shock sensor$]$ adjoint in 2D mesh.
-    \end{itemize}
-    \item Nodal error sampling and synthesis.
-    \item Adapt mesh.
-  \end{itemize}
-  }
-  \uncover<3->
-  {
-  \item \textbf{Average results:}
-  \begin{itemize}
-    \item Average any quantity of interest (e.g. output value) over last $n$ adaptive iterations.
-  \end{itemize}
-  }
-\end{enumerate}
-
-\end{frame}
 
 %---------------------------------------------------------------%
 
@@ -1485,55 +1356,25 @@ The comparison of the nodal error indicators before and after the local solves g
 \stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation: Pressure Perturbation Solution}
 
-% \begin{tikzpicture}[remember picture,overlay]
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-6.3cm, yshift=-2cm]
+      at (current page.north east) {%
+        \includegraphics[height=5.8cm, trim=5mm 5mm 5mm 5mm, clip]{../figs/SBW3results/sbw3_P1_128K_P_lines.png}};
+  \end{tikzpicture}
 
-%   \node[anchor=north east, xshift=-6.3cm, yshift=-3cm] at (current page.north east) {%
-%     \begin{minipage}{0.5\textwidth}
-%     $p=1$
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=0.2cm, yshift=-2cm]
+      at (current page.north east) {%
+        \includegraphics[height=5.8cm, trim=5mm 5mm 5mm 5mm, clip]{../figs/SBW3results/sbw3_P1_128K_P_field.png}};
 
-%     \end{minipage}
-%   };
-% \end{tikzpicture}
+    % (If you have a defined node 'img' for positioning "Ground" and "Nearfield", make sure it is defined.
+    % Otherwise, adjust these nodes accordingly.)
+    \node[anchor=south west, font=\scriptsize, black, xshift=83mm, yshift=8mm]
+      at (img.north west) {Ground};
 
-% \uncover<2->
-% {
-% \begin{tikzpicture}[remember picture,overlay]
-
-%   \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
-%     \begin{minipage}{0.5\textwidth}
-%     $p=2$
-
-%     \end{minipage}
-%   };
-% \end{tikzpicture}
-% }
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-6.3cm, yshift=-2cm]
-  at (current page.north east) {\includegraphics[height=5.8cm]{../figs/SBW3results/sbw3_P1_128K_P_lines.png}};
-\end{tikzpicture}
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=0.2cm, yshift=-2cm]
-  at (current page.north east) {\includegraphics[height=5.8cm]{../figs/SBW3results/sbw3_P1_128K_P_field.png}};
-
-  \node[anchor=south west, font=\scriptsize, black, xshift=83mm, yshift=8mm] at (img.north west) {Ground};
-
-  \node[anchor=south west, font=\scriptsize, black, xshift=83mm, yshift=-50mm] at (img.north west) {Nearfield};
-\end{tikzpicture}
-
-% \uncover<2->
-% {
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-6.5cm, yshift=-5.3cm]
-%   at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/sbw3_P2_128K_P_lines.png}};
-% \end{tikzpicture}
-
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-1.5cm, yshift=-5.3cm]
-%   at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/sbw3_P2_128K_P_field.png}};
-% \end{tikzpicture}
-% }
+    \node[anchor=south west, font=\scriptsize, black, xshift=83mm, yshift=-47.5mm]
+      at (img.north west) {Nearfield};
+  \end{tikzpicture}
 
 \end{frame}
 
@@ -1571,7 +1412,7 @@ The comparison of the nodal error indicators before and after the local solves g
   \node[anchor=north east, xshift=1.5cm, yshift=-2cm]
   at (current page.north east) {\includegraphics[height=6cm]{../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf}};
 \end{tikzpicture}
-
+%
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -1592,7 +1433,7 @@ The comparison of the nodal error indicators before and after the local solves g
 
   \begin{tikzpicture}[remember picture,overlay]
 
-    \node[anchor=north east, xshift=-6.3cm, yshift=-3cm] at (current page.north east) {%
+    \node[anchor=north east, xshift=-6.1cm, yshift=-3cm] at (current page.north east) {%
       \begin{minipage}{0.5\textwidth}
       $\mathcal{J}_{\text{BSEL}}$
 
@@ -1604,7 +1445,7 @@ The comparison of the nodal error indicators before and after the local solves g
   {
   \begin{tikzpicture}[remember picture,overlay]
 
-    \node[anchor=north east, xshift=-6.3cm, yshift=-7cm] at (current page.north east) {%
+    \node[anchor=north east, xshift=-6.1cm, yshift=-7cm] at (current page.north east) {%
       \begin{minipage}{0.5\textwidth}
       $\mathcal{J}_p$
 
@@ -1615,7 +1456,7 @@ The comparison of the nodal error indicators before and after the local solves g
 
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=-6.5cm, yshift=-1.3cm]
-    at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png}};
+    at (current page.north east) {\includegraphics[height=3.9cm, trim=5mm 5mm 2mm 5mm, clip]{../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png}};
   \end{tikzpicture}
 
   \begin{tikzpicture}[remember picture,overlay]
@@ -1626,12 +1467,12 @@ The comparison of the nodal error indicators before and after the local solves g
   \uncover<2->
   {
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-6.5cm, yshift=-5.3cm]
-    at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/adjointAdaptToP2_P2_128K.png}};
+    \node[anchor=north east, xshift=-6.5cm, yshift=-5.1cm]
+    at (current page.north east) {\includegraphics[height=3.9cm, trim=5mm 5mm 2mm 5mm, clip]{../figs/SBW3results/adjointAdaptToP2_P2_128K.png}};
   \end{tikzpicture}
 
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north east, xshift=-0.5cm, yshift=-5.3cm]
+    \node[anchor=north east, xshift=-0.5cm, yshift=-5.1cm]
     at (current page.north east) {\includegraphics[height=3.9cm]{../figs/SBW3results/SBW3_P1_8K_AdaptToP2_mesh_zoomed.pdf}};
   \end{tikzpicture}
   }
@@ -1726,34 +1567,18 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \begin{tikzpicture}[remember picture,overlay]
   \node[anchor=north east, xshift=-1.8cm, yshift=-2.3cm]
-  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/SBW3_loudnessGround_adaptToBSEL_comparison.pdf}};
+  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessConvergenceForSeminarOnlyP1.pdf}};
 \end{tikzpicture}
 
+\uncover<2->
+{
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-1.8cm, yshift=-2.3cm]
+  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessConvergenceForSeminar.pdf}};
+\end{tikzpicture}
+}
+
 \end{frame}
-
-% %---------------------------------------------------------------%
-
-% \stepcounter{sectionframecount}
-% \begin{frame}[t]{At Nearfield: Loudness Sensitivity}
-
-% \begin{tikzpicture}[remember picture,overlay]
-
-%   \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
-%     \begin{minipage}{0.8\textwidth}
-%     B-SEL loudness sensitivity to nearfield signal
-
-%     \end{minipage}
-%   };
-% \end{tikzpicture}
-
-% \begin{tikzpicture}[remember picture,overlay]
-%   \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
-%   at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
-% \end{tikzpicture}
-
-% \end{frame}
-
-%---------------------------------------------------------------%
 
 %=============================================================================%
 %=============================================================================%
@@ -1790,27 +1615,6 @@ The comparison of the nodal error indicators before and after the local solves g
       \item Study convergence of loudness sensitivity to nearfield signal.
     \end{itemize}
   }
-\end{frame}
-
-%---------------------------------------------------------------%
-
-\begin{frame}[t]{Ongoing Effort: Loudness Sensitivity to Nearfield Signal}
-
-\begin{tikzpicture}[remember picture,overlay]
-
-  \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
-    \begin{minipage}{0.8\textwidth}
-    B-SEL loudness sensitivity to nearfield signal
-
-    \end{minipage}
-  };
-\end{tikzpicture}
-
-\begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
-  at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
-\end{tikzpicture}
-
 \end{frame}
 
 %---------------------------------------------------------------%
@@ -1857,7 +1661,7 @@ The comparison of the nodal error indicators before and after the local solves g
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Sonic Boom Carpet: Front View}
+\begin{frame}[t]{Boom Carpet: Front View Schematic}
 
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north east, xshift=0cm, yshift=-2.8cm]
@@ -1866,6 +1670,56 @@ The comparison of the nodal error indicators before and after the local solves g
 
 \end{frame}
 
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Boom Carpet: Nearfield Conditions and Loudness Values\footnote{S. K. Rallabhandi et. al. 2023}}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-6.7cm, yshift=-2.8cm]
+    at (current page.north east) {\includegraphics[height=3.5cm]{../figs/backup/nearfieldSeveralPhi.png}};
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=0cm, yshift=-2.8cm]
+    at (current page.north east) {\includegraphics[height=3.5cm]{../figs/backup/loudnessCarpet.png}};
+  \end{tikzpicture}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Atmosphere Model: Standard}
+
+Atmosphere model refers to how the atmospheric properties depend on altitude.
+
+\textbf{Standard model:} First two layers:
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-5.5cm, yshift=-3.5cm]
+  at (current page.north east) {\includegraphics[height=5.0cm]{../figs/boom_modeling/atmosphereStandard.pdf}};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-0.2cm, yshift=-2.8cm] at (current page.north east) {%
+    \begin{minipage}{0.4\textwidth}
+      \textbf{Additionally, models for:}
+      \par\medskip
+      \begin{itemize}
+        \item Density and speed of sound: $\rho_0$, $c_0$,
+        \item Gol'berg number: $\Gamma$,
+        \item Relaxation coefficients: $C_\nu, \theta_\nu$,
+        \item Ray tube area: $A_{n0}$,
+      \end{itemize}
+
+      as functions of atmospheric properties.
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\end{frame}
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
@@ -1952,5 +1806,94 @@ The comparison of the nodal error indicators before and after the local solves g
     at (current page.north east) {\includegraphics[height=5.7cm]{../figs/shock_capturing/s_grad.pdf}};
   \end{tikzpicture}
   \end{frame}
+
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Test With Smooth Problem}
+\vspace{-10pt}
+Smooth problem with available exact solution:
+
+\begin{itemize}
+  \item Solve without artificial viscosity.
+  \item Solve with artificial viscosity and see how it affects convergence.
+\end{itemize}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-1.5cm, yshift=-3.5cm] at (current page.north east) {%
+    \begin{minipage}{0.5\textwidth}
+    \small Solution L2 error
+
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east, xshift=-3cm, yshift=-3.8cm]
+  at (current page.north east) {\includegraphics[height=5cm]{../figs/shock_capturing/primal_traveling_wave_withAV_L2_UniRef.pdf}};
+\end{tikzpicture}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
+\begin{frame}[t]{Run Summary}
+  \vspace{-10pt}
+  \begin{enumerate}
+  \item \textbf{Set:}
+    \begin{itemize}
+      \item Case parameters and nearfield condition.
+      \item Initial 2D mesh.
+      \item Target DOF.
+      \item Number of adaptive iterations ($N$).
+    \end{itemize}
+
+  \item \textbf{Loop, $i \in \{1,...,N\}$:}
+  \begin{itemize}
+    % \item Extract \textit{ground} boundary and form 1D mesh for filter ODE.
+    \item Solve primal problem:
+    \begin{itemize}
+      \item $[$Burgers system + shock sensor$]$ in 2D mesh.
+      \item Filter ODE in ground boundary.
+    \end{itemize}
+    \item Solve adjoint problem:
+    \begin{itemize}
+      \item Adjoint ODE in ground boundary.
+      \item $[$Burgers system + shock sensor$]$ adjoint in 2D mesh.
+    \end{itemize}
+    \item Nodal error sampling and synthesis.
+    \item Adapt mesh.
+  \end{itemize}
+
+  \item \textbf{Average results:}
+  \begin{itemize}
+    \item Average any quantity of interest (e.g. output value) over last $n$ adaptive iterations.
+  \end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\begin{frame}[t]{Ongoing Effort: Loudness Sensitivity to Nearfield Signal}
+
+  \begin{tikzpicture}[remember picture,overlay]
+
+    \node[anchor=north east, xshift=0cm, yshift=-1.8cm] at (current page.north east) {%
+      \begin{minipage}{0.8\textwidth}
+      B-SEL loudness sensitivity to nearfield signal
+
+      \end{minipage}
+    };
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, xshift=-1.6cm, yshift=-2.3cm]
+    at (current page.north east) {\includegraphics[height=6.5cm]{../figs/SBW3results/loudnessSensistivity.pdf}};
+  \end{tikzpicture}
+
+\end{frame}
 
 \end{document}
