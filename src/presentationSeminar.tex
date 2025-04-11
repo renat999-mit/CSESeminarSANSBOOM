@@ -187,7 +187,7 @@
       \tikz [remember picture,baseline] \node (start) {};
       \item \textit{Sonic boom propagation tool}
       \begin{itemize}
-        \item Unsteady 1D problem (or 2D).
+        \item 2D problem (or unsteady 1D).
         \item Weakly non-linear.
         \item Species relaxation.
         \item Non-uniform atmosphere. \tikz [remember picture,baseline] \node (end) {};
@@ -334,22 +334,27 @@
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation Problem: Mesh Adaptation}
+\begin{frame}[t]{Propagation Problem: Motivation for Mesh Adaptation}
 
+\textbf{Shock-dominated problem:} Need fine mesh in shock areas.
+
+\uncover<2->
+{
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east, xshift=-0.5cm, yshift=-1.5cm]
+  \node[anchor=north east, xshift=-0.5cm, yshift=-2.3cm]
     at (current page.north east) {\includegraphics[height=5.5cm]{../figs/motivation/spaceTimeAdaptiveMethod.png}};
 
   % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-9mm] at (img.north west) {Ground};
 
   % \node[anchor=south west, font=\tiny, black, xshift=-67mm, yshift=-46.5mm] at (img.north west) {Nearfield};
 \end{tikzpicture}
+}
 
-\uncover<2->
+\uncover<3->
 {
 \begin{minipage}[t]{1\linewidth}
-  \vspace{4.8cm}
-  But, space-time unstructured requires 2D solve instead of marching in $\sigma$, and solving an optimization problem for the mesh.
+  \vspace{4.9cm}
+  But, space-time unstructured requires 2D solve instead of marching in $\sigma$.
 \end{minipage}
 }
 
@@ -362,7 +367,7 @@
 \vspace{-10pt}
 \small \textbf{Target noise level at ground:} below 75 dB.
 
-\small \textbf{Target noise accuracy in simulations:} \textit{reliably} at order of 0.1 dB.
+\small \textbf{Target noise error in simulations:} \textit{reliably} at order of 0.1 dB.
 \uncover<2->
 {
 \vspace{-10pt}
@@ -645,7 +650,7 @@ with $\epsilon_{\text{AV}}$ as:
 \textbf{Shock sensor design requirements:}
 \begin{itemize}
     \item $s \approx 1$ in shock areas.
-    \item $s \approx 0$ away from shocks, of order $\mathcal{O}(h^p)$.
+    \item $s \approx 0$ away from shocks.
     \item $s$ smooth.
 \end{itemize}
 \uncover<2->
@@ -1381,6 +1386,17 @@ The comparison of the nodal error indicators before and after the local solves g
 %---------------------------------------------------------------%
 
 \stepcounter{sectionframecount}
+\begin{frame}[t]{Propagation: Evolution Over Adaptive Cycle, 8K Target DOF}
+
+  \centering
+  % Clicking on the thumbnail will launch the external video file.
+  \href{run:burgers_mesh_and_primal_combined_8K.mp4}{\includegraphics[width=0.6\linewidth]{../figs/SBW3results/playVideoSymbol.jpg}}
+
+\end{frame}
+
+%---------------------------------------------------------------%
+
+\stepcounter{sectionframecount}
 \begin{frame}[t]{Propagation: Final Adapted Mesh for 8K Target DOF}
 
 \begin{tikzpicture}[remember picture,overlay]
@@ -1413,17 +1429,6 @@ The comparison of the nodal error indicators before and after the local solves g
   at (current page.north east) {\includegraphics[height=6cm]{../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf}};
 \end{tikzpicture}
 %
-\end{frame}
-
-%---------------------------------------------------------------%
-
-\stepcounter{sectionframecount}
-\begin{frame}[t]{Propagation: Evolution Over Adaptive Cycle, 8K Target DOF}
-
-  \centering
-  % Clicking on the thumbnail will launch the external video file.
-  \href{run:burgers_mesh_and_primal_combined_8K.mp4}{\includegraphics[width=0.6\linewidth]{../figs/SBW3results/playVideoSymbol.jpg}}
-
 \end{frame}
 
 %---------------------------------------------------------------%

@@ -563,6 +563,10 @@ INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
 INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
 INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
 INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
+INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
+INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
+INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
+INPUT ../figs/motivation/spaceTimeAdaptiveMethod.png
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT ../figs/motivation/errorInNoisesBOOM.pdf
@@ -786,6 +790,11 @@ INPUT ../figs/SBW3results/sbw3_P1_128K_P_field.png
 INPUT ../figs/SBW3results/sbw3_P1_128K_P_field.png
 INPUT ../figs/SBW3results/sbw3_P1_128K_P_field.png
 INPUT ../figs/SBW3results/sbw3_P1_128K_P_field.png
+INPUT ../figs/SBW3results/playVideoSymbol.jpg
+INPUT ../figs/SBW3results/playVideoSymbol.jpg
+INPUT ../figs/SBW3results/playVideoSymbol.jpg
+INPUT ../figs/SBW3results/playVideoSymbol.jpg
+INPUT ../figs/SBW3results/playVideoSymbol.jpg
 INPUT ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf
 INPUT ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf
 INPUT ../figs/SBW3results/SBW3_P1_8K_mesh_a40_zoomed.pdf
@@ -796,11 +805,6 @@ INPUT ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf
 INPUT ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf
 INPUT ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf
 INPUT ../figs/SBW3results/SBW3_P2_8K_mesh_a40_zoomed.pdf
-INPUT ../figs/SBW3results/playVideoSymbol.jpg
-INPUT ../figs/SBW3results/playVideoSymbol.jpg
-INPUT ../figs/SBW3results/playVideoSymbol.jpg
-INPUT ../figs/SBW3results/playVideoSymbol.jpg
-INPUT ../figs/SBW3results/playVideoSymbol.jpg
 INPUT ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png
 INPUT ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png
 INPUT ../figs/SBW3results/adjointAdaptToBSEL_P2_128K.png

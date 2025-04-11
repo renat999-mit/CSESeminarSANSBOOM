@@ -75,6 +75,7 @@ y_ref_p2 = ymax_p2 * 3
 add_slope_segment(ax, x1_p2, x2_p2, y_ref_p2, m=4, color='r')
 
 ax.set_xlabel(r"DOF$^{-1/2}$")
+ax.set_ylabel(r"Relative error")
 
 fig.savefig("outputError.pdf", bbox_inches='tight')
 
@@ -100,6 +101,7 @@ y_ref_p1 = ymin_p1 * 0.4
 add_slope_segment(axp1, x1_p1, x2_p1, y_ref_p1, m=2, color='b')
 
 axp1.set_xlabel(r"DOF$^{-1/2}$")
+axp1.set_ylabel(r"Relative error")
 
 figp1.savefig("outputErrorP1only.pdf", bbox_inches='tight')
 
